@@ -4,14 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <RelativeLayout
         android:id="@+id/RlMianPic"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#CBE6AB">
 
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/logo"
+            android:adjustViewBounds="true"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/IvMainProjectName"/>
 
+        <ImageView
+            android:id="@+id/IvMainProjectName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/projectname"
+            android:adjustViewBounds="true"
+            android:layout_centerInParent="true"/>
     </RelativeLayout>
+
+    <SurfaceView
+        android:id="@+id/SvMainVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
