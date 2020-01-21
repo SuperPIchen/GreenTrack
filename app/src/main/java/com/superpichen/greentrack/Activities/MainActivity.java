@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
@@ -24,6 +25,7 @@ import android.widget.RelativeLayout;
 
 import com.superpichen.greentrack.MyViews.TopBar.StatusBarUtil;
 import com.superpichen.greentrack.R;
+import com.superpichen.mainlibrary.Activities.PetMain;
 
 import java.io.IOException;
 
@@ -76,6 +78,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getPermissions();
         findViews();
+        SvMainVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PetMain.class));
+                finish();
+            }
+        });
     }
 
     /**
@@ -189,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mediaPlayer.setLooping(false);
+        mediaPlayer.setLooping(true);
         // 通过异步的方式装载媒体资源
         mediaPlayer.prepareAsync();
         mediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
@@ -216,21 +225,24 @@ public class MainActivity extends AppCompatActivity {
 
         int surfaceWidth = SvMainVideo.getWidth();
         int surfaceHeight = SvMainVideo.getHeight();
-        //根据视频尺寸去计算->视频可以在sufaceView中放大的最大倍数。
-        float max;
-        if (getResources().getConfiguration().orientation== ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
-            //竖屏模式下按视频宽度计算放大倍数值
-            max = Math.max((float) videoWidth / (float) surfaceWidth,(float) videoHeight / (float) surfaceHeight);
-        } else{
-            //横屏模式下按视频高度计算放大倍数值
-            max = Math.max(((float) videoWidth/(float) surfaceHeight),(float) videoHeight/(float) surfaceWidth);
+
+        float multiple;
+        if(videoWidth*1.0/videoHeight>=surfaceWidth*1.0/surfaceHeight){
+            multiple=(float) videoHeight / (float) surfaceHeight;
+        }else{
+            multiple=(float) videoWidth / (float) surfaceWidth;
         }
 
         //视频宽高分别/最大倍数值 计算出放大后的视频尺寸
-        videoWidth = (int) Math.ceil((float) videoWidth / max);
-        videoHeight = (int) Math.ceil((float) videoHeight / max);
+        videoWidth = (int) Math.ceil((float) videoWidth / multiple);
+        videoHeight = (int) Math.ceil((float) videoHeight / multiple);
 
         //无法直接设置视频尺寸，将计算出的视频尺寸设置到surfaceView 让视频自动填充。
         SvMainVideo.setLayoutParams(new ConstraintLayout.LayoutParams(videoWidth, videoHeight));
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mediaPlayer.stop();
     }
 }
