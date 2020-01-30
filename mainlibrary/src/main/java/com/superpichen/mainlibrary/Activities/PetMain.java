@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.superpichen.mainlibrary.MyViews.TopBar.StatusBarUtil;
+import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
 
 public class PetMain extends AppCompatActivity {

@@ -5,6 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.PetMain"
-    android:background="@android:color/darker_gray">
+    android:background="#5fb5d6">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mainbackground">
+
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/maintip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/wuyong2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID:"
+                android:textColor="@android:color/white"
+                android:textSize="30dp"/>
+
+            <TextView
+                android:id="@+id/TvMainId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12345"
+                android:textColor="@android:color/white"
+                android:textSize="30dp"
+                android:layout_toRightOf="@id/wuyong2"/>
+
+            <TextView
+                android:id="@+id/wuyong1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的积分"
+                android:textColor="@android:color/white"
+                android:textSize="30dp"
+                android:layout_below="@id/wuyong2"/>
+
+            <com.superpichen.mainlibrary.MyView.MyFonts.CangerjinkaiFont
+                android:id="@+id/TvMainCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/wuyong1"
+                android:text="100"
+                android:textColor="@android:color/white"
+                android:textSize="80dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
