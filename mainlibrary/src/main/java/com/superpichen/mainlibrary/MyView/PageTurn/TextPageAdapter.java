@@ -1,7 +1,10 @@
 package com.superpichen.mainlibrary.MyView.PageTurn;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -39,21 +42,26 @@ public class TextPageAdapter extends BasePageAdapter {
 
     public TextPageAdapter(Context context) {
         super(context);
+        this.context=context;
         init();
     }
 
+    Context context;
     public TextPageAdapter(Context context , String mText) {
         super(context);
         this.mText = mText;
+        this.context=context;
         init();
     }
 
     private void init(){
         mTextPaint = new TextPaint();
         mTextPaint.setAntiAlias(true);
-        mTextPaint.setTextSize(CommonUtil.dp2px(mContext , 30));
-        mTextPaint.setColor(0xff000000);
-
+        mTextPaint.setTextSize(CommonUtil.dp2px(mContext , 18));
+        AssetManager mgr = context.getAssets();
+        Typeface tf = Typeface.createFromAsset(mgr, "fonts/仓耳今楷.ttf");
+        mTextPaint.setColor(Color.BLUE);
+        mTextPaint.setTypeface(tf);
         mPageTextList = new ArrayList<>();
     }
 
@@ -65,7 +73,7 @@ public class TextPageAdapter extends BasePageAdapter {
     @Override
     public void onDraw(int position, Canvas canvas) {
         String pageText = mPageTextList.get(position);
-        StaticLayout staticLayout = new StaticLayout(pageText , mTextPaint , mPageWidth , Layout.Alignment.ALIGN_NORMAL , 1.0f , 0.5f , true);
+        StaticLayout staticLayout = new StaticLayout(pageText , mTextPaint , mPageWidth , Layout.Alignment.ALIGN_CENTER , 1.0f , 0.5f , true);
         staticLayout.draw(canvas);
     }
 
@@ -77,7 +85,7 @@ public class TextPageAdapter extends BasePageAdapter {
             if(!TextUtils.isEmpty(mText)){
                 StaticLayout staticLayout = new StaticLayout(mText , mTextPaint , pageWidth , Layout.Alignment.ALIGN_NORMAL , 1.0f , 0.5f , true);
                 int lineHeight = staticLayout.getLineBottom(0) - staticLayout.getLineTop(0);
-                int pageMaxlineCount = pageHeight / lineHeight;
+                int pageMaxlineCount = pageHeight / (lineHeight+100);
                 if(staticLayout.getLineCount() > pageMaxlineCount){
                     // 需要有多页
                     int maxPageTextNum = staticLayout.getLineEnd(pageMaxlineCount);

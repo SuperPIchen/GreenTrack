@@ -59,12 +59,12 @@ public class MimicPageTurnView extends View {
 
     private void init(Context context, @Nullable AttributeSet attrs){
         mPaint = new Paint();
-        mPaint.setColor(Color.BLACK);
-        mPaint.setTextSize(50);
+        mPaint.setColor(Color.BLUE);
+        mPaint.setTextSize(18);
 
         mTextPaint = new TextPaint();
         mTextPaint.setAntiAlias(true);
-        mTextPaint.setTextSize(70);
+        mTextPaint.setTextSize(18);
 
         mPointComputer = new DefaultPointComputer();
     }
@@ -185,6 +185,8 @@ public class MimicPageTurnView extends View {
                 if(hasNextPage()){
                     mCurrentPosition++;
                 }
+                else
+                    mCurrentPosition=0;
             case MotionEvent.ACTION_CANCEL:
                 a = null;
                 break;

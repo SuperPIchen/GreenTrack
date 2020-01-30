@@ -19,7 +19,8 @@
             android:layout_height="280dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp"
+            android:elevation="100dp"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="ID:"
                 android:textColor="@android:color/white"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
             <TextView
                 android:id="@+id/TvMainId"
@@ -41,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="12345"
                 android:textColor="@android:color/white"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:layout_toRightOf="@id/wuyong2"/>
 
             <TextView
@@ -50,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="我的积分"
                 android:textColor="@android:color/white"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:layout_below="@id/wuyong2"/>
 
             <com.superpichen.mainlibrary.MyView.MyFonts.CangerjinkaiFont
@@ -60,7 +61,7 @@
                 android:layout_below="@id/wuyong1"
                 android:text="100"
                 android:textColor="@android:color/white"
-                android:textSize="80dp" />
+                android:textSize="80sp" />
 
         </RelativeLayout>
 
