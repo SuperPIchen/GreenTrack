@@ -167,7 +167,7 @@ public class MimicPageTurnView extends View {
                     canvas.restore();
                     canvas.clipPath(path2);
                     // 绘制第一页背面，暂时固定一个颜色
-                    canvas.drawColor(Color.WHITE);
+                    canvas.drawColor(0xffaceaa5);
                 }
             }
         }

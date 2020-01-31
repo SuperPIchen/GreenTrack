@@ -60,7 +60,7 @@ public class TextPageAdapter extends BasePageAdapter {
         mTextPaint.setTextSize(CommonUtil.dp2px(mContext , 18));
         AssetManager mgr = context.getAssets();
         Typeface tf = Typeface.createFromAsset(mgr, "fonts/仓耳今楷.ttf");
-        mTextPaint.setColor(Color.BLUE);
+        mTextPaint.setColor(0xff5fb5d6);
         mTextPaint.setTypeface(tf);
         mPageTextList = new ArrayList<>();
     }
@@ -72,8 +72,9 @@ public class TextPageAdapter extends BasePageAdapter {
 
     @Override
     public void onDraw(int position, Canvas canvas) {
-        String pageText = mPageTextList.get(position);
-        StaticLayout staticLayout = new StaticLayout(pageText , mTextPaint , mPageWidth , Layout.Alignment.ALIGN_CENTER , 1.0f , 0.5f , true);
+        String pageText =mPageTextList.get(position);
+        StaticLayout staticLayout = new StaticLayout(pageText , mTextPaint , mPageWidth-200 , Layout.Alignment.ALIGN_NORMAL , 1.0f , 0.5f , true);
+        canvas.translate(50,200);
         staticLayout.draw(canvas);
     }
 
@@ -83,7 +84,7 @@ public class TextPageAdapter extends BasePageAdapter {
             mPageWidth = pageWidth;
             mPageTextList.clear();
             if(!TextUtils.isEmpty(mText)){
-                StaticLayout staticLayout = new StaticLayout(mText , mTextPaint , pageWidth , Layout.Alignment.ALIGN_NORMAL , 1.0f , 0.5f , true);
+                StaticLayout staticLayout = new StaticLayout(mText , mTextPaint , pageWidth-200 , Layout.Alignment.ALIGN_NORMAL , 1.0f , 0.5f , true);
                 int lineHeight = staticLayout.getLineBottom(0) - staticLayout.getLineTop(0);
                 int pageMaxlineCount = pageHeight / (lineHeight+100);
                 if(staticLayout.getLineCount() > pageMaxlineCount){
