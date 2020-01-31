@@ -16,6 +16,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.superpichen.mainlibrary.Activities.PetMain;
 import com.superpichen.mainlibrary.R;
 
 import java.io.InputStream;
@@ -178,6 +179,7 @@ public class MimicPageTurnView extends View {
         a = new Point((int)event.getX() , (int)event.getY());
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
+                PetMain.isClick();
                 break;
             case MotionEvent.ACTION_MOVE:
                 break;
