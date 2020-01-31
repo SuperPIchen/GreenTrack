@@ -74,7 +74,7 @@ public class TextPageAdapter extends BasePageAdapter {
     public void onDraw(int position, Canvas canvas) {
         String pageText =mPageTextList.get(position);
         StaticLayout staticLayout = new StaticLayout(pageText , mTextPaint , mPageWidth-200 , Layout.Alignment.ALIGN_NORMAL , 1.0f , 0.5f , true);
-        canvas.translate(50,200);
+        canvas.translate(40,180);
         staticLayout.draw(canvas);
     }
 
