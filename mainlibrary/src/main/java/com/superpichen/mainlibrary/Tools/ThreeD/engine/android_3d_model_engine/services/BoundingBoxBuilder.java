@@ -2,7 +2,7 @@ package com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.
 
 import android.opengl.GLES20;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.model.BoundingBox;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.BoundingBox;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

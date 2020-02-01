@@ -13,8 +13,7 @@ package com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.
 
 // External imports
 
-
-import com.superpichen.study3d.engine.util.io.ProgressMonitorInputStream;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.io.ProgressMonitorInputStream;
 
 import java.io.BufferedReader;
 import java.io.IOException;

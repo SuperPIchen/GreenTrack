@@ -6,10 +6,10 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.model.AnimatedModel;
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3D;
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3DData;
-import com.superpichen.study3d.engine.util.android.GLUtil;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.AnimatedModel;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3D;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.android.GLUtil;
 
 import java.nio.Buffer;
 import java.nio.FloatBuffer;

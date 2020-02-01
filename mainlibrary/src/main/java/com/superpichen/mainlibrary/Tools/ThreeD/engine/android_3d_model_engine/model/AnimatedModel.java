@@ -1,7 +1,7 @@
 package com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.animation.Animation;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.collada.entities.Joint;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.animation.Animation;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.collada.entities.Joint;
 
 import java.nio.FloatBuffer;
 

@@ -3,10 +3,10 @@ package com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.
 import android.app.Activity;
 import android.net.Uri;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3DData;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.LoaderTask;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.collada.entities.AnimatedModelData;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.collada.loader.ColladaLoader;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.LoaderTask;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.collada.entities.AnimatedModelData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.collada.loader.ColladaLoader;
 
 import java.io.IOException;
 import java.net.URL;

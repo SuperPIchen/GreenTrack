@@ -3,11 +3,11 @@ package com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.
 import android.opengl.Matrix;
 import android.util.Log;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.services.collada.entities.JointData;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.collada.entities.SkeletonData;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.collada.entities.SkinningData;
-import com.superpichen.study3d.engine.util.math.Math3DUtils;
-import com.superpichen.study3d.engine.util.xml.XmlNode;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.collada.entities.JointData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.collada.entities.SkeletonData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.collada.entities.SkinningData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.math.Math3DUtils;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.xml.XmlNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

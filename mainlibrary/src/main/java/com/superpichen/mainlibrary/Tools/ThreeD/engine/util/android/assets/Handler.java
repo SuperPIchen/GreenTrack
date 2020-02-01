@@ -1,6 +1,6 @@
 package com.superpichen.mainlibrary.Tools.ThreeD.engine.util.android.assets;
 
-import com.superpichen.study3d.engine.util.android.AndroidURLConnection;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.android.AndroidURLConnection;
 
 import java.net.URL;
 import java.net.URLConnection;

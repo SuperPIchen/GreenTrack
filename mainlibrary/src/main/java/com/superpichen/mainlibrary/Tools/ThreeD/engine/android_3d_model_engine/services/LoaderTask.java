@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3DData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
 
 import java.util.List;
 

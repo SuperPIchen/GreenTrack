@@ -4,10 +4,10 @@ import android.opengl.Matrix;
 import android.os.SystemClock;
 import android.util.Log;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.model.AnimatedModel;
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3DData;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.collada.entities.Joint;
-import com.superpichen.study3d.engine.util.math.Quaternion;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.AnimatedModel;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.collada.entities.Joint;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.math.Quaternion;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -5,9 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.collision.Octree;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.wavefront.WavefrontLoader;
-import com.superpichen.study3d.engine.util.math.Math3DUtils;
+
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.collision.Octree;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.wavefront.WavefrontLoader;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.math.Math3DUtils;
 
 import java.io.InputStream;
 import java.nio.ByteBuffer;

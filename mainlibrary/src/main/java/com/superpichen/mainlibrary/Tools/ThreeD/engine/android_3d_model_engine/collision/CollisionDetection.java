@@ -3,9 +3,9 @@ package com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.
 import android.opengl.GLU;
 import android.util.Log;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.model.BoundingBox;
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3DData;
-import com.superpichen.study3d.engine.util.math.Math3DUtils;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.BoundingBox;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.math.Math3DUtils;
 
 import java.util.Arrays;
 import java.util.List;

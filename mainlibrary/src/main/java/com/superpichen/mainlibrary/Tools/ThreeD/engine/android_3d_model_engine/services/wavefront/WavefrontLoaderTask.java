@@ -5,10 +5,11 @@ import android.net.Uri;
 import android.opengl.GLES20;
 import android.util.Log;
 
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3DData;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.LoaderTask;
-import com.superpichen.study3d.engine.android_3d_model_engine.services.Object3DBuilder;
-import com.superpichen.study3d.engine.util.android.ContentUtils;
+
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.LoaderTask;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.Object3DBuilder;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.android.ContentUtils;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -5,11 +5,11 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.superpichen.study3d.R;
-import com.superpichen.study3d.engine.android_3d_model_engine.model.AnimatedModel;
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3D;
-import com.superpichen.study3d.engine.android_3d_model_engine.model.Object3DData;
-import com.superpichen.study3d.engine.util.io.IOUtils;
+import com.superpichen.mainlibrary.R;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.AnimatedModel;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3D;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.io.IOUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Field;

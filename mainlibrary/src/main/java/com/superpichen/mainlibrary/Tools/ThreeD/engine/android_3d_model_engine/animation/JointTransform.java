@@ -2,7 +2,7 @@ package com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.
 
 import android.opengl.Matrix;
 
-import com.superpichen.study3d.engine.util.math.Quaternion;
+import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.math.Quaternion;
 
 /**
  * 
