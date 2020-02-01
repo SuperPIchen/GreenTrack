@@ -12,8 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.ExampleSceneLoader;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.SceneLoader;
@@ -94,7 +92,6 @@ public class ModelActivity extends Activity {
             gLView = new ModelSurfaceView(this);
             setContentView(gLView);
         } catch (Exception e) {
-            Toast.makeText(this, "Error loading OpenGL view:\n" +e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         // Show the Up button in the action bar.
@@ -184,7 +181,6 @@ public class ModelActivity extends Activity {
         } else {
             showSystemUI();
         }
-        Toast.makeText(this, "Fullscreen " +this.immersiveMode, Toast.LENGTH_SHORT).show();
     }
 
     private void hideSystemUIDelayed() {
@@ -272,8 +268,6 @@ public class ModelActivity extends Activity {
                         scene.loadTexture(null, uri);
                     } catch (IOException ex) {
                         Log.e("ModelActivity", "Error loading texture: " + ex.getMessage(), ex);
-                        Toast.makeText(this, "Error loading texture '" + uri + "'. " + ex
-                                .getMessage(), Toast.LENGTH_LONG).show();
                     } finally {
                         ContentUtils.setThreadActivity(null);
                     }

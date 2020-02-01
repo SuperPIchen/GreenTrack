@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Object3DData;
 import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.services.Object3DBuilder;
@@ -184,7 +183,6 @@ public class ExampleSceneLoader extends SceneLoader {
 						Log.e("Example", error.getMessage(), error);
 						msg.append("\n" + error.getMessage());
 					}
-					Toast.makeText(parent.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 				}
 			}
 		}.execute();

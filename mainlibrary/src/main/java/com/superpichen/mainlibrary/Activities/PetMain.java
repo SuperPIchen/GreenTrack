@@ -19,7 +19,6 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.superpichen.mainlibrary.MyView.MyFonts.CangerjinkaiFont;
 import com.superpichen.mainlibrary.MyView.PageTurn.MimicPageTurnView;
@@ -38,7 +37,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
 public class PetMain extends ModelActivity {
@@ -287,7 +285,6 @@ public class PetMain extends ModelActivity {
         } else {
             showSystemUI();
         }
-        Toast.makeText(this, "Fullscreen " +this.immersiveMode, Toast.LENGTH_SHORT).show();
     }
 
     private void hideSystemUIDelayed() {
@@ -370,14 +367,10 @@ public class PetMain extends ModelActivity {
                 // The URI of the selected file
                 final Uri uri = data.getData();
                 if (uri != null) {
-                    Log.i("ModelActivity", "Loading texture '" + uri + "'");
                     try {
                         ContentUtils.setThreadActivity(this);
                         scene.loadTexture(null, uri);
                     } catch (IOException ex) {
-                        Log.e("ModelActivity", "Error loading texture: " + ex.getMessage(), ex);
-                        Toast.makeText(this, "Error loading texture '" + uri + "'. " + ex
-                                .getMessage(), Toast.LENGTH_LONG).show();
                     } finally {
                         ContentUtils.setThreadActivity(null);
                     }
