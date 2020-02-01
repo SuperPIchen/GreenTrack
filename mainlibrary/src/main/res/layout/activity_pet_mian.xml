@@ -74,6 +74,13 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/RlMainContainer"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -128,14 +128,7 @@ public class ModelActivity extends Activity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
             return;
         }
-        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(visibility -> {
-            // Note that system bars will only be "visible" if none of the
-            // LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
-            if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                // The system bars are visible. Make any desired
-                hideSystemUIDelayed();
-            }
-        });
+
     }
 
     @Override
@@ -199,7 +192,6 @@ public class ModelActivity extends Activity {
             return;
         }
         handler.removeCallbacksAndMessages(null);
-        handler.postDelayed(this::hideSystemUI, FULLSCREEN_DELAY);
 
     }
 
