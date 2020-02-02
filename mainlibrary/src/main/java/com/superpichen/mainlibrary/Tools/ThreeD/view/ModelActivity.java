@@ -12,6 +12,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.ExampleSceneLoader;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.SceneLoader;
@@ -24,7 +27,7 @@ import java.io.IOException;
  *
  * @author andresoviedo
  */
-public class ModelActivity extends Activity {
+public class ModelActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_LOAD_TEXTURE = 1000;
     private static final int FULLSCREEN_DELAY = 10000;
@@ -254,6 +257,7 @@ public class ModelActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_OK) {
             return;
         }

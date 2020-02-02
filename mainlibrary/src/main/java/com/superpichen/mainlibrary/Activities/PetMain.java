@@ -1,7 +1,6 @@
 package com.superpichen.mainlibrary.Activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -12,11 +11,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
+import android.view.animation.AnimationSet;
+
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -34,18 +36,19 @@ import com.superpichen.mainlibrary.Tools.ThreeD.view.ModelSurfaceView;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 import pl.droidsonroids.gif.GifImageView;
 
 public class PetMain extends ModelActivity {
-    MimicPageTurnView turnView;
-    private MimicPageTurnView PtMainTip;
+    private MimicPageTurnView turnView;
     private GifImageView GvMainFeng;
     private TextView TvMainId;
     private CangerjinkaiFont TvMainCode;
     private RelativeLayout RlMainContainer;
+    private RelativeLayout RlMainYouxiButton;
+    private RelativeLayout RlMainShopButton;
+    private RelativeLayout RlMainZhuangyaunButton;
+    private RelativeLayout RlMainDaohangButton;
 
     /**
      * Find the Views in the layout<br />
@@ -54,12 +57,15 @@ public class PetMain extends ModelActivity {
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        PtMainTip = (MimicPageTurnView)findViewById( R.id.PtMainTip );
         GvMainFeng = (GifImageView)findViewById( R.id.GvMainFeng );
         TvMainId = (TextView)findViewById( R.id.TvMainId );
         TvMainCode = (CangerjinkaiFont)findViewById( R.id.TvMainCode );
         turnView=findViewById(R.id.PtMainTip);
         RlMainContainer = (RelativeLayout) findViewById(R.id.RlMainContainer);
+        RlMainYouxiButton = (RelativeLayout) findViewById(R.id.RlMainYouxiButton);
+        RlMainShopButton = (RelativeLayout) findViewById(R.id.RlMainShopButton);
+        RlMainZhuangyaunButton = (RelativeLayout) findViewById(R.id.RlMainZhuangyaunButton);
+        RlMainDaohangButton = (RelativeLayout) findViewById(R.id.RlMainDaohangButton);
     }
 
     @Override
@@ -71,14 +77,26 @@ public class PetMain extends ModelActivity {
         setTip();
         setAnimations();
         set3DModel();
+        setOnClick();
         myhandler.sendEmptyMessage(1);
     }
 
+    //设置监听
+    private void setOnClick() {
+        TvMainCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSet);
+                RlMainShopButton.startAnimation(shopPaopaoAnimatorSet);
+                RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSet);
+                RlMainDaohangButton.startAnimation(daohangPaopaoAnimatorSet);
+            }
+        });
+    }
+
     //设置3D模型
-    private Map<String, Object> loadModelParameters = new HashMap<>();
     private void set3DModel() {
         ContentUtils.provideAssets(this);
-        loadModelParameters.put("type",2);
         launchModelRendererActivity(Uri.parse("assets://" + getPackageName() + "/" + "models/cowboy.dae"));
     }
 
@@ -91,16 +109,48 @@ public class PetMain extends ModelActivity {
     }
 
     //设置便利贴动画
-    RotateAnimation rotateAnimation1=new RotateAnimation(0,15, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
-    RotateAnimation rotateAnimation2=new RotateAnimation(15,-5, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
-    RotateAnimation rotateAnimation3=new RotateAnimation(-5,0, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
+    RotateAnimation tipRotateAnimation1 =new RotateAnimation(0,15, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
+    RotateAnimation tipRotateAnimation2 =new RotateAnimation(15,-5, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
+    RotateAnimation tipRotateAnimation3 =new RotateAnimation(-5,0, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
+    //设置泡泡动画
+    TranslateAnimation youxiPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0.4f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0f);
+    AnimationSet youxiPaopaoAnimatorSet=new AnimationSet(true);
+    TranslateAnimation shopPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,-0.4f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0f);
+    AnimationSet shopPaopaoAnimatorSet=new AnimationSet(true);
+    TranslateAnimation zhuangyuanPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0.2f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.4f,Animation.RELATIVE_TO_PARENT,0f);
+    AnimationSet zhuangyuanPaopaoAnimatorSet=new AnimationSet(true);
+    TranslateAnimation daohangPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,-0.2f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.4f,Animation.RELATIVE_TO_PARENT,0f);
+    AnimationSet daohangPaopaoAnimatorSet=new AnimationSet(true);
+    AlphaAnimation paopaoAlphaAnimation=new AlphaAnimation(0,0.8f);
     private void setAnimations() {
-        rotateAnimation1.setDuration(1000);
-        rotateAnimation1.setFillAfter(true);
-        rotateAnimation2.setDuration(1500);
-        rotateAnimation2.setFillAfter(true);
-        rotateAnimation3.setDuration(500);
-        rotateAnimation3.setFillAfter(true);
+        tipRotateAnimation1.setDuration(1000);
+        tipRotateAnimation1.setFillAfter(true);
+        tipRotateAnimation2.setDuration(1500);
+        tipRotateAnimation2.setFillAfter(true);
+        tipRotateAnimation3.setDuration(500);
+        tipRotateAnimation3.setFillAfter(true);
+        paopaoAlphaAnimation.setDuration(500);
+        paopaoAlphaAnimation.setFillAfter(true);
+        youxiPaopaoTranslateAnimation.setDuration(500);
+        youxiPaopaoTranslateAnimation.setFillAfter(true);
+        youxiPaopaoAnimatorSet.addAnimation(youxiPaopaoTranslateAnimation);
+        youxiPaopaoAnimatorSet.addAnimation(paopaoAlphaAnimation);
+        youxiPaopaoAnimatorSet.setFillAfter(true);
+        shopPaopaoTranslateAnimation.setDuration(500);
+        shopPaopaoTranslateAnimation.setFillAfter(true);
+        shopPaopaoAnimatorSet.addAnimation(shopPaopaoTranslateAnimation);
+        shopPaopaoAnimatorSet.addAnimation(paopaoAlphaAnimation);
+        shopPaopaoAnimatorSet.setFillAfter(true);
+        zhuangyuanPaopaoTranslateAnimation.setDuration(500);
+        zhuangyuanPaopaoTranslateAnimation.setFillAfter(true);
+        zhuangyuanPaopaoAnimatorSet.addAnimation(zhuangyuanPaopaoTranslateAnimation);
+        zhuangyuanPaopaoAnimatorSet.addAnimation(paopaoAlphaAnimation);
+        zhuangyuanPaopaoAnimatorSet.setFillAfter(true);
+        daohangPaopaoTranslateAnimation.setDuration(500);
+        daohangPaopaoTranslateAnimation.setFillAfter(true);
+        daohangPaopaoAnimatorSet.addAnimation(daohangPaopaoTranslateAnimation);
+        daohangPaopaoAnimatorSet.addAnimation(paopaoAlphaAnimation);
+        daohangPaopaoAnimatorSet.setFillAfter(true);
     }
 
     //动画控制器
@@ -111,15 +161,15 @@ public class PetMain extends ModelActivity {
             super.handleMessage(msg);
             switch (msg.what){
                 case 1:
-                    turnView.startAnimation(rotateAnimation1);
+                    turnView.startAnimation(tipRotateAnimation1);
                     myhandler.sendEmptyMessageDelayed(2,1000);
                     break;
                 case 2:
-                    turnView.startAnimation(rotateAnimation2);
+                    turnView.startAnimation(tipRotateAnimation2);
                     myhandler.sendEmptyMessageDelayed(3,1500);
                     break;
                 case 3:
-                    turnView.startAnimation(rotateAnimation3);
+                    turnView.startAnimation(tipRotateAnimation3);
                     if(!toStop){
                         myhandler.sendEmptyMessageDelayed(1,1000);
                     }
@@ -156,7 +206,6 @@ public class PetMain extends ModelActivity {
     private Uri uri;
     private void launchModelRendererActivity(Uri uri) {
         this.uri=uri;
-        loadModelParameters.put("model", uri);
         // content provider case
 
         startShow();
