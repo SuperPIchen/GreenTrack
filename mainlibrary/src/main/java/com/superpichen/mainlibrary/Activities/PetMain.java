@@ -2,6 +2,7 @@ package com.superpichen.mainlibrary.Activities;
 
 import androidx.annotation.NonNull;
 
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
@@ -15,7 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.view.animation.AnimationSet;
 
@@ -49,6 +53,7 @@ public class PetMain extends ModelActivity {
     private RelativeLayout RlMainShopButton;
     private RelativeLayout RlMainZhuangyaunButton;
     private RelativeLayout RlMainDaohangButton;
+    private RelativeLayout RlMainPaopaoContainer;
 
     /**
      * Find the Views in the layout<br />
@@ -66,6 +71,7 @@ public class PetMain extends ModelActivity {
         RlMainShopButton = (RelativeLayout) findViewById(R.id.RlMainShopButton);
         RlMainZhuangyaunButton = (RelativeLayout) findViewById(R.id.RlMainZhuangyaunButton);
         RlMainDaohangButton = (RelativeLayout) findViewById(R.id.RlMainDaohangButton);
+        RlMainPaopaoContainer = (RelativeLayout) findViewById(R.id.RlMainPaopaoContainer);
     }
 
     @Override
@@ -81,15 +87,25 @@ public class PetMain extends ModelActivity {
         myhandler.sendEmptyMessage(1);
     }
 
+    private boolean isPaopaoVisible =false;
     //设置监听
     private void setOnClick() {
         TvMainCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSet);
-                RlMainShopButton.startAnimation(shopPaopaoAnimatorSet);
-                RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSet);
-                RlMainDaohangButton.startAnimation(daohangPaopaoAnimatorSet);
+                if(!isPaopaoVisible){
+                    RlMainPaopaoContainer.setVisibility(View.VISIBLE);
+                    RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSet);
+                    RlMainShopButton.startAnimation(shopPaopaoAnimatorSet);
+                    RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSet);
+                    RlMainDaohangButton.startAnimation(daohangPaopaoAnimatorSet);
+                }else {
+                    RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSetBack);
+                    RlMainShopButton.startAnimation(shopPaopaoAnimatorSetBack);
+                    RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSetBack);
+                    RlMainDaohangButton.startAnimation(daohangPaopaoAnimatorSetBack);
+                }
+                isPaopaoVisible=!isPaopaoVisible;
             }
         });
     }
@@ -97,7 +113,7 @@ public class PetMain extends ModelActivity {
     //设置3D模型
     private void set3DModel() {
         ContentUtils.provideAssets(this);
-        launchModelRendererActivity(Uri.parse("assets://" + getPackageName() + "/" + "models/cowboy.dae"));
+        launchModelRendererActivity(Uri.parse("assets://" + getPackageName() + "/" + "models/fawn5.dae"));
     }
 
 
@@ -112,23 +128,40 @@ public class PetMain extends ModelActivity {
     RotateAnimation tipRotateAnimation1 =new RotateAnimation(0,15, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
     RotateAnimation tipRotateAnimation2 =new RotateAnimation(15,-5, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
     RotateAnimation tipRotateAnimation3 =new RotateAnimation(-5,0, Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
-    //设置泡泡动画
+    //设置泡泡展开动画
     TranslateAnimation youxiPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0.4f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0f);
     AnimationSet youxiPaopaoAnimatorSet=new AnimationSet(true);
     TranslateAnimation shopPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,-0.4f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0f);
     AnimationSet shopPaopaoAnimatorSet=new AnimationSet(true);
-    TranslateAnimation zhuangyuanPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0.2f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.4f,Animation.RELATIVE_TO_PARENT,0f);
+    TranslateAnimation zhuangyuanPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0.3f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.5f,Animation.RELATIVE_TO_PARENT,0f);
     AnimationSet zhuangyuanPaopaoAnimatorSet=new AnimationSet(true);
-    TranslateAnimation daohangPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,-0.2f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.4f,Animation.RELATIVE_TO_PARENT,0f);
+    TranslateAnimation daohangPaopaoTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,-0.3f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.5f,Animation.RELATIVE_TO_PARENT,0f);
     AnimationSet daohangPaopaoAnimatorSet=new AnimationSet(true);
     AlphaAnimation paopaoAlphaAnimation=new AlphaAnimation(0,0.8f);
+    //设置泡泡收回动画
+    TranslateAnimation youxiPaopaoTranslateAnimationBack=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.4f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0f);
+    AnimationSet youxiPaopaoAnimatorSetBack=new AnimationSet(true);
+    TranslateAnimation shopPaopaoTranslateAnimationBack=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0f,Animation.RELATIVE_TO_PARENT,-0.4f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0f);
+    AnimationSet shopPaopaoAnimatorSetBack=new AnimationSet(true);
+    TranslateAnimation zhuangyuanPaopaoTranslateAnimationBack=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0f,Animation.RELATIVE_TO_PARENT,0.3f,Animation.RELATIVE_TO_PARENT,0f,Animation.RELATIVE_TO_PARENT,0.5f);
+    AnimationSet zhuangyuanPaopaoAnimatorSetBack=new AnimationSet(true);
+    TranslateAnimation daohangPaopaoTranslateAnimationBack=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0f,Animation.RELATIVE_TO_PARENT,-0.3f,Animation.RELATIVE_TO_PARENT,0f,Animation.RELATIVE_TO_PARENT,0.5f);
+    AnimationSet daohangPaopaoAnimatorSetBack=new AnimationSet(true);
+    AlphaAnimation paopaoAlphaAnimationBack=new AlphaAnimation(0.8f,0f);
+    //设置泡泡浮动动画
+    TranslateAnimation youxiPaopaoTranslateAnimationUp1=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.05f);
+    TranslateAnimation youxiPaopaoTranslateAnimationUp2=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,-0.05f,Animation.RELATIVE_TO_PARENT,0);
+    TranslateAnimation youxiPaopaoTranslateAnimationDown=new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.05f,Animation.RELATIVE_TO_PARENT,-0.05f);
+    AnimationSet youxiPaopaoTranslateAnimationSet=new AnimationSet(true);
     private void setAnimations() {
+        //便利贴
         tipRotateAnimation1.setDuration(1000);
         tipRotateAnimation1.setFillAfter(true);
         tipRotateAnimation2.setDuration(1500);
         tipRotateAnimation2.setFillAfter(true);
         tipRotateAnimation3.setDuration(500);
         tipRotateAnimation3.setFillAfter(true);
+        //泡泡展开
         paopaoAlphaAnimation.setDuration(500);
         paopaoAlphaAnimation.setFillAfter(true);
         youxiPaopaoTranslateAnimation.setDuration(500);
@@ -151,6 +184,42 @@ public class PetMain extends ModelActivity {
         daohangPaopaoAnimatorSet.addAnimation(daohangPaopaoTranslateAnimation);
         daohangPaopaoAnimatorSet.addAnimation(paopaoAlphaAnimation);
         daohangPaopaoAnimatorSet.setFillAfter(true);
+        //泡泡收回
+        paopaoAlphaAnimationBack.setDuration(500);
+        paopaoAlphaAnimationBack.setFillAfter(true);
+        youxiPaopaoTranslateAnimationBack.setDuration(500);
+        youxiPaopaoTranslateAnimationBack.setFillAfter(true);
+        youxiPaopaoAnimatorSetBack.addAnimation(youxiPaopaoTranslateAnimationBack);
+        youxiPaopaoAnimatorSetBack.addAnimation(paopaoAlphaAnimationBack);
+        youxiPaopaoAnimatorSetBack.setFillAfter(true);
+        shopPaopaoTranslateAnimationBack.setDuration(500);
+        shopPaopaoTranslateAnimationBack.setFillAfter(true);
+        shopPaopaoAnimatorSetBack.addAnimation(shopPaopaoTranslateAnimationBack);
+        shopPaopaoAnimatorSetBack.addAnimation(paopaoAlphaAnimationBack);
+        shopPaopaoAnimatorSetBack.setFillAfter(true);
+        zhuangyuanPaopaoTranslateAnimationBack.setDuration(500);
+        zhuangyuanPaopaoTranslateAnimationBack.setFillAfter(true);
+        zhuangyuanPaopaoAnimatorSetBack.addAnimation(zhuangyuanPaopaoTranslateAnimationBack);
+        zhuangyuanPaopaoAnimatorSetBack.addAnimation(paopaoAlphaAnimationBack);
+        zhuangyuanPaopaoAnimatorSetBack.setFillAfter(true);
+        daohangPaopaoTranslateAnimationBack.setDuration(500);
+        daohangPaopaoTranslateAnimationBack.setFillAfter(true);
+        daohangPaopaoAnimatorSetBack.addAnimation(daohangPaopaoTranslateAnimationBack);
+        daohangPaopaoAnimatorSetBack.addAnimation(paopaoAlphaAnimationBack);
+        daohangPaopaoAnimatorSetBack.setFillAfter(true);
+        //泡泡浮动
+//        youxiPaopaoTranslateAnimationUp1.setDuration(50);
+//        youxiPaopaoTranslateAnimationUp1.setFillAfter(true);
+//        youxiPaopaoTranslateAnimationDown.setStartOffset(50);
+//        youxiPaopaoTranslateAnimationDown.setDuration(100);
+//        youxiPaopaoTranslateAnimationDown.setFillAfter(true);
+//        youxiPaopaoTranslateAnimationUp2.setStartOffset(150);
+//        youxiPaopaoTranslateAnimationUp2.setDuration(50);
+//        youxiPaopaoTranslateAnimationUp2.setFillAfter(true);
+//        youxiPaopaoTranslateAnimationSet.addAnimation(youxiPaopaoTranslateAnimationUp1);
+//        youxiPaopaoTranslateAnimationSet.addAnimation(youxiPaopaoTranslateAnimationDown);
+//        youxiPaopaoTranslateAnimationSet.addAnimation(youxiPaopaoTranslateAnimationUp2);
+//        youxiPaopaoTranslateAnimationSet.setDuration(500);
     }
 
     //动画控制器
