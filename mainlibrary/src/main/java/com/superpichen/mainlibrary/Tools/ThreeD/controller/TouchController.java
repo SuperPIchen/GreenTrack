@@ -8,8 +8,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.superpichen.mainlibrary.Activities.PetMain;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.SceneLoader;
 import com.superpichen.mainlibrary.Tools.ThreeD.engine.android_3d_model_engine.model.Camera;
+import com.superpichen.mainlibrary.Tools.ThreeD.view.ModelActivity;
 import com.superpichen.mainlibrary.Tools.ThreeD.view.ModelRenderer;
 import com.superpichen.mainlibrary.Tools.ThreeD.view.ModelSurfaceView;
 
@@ -63,10 +65,12 @@ public class TouchController {
     private float[] rotationVector = new float[4];
 	private float previousRotationSquare;
 
-	public TouchController(ModelSurfaceView view, ModelRenderer renderer) {
+	private PetMain petMain;
+	public TouchController(ModelSurfaceView view, ModelRenderer renderer, ModelActivity modelActivity) {
 		super();
 		this.view = view;
 		this.mRenderer = renderer;
+		petMain= (PetMain) modelActivity;
 	}
 
 	public synchronized boolean onTouchEvent(MotionEvent motionEvent) {
@@ -178,9 +182,13 @@ public class TouchController {
 					&& rotationVector[2] != 0;
 		}
 
+		/**
+		 * 单击模型的监听
+		 */
 		if (pointerCount == 1 && simpleTouch) {
-            SceneLoader scene = view.getModelActivity().getScene();
-            scene.processTouch(x1,y1);
+//            SceneLoader scene = view.getModelActivity().getScene();
+//            scene.processTouch(x1,y1);
+			petMain.clickModel();
 		}
 
 		int max = Math.max(mRenderer.getWidth(), mRenderer.getHeight());

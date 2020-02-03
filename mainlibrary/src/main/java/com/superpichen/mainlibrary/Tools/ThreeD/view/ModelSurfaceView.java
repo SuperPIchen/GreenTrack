@@ -40,7 +40,7 @@ public class ModelSurfaceView extends GLSurfaceView {
 		// TODO: enable this?
 		// setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 
-		touchHandler = new TouchController(this, mRenderer);
+		touchHandler = new TouchController(this, mRenderer,parent);
 	}
 
 	@Override
