@@ -94,6 +94,7 @@ public class PetMain extends ModelActivity {
     }
 
     private boolean isPaopaoVisible =false;
+    private final int GETPOINTFORGETPOINTSACTIVITY=1;
     //设置监听
     private void setOnClick() {
         RlMainContainer.setOnClickListener(new View.OnClickListener() {
@@ -110,9 +111,24 @@ public class PetMain extends ModelActivity {
         TvMainBiaoqian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PetMain.this,GetPointsActivity.class));
+                Intent intent=new Intent(PetMain.this,GetPointsActivity.class);
+                intent.putExtra("getPoint",TvMainCode.getText().toString());
+                startActivityForResult(intent,GETPOINTFORGETPOINTSACTIVITY);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+        switch (requestCode) {
+            case GETPOINTFORGETPOINTSACTIVITY:
+
+                break;
+        }
     }
     //监听单击模型
     public void clickModel(){
@@ -139,6 +155,7 @@ public class PetMain extends ModelActivity {
         isPaopaoVisible=!isPaopaoVisible;
 
     }
+
 
     //设置3D模型
     private void set3DModel() {
@@ -347,28 +364,24 @@ public class PetMain extends ModelActivity {
                     break;
                 case 5:
                     if(isPaopaoVisible){
-//                        RlMainYouxiButton.setAlpha(0.8f);
                         RlMainYouxiButton.startAnimation(youxiPaopaoTranslateAnimationSet);
                         handler.sendEmptyMessageDelayed(5,2000);
                     }
                     break;
                 case 6:
                     if(isPaopaoVisible){
-//                        RlMainShopButton.setAlpha(0.8f);
                         RlMainShopButton.startAnimation(shopPaopaoTranslateAnimationSet);
                         handler.sendEmptyMessageDelayed(6,2000);
                     }
                     break;
                 case 7:
                     if(isPaopaoVisible){
-//                        RlMainDaohangButton.setAlpha(0.8f);
                         RlMainDaohangButton.startAnimation(daohangPaopaoTranslateAnimationSet);
                         handler.sendEmptyMessageDelayed(7,2000);
                     }
                     break;
                 case 8:
                     if(isPaopaoVisible){
-//                        RlMainZhuangyaunButton.setAlpha(0.8f);
                         RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoTranslateAnimationSet);
                         handler.sendEmptyMessageDelayed(8,2000);
                     }
@@ -589,25 +602,5 @@ public class PetMain extends ModelActivity {
         return gLView;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != RESULT_OK) {
-            return;
-        }
-        switch (requestCode) {
-            case REQUEST_CODE_LOAD_TEXTURE:
-                // The URI of the selected file
-                final Uri uri = data.getData();
-                if (uri != null) {
-                    try {
-                        ContentUtils.setThreadActivity(this);
-                        scene.loadTexture(null, uri);
-                    } catch (IOException ex) {
-                    } finally {
-                        ContentUtils.setThreadActivity(null);
-                    }
-                }
-        }
-    }
+
 }

@@ -22,6 +22,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.superpichen.greentrack.MyViews.TopBar.StatusBarUtil;
 import com.superpichen.greentrack.R;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private SurfaceView SvMainVideo;
     private MediaPlayer mediaPlayer;
     private SurfaceHolder surfaceHolder;
+    private TextView TvMian;
     private String url="android.resource://com.superpichen.greentrack/"+R.raw.welcomevedio;
 
     /**
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         StatusBarUtil.setTranslucentForImageView(this,0,null);
         RlMianPic = (RelativeLayout)findViewById( R.id.RlMianPic );
         SvMainVideo = (SurfaceView)findViewById( R.id.SvMainVideo );
+        TvMian = (TextView) findViewById(R.id.TvMian);
     }
 
 
@@ -147,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             RlMianPic.setVisibility(View.GONE);
+            TvMian.setVisibility(View.VISIBLE);
             SvMainVideo.setVisibility(View.VISIBLE);
         }
     };
