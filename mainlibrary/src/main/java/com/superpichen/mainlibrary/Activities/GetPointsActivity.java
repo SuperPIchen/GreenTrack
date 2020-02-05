@@ -7,18 +7,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.Dip2px;
 import com.superpichen.mainlibrary.Tools.JavaTools.PointsInfo;
+import com.superpichen.mainlibrary.Tools.JavaTools.SetGetPointsGifOnClick;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +57,11 @@ public class GetPointsActivity extends AppCompatActivity {
     private List<PointsInfo> buspointsInfoList=new ArrayList<>();
     private List<PointsInfo> subwaypointsInfoList=new ArrayList<>();
     private int bikeCoinCount=0;
+    private int bikeSum=0;
     private int busCoinCount=0;
+    private int busSum=0;
     private int subwayCoinCount=0;
+    private int subwaySum=0;
     private Intent intent=new Intent();
     private Dip2px dip2px;
     @Override
@@ -68,35 +73,93 @@ public class GetPointsActivity extends AppCompatActivity {
         setData();
         setAnimation();
         loadBikeCoins();
-
     }
 
     //加载单车金币
     private void loadBikeCoins() {
         if(bikeCoinCount!=0){
+            IvGetPointsBike.startAnimation(bikeTranslateAnimation);
             for(int i=0;i<bikeCoinCount;i++){
                 GifImageView gifImageView=new GifImageView(this);
-                gifImageView.setImageResource(R.drawable.getpointscoin);
-                int gifLength=dip2px.dip2px(80);
-                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(gifLength,gifLength);
-                gifImageView.setLayoutParams(params);
-                RlGetPointsCoinContainer.addView(gifImageView);
-                int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-                int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-                RlGetPointsCoinContainer.measure(w, h);
-                int height = RlGetPointsCoinContainer.getMeasuredHeight();
-                WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
-                int width = wm.getDefaultDisplay().getWidth();
-                int x = new Random().nextInt(width-gifLength);
-                int y = new Random().nextInt(height-gifLength);
-                gifImageView.layout(x,y,x+gifLength,y+gifLength);
+                HanbiaoshuangjiancutiFont codeText=new HanbiaoshuangjiancutiFont(getApplicationContext(),null);
+                String text="+"+bikepointsInfoList.get(i).getCount();
+                setCoinContainer(i, gifImageView, codeText,text);
+                int finalI = i;
+                gifImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SetGetPointsGifOnClick.onClick(GetPointsActivity.this,gifImageView,codeText,TvGetPointsCode,bikepointsInfoList.get(finalI));
+                        RlGetPointsCoinContainer.removeView(gifImageView);
+                        RlGetPointsCoinContainer.removeView(codeText);
+                        if(--bikeSum==0){
+                            loadBusCoins();
+                            IvGetPointsBike.startAnimation(backAlphaAnimation);
+                        }
+                    }
+                });
             }
         }else
             loadBusCoins();
     }
 
+    private void setCoinContainer(int i, GifImageView gifImageView, HanbiaoshuangjiancutiFont codeText,String text) {
+        gifImageView.setImageResource(R.drawable.getpointscoin);
+        int gifLength=dip2px.dip2px(80);
+        codeText.setText(text);
+        codeText.setTextColor(0xfff59f1b);
+        codeText.setTextSize(dip2px.dip2px(16));
+        int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        RlGetPointsCoinContainer.measure(w, h);
+        int height = RlGetPointsCoinContainer.getMeasuredHeight();
+        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        int x = new Random().nextInt(width-gifLength);
+        int y = new Random().nextInt(height-gifLength);
+        RelativeLayout.LayoutParams gifParams = new RelativeLayout.LayoutParams(gifLength,gifLength);
+        RelativeLayout.LayoutParams textParams = new RelativeLayout.LayoutParams(gifLength,gifLength);
+        gifParams.leftMargin=x;
+        gifParams.topMargin=y;
+        textParams.leftMargin=x;
+        textParams.topMargin=y+gifLength/4;
+        gifImageView.setLayoutParams(gifParams);
+        codeText.setLayoutParams(textParams);
+        RlGetPointsCoinContainer.addView(gifImageView);
+        RlGetPointsCoinContainer.addView(codeText);
+        gifImageView.startAnimation(comeAlphaAnimation);
+        codeText.setVisibility(View.INVISIBLE);
+
+    }
+
     //加载公交车金币
     private void loadBusCoins() {
+        if(busCoinCount!=0){
+            IvGetPointsBus.startAnimation(busTranslateAnimation);
+            for(int i=0;i<busCoinCount;i++){
+                GifImageView gifImageView=new GifImageView(this);
+                HanbiaoshuangjiancutiFont codeText=new HanbiaoshuangjiancutiFont(getApplicationContext(),null);
+                String text="+"+buspointsInfoList.get(i).getCount();
+                setCoinContainer(i, gifImageView, codeText,text);
+                int finalI = i;
+                gifImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SetGetPointsGifOnClick.onClick(GetPointsActivity.this,gifImageView,codeText,TvGetPointsCode,buspointsInfoList.get(finalI));
+                        RlGetPointsCoinContainer.removeView(gifImageView);
+                        RlGetPointsCoinContainer.removeView(codeText);
+                        if(--busSum==0){
+                            loadSubwayCoins();
+                            IvGetPointsBus.startAnimation(backAlphaAnimation);
+                        }
+                    }
+                });
+            }
+        }else
+            loadBusCoins();
+    }
+
+    //加载地铁金币
+    private void loadSubwayCoins() {
 
     }
 
@@ -104,13 +167,19 @@ public class GetPointsActivity extends AppCompatActivity {
     TranslateAnimation bikeTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_SELF,-1f,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
     TranslateAnimation busTranslateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_SELF,1f,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
     ScaleAnimation subwayScaleAnimation=new ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+    AlphaAnimation backAlphaAnimation=new AlphaAnimation(1,0);
+    AlphaAnimation comeAlphaAnimation=new AlphaAnimation(0,1);
     private void setAnimation() {
-        bikeTranslateAnimation.setDuration(500);
+        bikeTranslateAnimation.setDuration(2000);
         bikeTranslateAnimation.setFillAfter(true);
-        busTranslateAnimation.setDuration(500);
+        busTranslateAnimation.setDuration(2000);
         busTranslateAnimation.setFillAfter(true);
-        subwayScaleAnimation.setDuration(500);
+        subwayScaleAnimation.setDuration(2000);
         subwayScaleAnimation.setFillAfter(true);
+        backAlphaAnimation.setDuration(1000);
+        backAlphaAnimation.setFillAfter(true);
+        comeAlphaAnimation.setDuration(1000);
+        comeAlphaAnimation.setFillAfter(true);
     }
 
     //设置数据
@@ -129,14 +198,17 @@ public class GetPointsActivity extends AppCompatActivity {
             if(pointsInfoList.get(i).getType().equals("bike")){
                 bikepointsInfoList.add(pointsInfoList.get(i));
                 bikeCoinCount++;
+                bikeSum=bikeCoinCount;
             }
             else if(pointsInfoList.get(i).getType().equals("bus")){
                 buspointsInfoList.add(pointsInfoList.get(i));
                 busCoinCount++;
+                busSum=busCoinCount;
             }
             else{
                 subwaypointsInfoList.add(pointsInfoList.get(i));
                 subwayCoinCount++;
+                subwaySum=subwayCoinCount;
             }
         }
     }
