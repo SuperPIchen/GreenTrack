@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
+import com.superpichen.mainlibrary.Tools.JavaTools.Dip2px;
 import com.superpichen.mainlibrary.Tools.JavaTools.PointsInfo;
 
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class GetPointsActivity extends AppCompatActivity {
     private int busCoinCount=0;
     private int subwayCoinCount=0;
     private Intent intent=new Intent();
+    private Dip2px dip2px;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,7 @@ public class GetPointsActivity extends AppCompatActivity {
         setData();
         setAnimation();
         loadBikeCoins();
+
     }
 
     //加载单车金币
@@ -74,7 +77,8 @@ public class GetPointsActivity extends AppCompatActivity {
             for(int i=0;i<bikeCoinCount;i++){
                 GifImageView gifImageView=new GifImageView(this);
                 gifImageView.setImageResource(R.drawable.getpointscoin);
-                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(200, 200);
+                int gifLength=dip2px.dip2px(80);
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(gifLength,gifLength);
                 gifImageView.setLayoutParams(params);
                 RlGetPointsCoinContainer.addView(gifImageView);
                 int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
@@ -83,9 +87,9 @@ public class GetPointsActivity extends AppCompatActivity {
                 int height = RlGetPointsCoinContainer.getMeasuredHeight();
                 WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
                 int width = wm.getDefaultDisplay().getWidth();
-                int x = new Random().nextInt(width-200);
-                int y = new Random().nextInt(height-200);
-                gifImageView.layout(700,400,700+200,400+200);
+                int x = new Random().nextInt(width-gifLength);
+                int y = new Random().nextInt(height-gifLength);
+                gifImageView.layout(x,y,x+gifLength,y+gifLength);
             }
         }else
             loadBusCoins();
@@ -111,6 +115,7 @@ public class GetPointsActivity extends AppCompatActivity {
 
     //设置数据
     private void setData() {
+        dip2px=new Dip2px(this);
         pointsInfoList.add(new PointsInfo(2.1,"bike", "2020-01-01",false));
         pointsInfoList.add(new PointsInfo(1.9,"bike", "2020-01-02",false));
         pointsInfoList.add(new PointsInfo(3.3,"bus", "2020-01-03",false));
