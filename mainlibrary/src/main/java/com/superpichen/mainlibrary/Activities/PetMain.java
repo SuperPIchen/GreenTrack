@@ -121,12 +121,11 @@ public class PetMain extends ModelActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != RESULT_OK) {
-            return;
-        }
+
         switch (requestCode) {
             case GETPOINTFORGETPOINTSACTIVITY:
-
+                String text=data.getStringExtra("backCode");
+                TvMainCode.setText(text);
                 break;
         }
     }

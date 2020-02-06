@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import net.frakbot.jumpingbeans.JumpingBeans;
 
+import java.math.BigDecimal;
+
 import pl.droidsonroids.gif.GifImageView;
 
 import static java.lang.Thread.sleep;
@@ -28,6 +30,8 @@ public class SetGetPointsGifOnClick {
 
     private static void setText(Activity activity,TextView text,PointsInfo pointsInfo) {
         Double fenshu=Double.parseDouble(text.getText().toString())+pointsInfo.getCount();
+        BigDecimal b = new BigDecimal(fenshu);
+        fenshu= b.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
         text.setText(fenshu+"");
         JumpingBeans jumpingBeans=JumpingBeans.with(text)
                 .makeTextJump(0,text.getText().toString().length())
