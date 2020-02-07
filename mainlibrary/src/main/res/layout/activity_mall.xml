@@ -8,36 +8,60 @@
     android:background="@drawable/mallbackground_shape">
 
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mallbackground"/>
+
+    <RelativeLayout
         android:id="@+id/RlMallTopContainer"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@android:color/white">
+        android:layout_height="70dp"
+        android:background="@android:color/white"
+        android:visibility="invisible">
 
         <TextView
+            android:id="@+id/wuyong3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="线上商城"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:textStyle="bold"
+            android:layout_marginStart="80dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textSize="25sp"/>
+
+        <TextView
+            android:id="@+id/wuyong4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可用积分："
+            android:layout_marginStart="50dp"
+            android:textColor="@android:color/black"
+            android:layout_toEndOf="@id/wuyong3"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/TvMallCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11.1"
+            android:textColor="@android:color/black"
+            android:layout_toEndOf="@id/wuyong4"
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/RlMallTopContainer">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/mallbackground">
+            android:layout_marginTop="40dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp">
 
@@ -52,6 +76,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/wuyong2"
                     android:layout_width="40dp"
                     android:layout_height="20dp"
                     android:background="@drawable/yuanjiaojuxing_shu_gray_shape"
@@ -62,10 +87,19 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="5dp"/>
 
+                <ImageView
+                    android:id="@+id/IvMallChange"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/mallchangebutton"
+                    android:layout_toEndOf="@id/wuyong2"
+                    android:layout_centerVertical="true"/>
+
                 <com.shehuan.niv.NiceImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/malltanfont"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/malltouxiang"
+                    android:adjustViewBounds="true"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     app:is_circle="true"/>
