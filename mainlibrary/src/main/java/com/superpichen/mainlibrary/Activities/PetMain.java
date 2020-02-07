@@ -30,6 +30,7 @@ import com.superpichen.mainlibrary.MyView.PageTurn.MimicPageTurnView;
 import com.superpichen.mainlibrary.MyView.PageTurn.TextPageAdapter;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
+import com.superpichen.mainlibrary.Tools.JavaTools.FinalValue;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.ExampleSceneLoader;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.SceneLoader;
 import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.android.AndroidURLStreamHandlerFactory;
@@ -75,7 +76,6 @@ public class PetMain extends ModelActivity {
         TvMainBiaoqian = (TextView) findViewById(R.id.TvMainBiaoqian);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +94,6 @@ public class PetMain extends ModelActivity {
     }
 
     private boolean isPaopaoVisible =false;
-    private final int GETPOINTFORGETPOINTSACTIVITY=1;
     //设置监听
     private void setOnClick() {
         RlMainContainer.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +105,10 @@ public class PetMain extends ModelActivity {
         RlMainYouxiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(PetMain.this,MallActivity.class);
+                intent.putExtra("getPoint",TvMainCode.getText().toString());
+                startActivityForResult(intent,FinalValue.GETPOINTFORMALLACTIVITY);
+                RlMainContainer.removeView(gLView);
             }
         });
         TvMainBiaoqian.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +116,7 @@ public class PetMain extends ModelActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(PetMain.this,GetPointsActivity.class);
                 intent.putExtra("getPoint",TvMainCode.getText().toString());
-                startActivityForResult(intent,GETPOINTFORGETPOINTSACTIVITY);
+                startActivityForResult(intent, FinalValue.GETPOINTFORGETPOINTSACTIVITY);
                 RlMainContainer.removeView(gLView);
             }
         });
@@ -122,14 +125,15 @@ public class PetMain extends ModelActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         switch (requestCode) {
-            case GETPOINTFORGETPOINTSACTIVITY:
+            case FinalValue.GETPOINTFORGETPOINTSACTIVITY:
                 String text=data.getStringExtra("backCode");
                 TvMainCode.setText(text);
-                startShow();
+                break;
+            case FinalValue.GETPOINTFORMALLACTIVITY:
                 break;
         }
+        startShow();
     }
     //监听单击模型
     public void clickModel(){

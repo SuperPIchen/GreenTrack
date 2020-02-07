@@ -26,6 +26,7 @@ import com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.Dip2px;
+import com.superpichen.mainlibrary.Tools.JavaTools.FinalValue;
 import com.superpichen.mainlibrary.Tools.JavaTools.PointsInfo;
 import com.superpichen.mainlibrary.Tools.JavaTools.SetGetPointsGifOnClick;
 
@@ -101,7 +102,7 @@ public class GetPointsActivity extends AppCompatActivity {
                         RlGetPointsCoinContainer.removeView(gifImageView);
                         RlGetPointsCoinContainer.removeView(codeText);
                         intent.putExtra("backCode",TvGetPointsCode.getText().toString());
-                        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
+                        setResult(FinalValue.GETPOINTFORGETPOINTSACTIVITY,intent);
                         if(--bikeSum==0){
                             loadBusCoins();
                             IvGetPointsBike.startAnimation(bikeBackAlphaAnimation);
@@ -132,7 +133,7 @@ public class GetPointsActivity extends AppCompatActivity {
                         RlGetPointsCoinContainer.removeView(gifImageView);
                         RlGetPointsCoinContainer.removeView(codeText);
                         intent.putExtra("backCode",TvGetPointsCode.getText().toString());
-                        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
+                        setResult(FinalValue.GETPOINTFORGETPOINTSACTIVITY,intent);
                         if(--busSum==0){
                             loadSubwayCoins();
                             IvGetPointsBus.startAnimation(busBackAlphaAnimation);
@@ -161,7 +162,7 @@ public class GetPointsActivity extends AppCompatActivity {
                         RlGetPointsCoinContainer.removeView(gifImageView);
                         RlGetPointsCoinContainer.removeView(codeText);
                         intent.putExtra("backCode",TvGetPointsCode.getText().toString());
-                        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
+                        setResult(FinalValue.GETPOINTFORGETPOINTSACTIVITY,intent);
                         if(--subwaySum==0){
                             load404();
                             IvGetPointsSubway.startAnimation(subwayBackAlphaAnimation);
@@ -288,10 +289,9 @@ public class GetPointsActivity extends AppCompatActivity {
             }
         }
         intent.putExtra("backCode",TvGetPointsCode.getText().toString());
-        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
+        setResult(FinalValue.GETPOINTFORGETPOINTSACTIVITY,intent);
     }
 
-    private final int GETPOINTFORGETPOINTSACTIVITY=1;
     @Override
     protected void onDestroy() {
         super.onDestroy();
