@@ -84,7 +84,6 @@ public class GetPointsActivity extends AppCompatActivity {
         loadBikeCoins();
     }
 
-    Intent returnIntent=new Intent();
     //加载单车金币
     private void loadBikeCoins() {
         if(bikeCoinCount!=0){
@@ -102,7 +101,7 @@ public class GetPointsActivity extends AppCompatActivity {
                         RlGetPointsCoinContainer.removeView(gifImageView);
                         RlGetPointsCoinContainer.removeView(codeText);
                         intent.putExtra("backCode",TvGetPointsCode.getText().toString());
-                        setResult(GETPOINTFORGETPOINTSACTIVITY,returnIntent);
+                        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
                         if(--bikeSum==0){
                             loadBusCoins();
                             IvGetPointsBike.startAnimation(bikeBackAlphaAnimation);
@@ -133,7 +132,7 @@ public class GetPointsActivity extends AppCompatActivity {
                         RlGetPointsCoinContainer.removeView(gifImageView);
                         RlGetPointsCoinContainer.removeView(codeText);
                         intent.putExtra("backCode",TvGetPointsCode.getText().toString());
-                        setResult(GETPOINTFORGETPOINTSACTIVITY,returnIntent);
+                        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
                         if(--busSum==0){
                             loadSubwayCoins();
                             IvGetPointsBus.startAnimation(busBackAlphaAnimation);
@@ -162,7 +161,7 @@ public class GetPointsActivity extends AppCompatActivity {
                         RlGetPointsCoinContainer.removeView(gifImageView);
                         RlGetPointsCoinContainer.removeView(codeText);
                         intent.putExtra("backCode",TvGetPointsCode.getText().toString());
-                        setResult(GETPOINTFORGETPOINTSACTIVITY,returnIntent);
+                        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
                         if(--subwaySum==0){
                             load404();
                             IvGetPointsSubway.startAnimation(subwayBackAlphaAnimation);
@@ -288,6 +287,8 @@ public class GetPointsActivity extends AppCompatActivity {
                 subwaySum=subwayCoinCount;
             }
         }
+        intent.putExtra("backCode",TvGetPointsCode.getText().toString());
+        setResult(GETPOINTFORGETPOINTSACTIVITY,intent);
     }
 
     private final int GETPOINTFORGETPOINTSACTIVITY=1;

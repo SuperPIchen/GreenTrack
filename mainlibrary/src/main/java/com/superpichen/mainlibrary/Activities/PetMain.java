@@ -114,6 +114,7 @@ public class PetMain extends ModelActivity {
                 Intent intent=new Intent(PetMain.this,GetPointsActivity.class);
                 intent.putExtra("getPoint",TvMainCode.getText().toString());
                 startActivityForResult(intent,GETPOINTFORGETPOINTSACTIVITY);
+                RlMainContainer.removeView(gLView);
             }
         });
     }
@@ -126,6 +127,7 @@ public class PetMain extends ModelActivity {
             case GETPOINTFORGETPOINTSACTIVITY:
                 String text=data.getStringExtra("backCode");
                 TvMainCode.setText(text);
+                startShow();
                 break;
         }
     }
