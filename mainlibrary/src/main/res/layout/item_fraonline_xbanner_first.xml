@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/TvItemFraOnlineBanner1Tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="限时特惠"
+            android:layout_marginTop="5dp"
+            android:textColor="#124BCA"/>
+
+        <TextView
+            android:id="@+id/TvItemFraOnlineBanner1Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="哆啦A梦地铁卡面：梦回童年"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/TvItemFraOnlineBanner1Extratext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="每周一次免费乘车机会"
+            android:textSize="20sp"/>
+
+        <com.shehuan.niv.NiceImageView
+            android:id="@+id/NvFraOnlineBanner1"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:src="@drawable/fraonlinebanner1"
+            app:corner_radius="6dp"
+            android:scaleType="centerCrop"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

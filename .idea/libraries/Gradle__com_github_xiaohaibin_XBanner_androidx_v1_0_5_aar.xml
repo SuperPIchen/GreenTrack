@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.xiaohaibin:XBanner:androidx_v1.0.5@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3250d6fc4c78848c57e3adb1ba7ec468/XBanner-androidx_v1.0.5/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3250d6fc4c78848c57e3adb1ba7ec468/XBanner-androidx_v1.0.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3250d6fc4c78848c57e3adb1ba7ec468/XBanner-androidx_v1.0.5/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.xiaohaibin/XBanner/androidx_v1.0.5/ca2a7a94c427f97807fd872e13a36f52ba47b73d/XBanner-androidx_v1.0.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.xiaohaibin/XBanner/androidx_v1.0.5/5187b3a6a01c5caf05df38d9636cadd94b8a23ea/XBanner-androidx_v1.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

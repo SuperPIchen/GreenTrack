@@ -465,6 +465,25 @@ public class StatusBarUtil {
         }
     }
 
+    public static void setTranslucentForImageViewAndDarkFont(Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha,
+                                                  View needOffsetView) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            return;
+        }
+        setTransparentForWindowAndDarkFont(activity);
+        addTranslucentView(activity, statusBarAlpha);
+        if (needOffsetView != null) {
+            Object haveSetOffset = needOffsetView.getTag(TAG_KEY_HAVE_SET_OFFSET);
+            if (haveSetOffset != null && (Boolean) haveSetOffset) {
+                return;
+            }
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) needOffsetView.getLayoutParams();
+            layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin + getStatusBarHeight(activity),
+                    layoutParams.rightMargin, layoutParams.bottomMargin);
+            needOffsetView.setTag(TAG_KEY_HAVE_SET_OFFSET, true);
+        }
+    }
+
     /**
      * 为 fragment 头部是 ImageView 的设置状态栏透明
      *
@@ -554,7 +573,7 @@ public class StatusBarUtil {
     /**
      * 修改魅族状态栏字体颜色 Flyme 4.0
      */
-    private static void setMeizuStatusBarDarkIcon(@NonNull Activity activity, boolean darkIcon) {
+    public static void setMeizuStatusBarDarkIcon(@NonNull Activity activity, boolean darkIcon) {
         try {
             WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
             Field darkFlag = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
@@ -663,6 +682,18 @@ public class StatusBarUtil {
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             activity.getWindow()
                 .setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+    }
+
+    private static void setTransparentForWindowAndDarkFont(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
+            activity.getWindow()
+                    .getDecorView()
+                    .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            activity.getWindow()
+                    .setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
     }
 

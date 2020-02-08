@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.OnlineShopFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:id="@+id/wuyong3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:id="@+id/wuyong1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Shop"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/wuyong2"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:background="@drawable/yuanjiaojuxing_shu_gray_shape"
+                android:text="线上"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_toRightOf="@id/wuyong1"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"/>
+
+            <ImageView
+                android:id="@+id/IvFraOnlineChange"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/mallchangebutton"
+                android:layout_toEndOf="@id/wuyong2"
+                android:layout_centerVertical="true"/>
+
+            <com.shehuan.niv.NiceImageView
+                android:id="@+id/NvFraOnlineUser"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/malltouxiang"
+                android:adjustViewBounds="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:is_circle="true"/>
+        </RelativeLayout>
+
+        <com.stx.xhb.androidx.XBanner
+            android:id="@+id/XbFraOnlineFirst"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:layout_below="@id/wuyong3"
+            app:isAutoPlay="false"
+            app:isClipChildrenMode="true"
+            app:isShowIndicatorOnlyOne="false"
+            app:isShowNumberIndicator="false"
+            app:isShowTips="false"
+            app:pointsVisibility="false"
+            app:isClipChildrenModeLessThree="true"
+            app:clipChildrenLeftRightMargin="20dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>
