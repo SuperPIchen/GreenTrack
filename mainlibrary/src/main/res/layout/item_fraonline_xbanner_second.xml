@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <com.shehuan.niv.NiceImageView
+            android:id="@+id/NvItemFraOnline1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/fraonlinebanner2_1"
+            app:corner_radius="12dp"
+            android:layout_centerVertical="true"/>
+
+        <RelativeLayout
+            android:id="@+id/wuyong1"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/NvItemFraOnline1"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/TvItemFraOnlineBanner2Title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="绿萝-让家园多一分灵气"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/TvItemFraOnlineBanner2Tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TvItemFraOnlineBanner2Title1"
+                android:text="水生植物"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TvFraOnlineBanner2Money1"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/yuanjiaojuxing_shu_littlegray_shape"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="1.2币"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#3D84FD"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@id/wuyong1"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <com.shehuan.niv.NiceImageView
+            android:id="@+id/NvItemFraOnline2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/fraonlinebanner2_1"
+            app:corner_radius="12dp"
+            android:layout_centerVertical="true"/>
+
+        <RelativeLayout
+            android:id="@+id/wuyong2"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/NvItemFraOnline2"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/TvItemFraOnlineBanner2Title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="绿萝-让家园多一分灵气"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/TvItemFraOnlineBanner2Tag2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TvItemFraOnlineBanner2Title2"
+                android:text="水生植物"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TvFraOnlineBanner2Money2"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/yuanjiaojuxing_shu_littlegray_shape"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="1.2币"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#3D84FD"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@id/wuyong2"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <com.shehuan.niv.NiceImageView
+            android:id="@+id/NvItemFraOnline3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/fraonlinebanner2_1"
+            app:corner_radius="12dp"
+            android:layout_centerVertical="true"/>
+
+        <RelativeLayout
+            android:id="@+id/wuyong3"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/NvItemFraOnline3"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/TvItemFraOnlineBanner2Title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="绿萝-让家园多一分灵气"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/TvItemFraOnlineBanner2Tag3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TvItemFraOnlineBanner2Title3"
+                android:text="水生植物"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TvFraOnlineBanner2Money3"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/yuanjiaojuxing_shu_littlegray_shape"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="1.2币"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#3D84FD"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

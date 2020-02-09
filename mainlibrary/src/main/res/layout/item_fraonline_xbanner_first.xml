@@ -12,7 +12,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="0.5dp"
             android:background="@android:color/darker_gray"/>
 
         <TextView
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="限时特惠"
             android:layout_marginTop="5dp"
-            android:textColor="#124BCA"/>
+            android:textColor="#3D84FD"/>
 
         <TextView
             android:id="@+id/TvItemFraOnlineBanner1Title"

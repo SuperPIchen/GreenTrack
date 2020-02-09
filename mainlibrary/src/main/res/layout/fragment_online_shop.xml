@@ -74,6 +74,53 @@
             app:isClipChildrenModeLessThree="true"
             app:clipChildrenLeftRightMargin="20dp"/>
 
+        <ImageView
+            android:id="@+id/wuyong4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/XbFraOnlineFirst"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong4"
+            android:text="宠物用品"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/TvFraOnlineBanner2ShowAll"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong4"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:text="查看全部"
+            android:gravity="center"
+            android:textColor="#3D84FD"
+            android:textSize="18sp"/>
+
+        <com.stx.xhb.androidx.XBanner
+            android:id="@+id/XbFraOnlineSecond"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:layout_below="@id/TvFraOnlineBanner2ShowAll"
+            app:isAutoPlay="false"
+            app:isClipChildrenMode="true"
+            app:isShowIndicatorOnlyOne="false"
+            app:isShowNumberIndicator="false"
+            app:isShowTips="false"
+            app:pointsVisibility="false"
+            app:isClipChildrenModeLessThree="true"
+            app:clipChildrenLeftRightMargin="20dp"/>
+
     </RelativeLayout>
 
 </ScrollView>
