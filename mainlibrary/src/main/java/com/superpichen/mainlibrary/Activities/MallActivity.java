@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -80,7 +82,6 @@ public class MallActivity extends FragmentActivity {
             }
         });
     }
-
 
     /**
      * 初始化碎片

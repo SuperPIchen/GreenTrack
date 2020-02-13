@@ -1,18 +1,15 @@
 package com.superpichen.mainlibrary.Fragments;
 
 
-import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.shehuan.niv.NiceImageView;
 import com.stx.xhb.androidx.XBanner;
@@ -21,10 +18,12 @@ import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.BaseFragment;
 import com.superpichen.mainlibrary.Tools.JavaTools.FraOnlineXbanner1Info;
 import com.superpichen.mainlibrary.Tools.JavaTools.FraOnlineXbanner2Info;
-import com.superpichen.mainlibrary.Tools.JavaTools.ScreenUtil;
+import com.superpichen.mainlibrary.Tools.JavaTools.FraOnlineXbanner3Info;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pl.droidsonroids.gif.GifImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +33,9 @@ public class OnlineShopFragment extends BaseFragment {
     private NiceImageView NvFraOnlineUser;
     private XBanner XbFraOnlineFirst;
     private XBanner XbFraOnlineSecond;
+    private XBanner XbFraOnlineThird;
+    private XBanner XbFraOnlineForth;
+    private ScrollView SvFraOnline;
 
     /**
      * Find the Views in the layout<br />
@@ -46,6 +48,9 @@ public class OnlineShopFragment extends BaseFragment {
         NvFraOnlineUser = (NiceImageView)view.findViewById( R.id.NvFraOnlineUser );
         XbFraOnlineFirst = (XBanner)view.findViewById( R.id.XbFraOnlineFirst );
         XbFraOnlineSecond = view.findViewById(R.id.XbFraOnlineSecond);
+        XbFraOnlineThird = view.findViewById(R.id.XbFraOnlineThird);
+        XbFraOnlineForth = view.findViewById(R.id.XbFraOnlineForth);
+        SvFraOnline = view.findViewById(R.id.SvFraOnline);
     }
 
 
@@ -65,6 +70,86 @@ public class OnlineShopFragment extends BaseFragment {
         super.initData();
         setBanner1();
         setBanner2();
+        setBanner3();
+        setBanner4();
+    }
+
+    /**
+     * 设置第四条Banner
+     */
+    private void setBanner4() {
+        List<FraOnlineXbanner2Info> data4=new ArrayList<>();
+        data4.add(new FraOnlineXbanner2Info("Green餐巾纸","3×100抽，满足家庭需求",9.9,R.drawable.fraonlinebanner4_1,
+                "鸟牌洗洁精","3秒清除油渍",19.9,R.drawable.fraonlinebanner4_2,
+                "《小王子》系列书籍","孩子的启蒙书",25.9,R.drawable.fraonlinebanner4_3));
+        data4.add(new FraOnlineXbanner2Info("季丽雅毛巾","妈妈般的肌肤触感",15.8,R.drawable.fraonlinebanner4_4,
+                "猫牌电动牙刷","帮你远离口腔问题",99.9,R.drawable.fraonlinebanner4_5,
+                "鹅毛枕","保护您的脊椎",79.9,R.drawable.fraonlinebanner4_6));
+        data4.add(new FraOnlineXbanner2Info("ZERO钢笔","笔尖与纸的邂逅",30.9,R.drawable.fraonlinebanner4_7,
+                "毛绒玩具","陪你入睡",39.9,R.drawable.fraonlinebanner4_8,
+                "Hello餐具套餐","提升用餐心情",19.8,R.drawable.fraonlinebanner4_9));
+        XbFraOnlineForth.setPageTransformer(Transformer.Default);
+        XbFraOnlineForth.setBannerData(R.layout.item_fraonline_xbanner_second,data4);
+        XbFraOnlineForth.loadImage(new XBanner.XBannerAdapter() {
+            @Override
+            public void loadBanner(XBanner banner, Object model, View view, int position) {
+                NiceImageView NvItemFraOnline1= view.findViewById( R.id.NvItemFraOnline1 );
+                TextView TvItemFraOnlineBanner2Title1= view.findViewById( R.id.TvItemFraOnlineBanner2Title1 );
+                TextView TvItemFraOnlineBanner2Tag1= view.findViewById( R.id.TvItemFraOnlineBanner2Tag1 );
+                TextView TvFraOnlineBanner2Money1= view.findViewById( R.id.TvFraOnlineBanner2Money1 );
+                NiceImageView NvItemFraOnline2= view.findViewById( R.id.NvItemFraOnline2 );;
+                TextView TvItemFraOnlineBanner2Title2= view.findViewById( R.id.TvItemFraOnlineBanner2Title2 );;
+                TextView TvItemFraOnlineBanner2Tag2= view.findViewById( R.id.TvItemFraOnlineBanner2Tag2 );
+                TextView TvFraOnlineBanner2Money2= view.findViewById( R.id.TvFraOnlineBanner2Money2 );
+                NiceImageView NvItemFraOnline3= view.findViewById( R.id.NvItemFraOnline3 );
+                TextView TvItemFraOnlineBanner2Title3= view.findViewById( R.id.TvItemFraOnlineBanner2Title3 );
+                TextView TvItemFraOnlineBanner2Tag3= view.findViewById( R.id.TvItemFraOnlineBanner2Tag3 );
+                TextView TvFraOnlineBanner2Money3= view.findViewById( R.id.TvFraOnlineBanner2Money3 );
+                NvItemFraOnline1.setImageResource(((FraOnlineXbanner2Info)model).getImg1());
+                TvItemFraOnlineBanner2Title1.setText(((FraOnlineXbanner2Info)model).getTitle1());
+                TvItemFraOnlineBanner2Tag1.setText(((FraOnlineXbanner2Info)model).getTag1());
+                TvFraOnlineBanner2Money1.setText(((FraOnlineXbanner2Info)model).getMoney1()+"币");
+                NvItemFraOnline2.setImageResource(((FraOnlineXbanner2Info)model).getImg2());
+                TvItemFraOnlineBanner2Title2.setText(((FraOnlineXbanner2Info)model).getTitle2());
+                TvItemFraOnlineBanner2Tag2.setText(((FraOnlineXbanner2Info)model).getTag2());
+                TvFraOnlineBanner2Money2.setText(((FraOnlineXbanner2Info)model).getMoney2()+"币");
+                NvItemFraOnline3.setImageResource(((FraOnlineXbanner2Info)model).getImg3());
+                TvItemFraOnlineBanner2Title3.setText(((FraOnlineXbanner2Info)model).getTitle3());
+                TvItemFraOnlineBanner2Tag3.setText(((FraOnlineXbanner2Info)model).getTag3());
+                TvFraOnlineBanner2Money3.setText(((FraOnlineXbanner2Info)model).getMoney3()+"币");
+
+            }
+        });
+        XbFraOnlineSecond.setOnItemClickListener(new XBanner.OnItemClickListener() {
+            @Override
+            public void onItemClick(XBanner banner, Object model, View view, int position) {
+
+            }
+        });
+    }
+
+    /**
+     * 设置第三条Banner
+     */
+    private void setBanner3() {
+        List<FraOnlineXbanner3Info> data3 = new ArrayList<>();
+        data3.add(new FraOnlineXbanner3Info("悟空地铁卡：闸口=花果山，地铁=筋斗云，让你拥有七十二变的感觉。",R.drawable.fraonlinebanner3_4,R.drawable.fraonlinebanner3gif4));
+        data3.add(new FraOnlineXbanner3Info("Green湖：带上爱人一起看荷塘月色，感受月亮消失在另一端的美妙感觉。",R.drawable.fraonlinebanner3_1,R.drawable.fraonlinebanner3gif1));
+        data3.add(new FraOnlineXbanner3Info("共享单车季卡：骑上我心爱的小单车，领略风的自由，空气的味道。",R.drawable.fraonlinebanner3_2,R.drawable.fraonlinebanner3gif2));
+        data3.add(new FraOnlineXbanner3Info("Green超市6折优惠券：感恩季！优惠从锅碗瓢盆到冰箱彩电哦。",R.drawable.fraonlinebanner3_3,R.drawable.fraonlinebanner3gif3));
+        XbFraOnlineThird.setPageTransformer(Transformer.Default);
+        XbFraOnlineThird.setBannerData(R.layout.item_fraonline_xbanner_third, data3);
+        XbFraOnlineThird.loadImage(new XBanner.XBannerAdapter() {
+            @Override
+            public void loadBanner(XBanner banner, Object model, View view, int position) {
+                NiceImageView NvFraOnlineBanner3=view.findViewById( R.id.NvFraOnlineBanner3 );
+                GifImageView GvFraOnlineBanner3=view.findViewById( R.id.GvFraOnlineBanner3 );
+                TextView TvItemFraOnlineBanner3Title=view.findViewById( R.id.TvItemFraOnlineBanner3Title );
+                NvFraOnlineBanner3.setImageResource(((FraOnlineXbanner3Info)model).getImg());
+                GvFraOnlineBanner3.setImageResource(((FraOnlineXbanner3Info)model).getGif());
+                TvItemFraOnlineBanner3Title.setText(((FraOnlineXbanner3Info)model).getTitle());
+            }
+        });
     }
 
     /**
