@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.OnlineShopFragment">
+    tools:context=".Fragments.OnlineShopFragment"
+    android:background="@drawable/mallbackground_shape">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:background="@drawable/mallbackground">
 
         <RelativeLayout
             android:id="@+id/wuyong3"
@@ -120,6 +121,39 @@
             app:pointsVisibility="false"
             app:isClipChildrenModeLessThree="true"
             app:clipChildrenLeftRightMargin="20dp"/>
+
+        <ImageView
+            android:id="@+id/wuyong5"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/XbFraOnlineSecond"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong5"
+            android:text="专属碳宠物专区"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/TvFraOnlineBanner3ShowAll"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong5"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:text="查看全部"
+            android:gravity="center"
+            android:textColor="#3D84FD"
+            android:textSize="18sp"/>
 
     </RelativeLayout>
 
