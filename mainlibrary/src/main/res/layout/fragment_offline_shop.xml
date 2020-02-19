@@ -1,14 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.OfflineShopFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/wuyong3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <TextView
+            android:id="@+id/wuyong1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Shop"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textSize="35sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/wuyong2"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:background="@drawable/yuanjiaojuxing_shu_gray_shape"
+            android:text="线下"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:layout_toRightOf="@id/wuyong1"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"/>
+
+        <ImageView
+            android:id="@+id/IvFraOfflineChange"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/mallchangebutton"
+            android:layout_toEndOf="@id/wuyong2"
+            android:layout_centerVertical="true"/>
+
+        <com.shehuan.niv.NiceImageView
+            android:id="@+id/NvFraOnlineUser"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/malltouxiang"
+            android:adjustViewBounds="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:is_circle="true"/>
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/wuyong4"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/wuyong3"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/TvFraOfflineShouye"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="首页" android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_marginStart="10dp"/>
+            <TextView
+                android:id="@+id/TvFraOfflineBaihuo"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="百货"/>
+            <TextView
+                android:id="@+id/TvFraOfflineFuzhuang"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="服装"/>
+            <TextView
+                android:id="@+id/TvFraOfflineShengxian"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="生鲜"/>
+            <TextView
+                android:id="@+id/TvFraOfflineShipin"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="食品"/>
+            <TextView
+                android:id="@+id/TvFraOfflineDianqi"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="电器"/>
+            <TextView
+                android:id="@+id/TvFraOfflineXiangbao"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="箱包"/>
+            <TextView
+                android:id="@+id/TvFraOfflineShuma"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="数码"/>
+            <TextView
+                android:id="@+id/TvFraOfflineJiazhuang"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="家装"/>
+            <TextView
+                android:id="@+id/TvFraOfflineChepin"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                style="@style/TextInOfflineShop"
+                android:text="车品"/>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <com.stx.xhb.androidx.XBanner
+        android:id="@+id/XbFraOfflineContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/wuyong4"
+        app:isAutoPlay="false"
+        app:isShowIndicatorOnlyOne="false"
+        app:isShowNumberIndicator="false"
+        app:isShowTips="false"
+        app:pointsVisibility="false"
+        app:clipChildrenLeftRightMargin="20dp"/>
 
-</FrameLayout>
+
+</RelativeLayout>

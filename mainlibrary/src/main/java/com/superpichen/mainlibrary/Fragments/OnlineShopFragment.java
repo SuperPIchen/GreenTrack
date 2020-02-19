@@ -10,10 +10,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shehuan.niv.NiceImageView;
 import com.stx.xhb.androidx.XBanner;
 import com.stx.xhb.androidx.transformers.Transformer;
+import com.superpichen.mainlibrary.Activities.MallActivity;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.BaseFragment;
 import com.superpichen.mainlibrary.Tools.JavaTools.FraOnlineXbanner1Info;
@@ -58,6 +60,10 @@ public class OnlineShopFragment extends BaseFragment {
         // Required empty public constructor
     }
 
+    public void inputData(MallActivity mallActivity){
+        this.mallActivity=mallActivity;
+    }
+
     @Override
     protected View initView() {
         View view=View.inflate(getContext(),R.layout.fragment_online_shop,null);
@@ -72,6 +78,20 @@ public class OnlineShopFragment extends BaseFragment {
         setBanner2();
         setBanner3();
         setBanner4();
+        setOnclick();
+    }
+
+    private MallActivity mallActivity;
+    /**
+     * 添加监听事件
+     */
+    private void setOnclick() {
+        IvFraOnlineChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mallActivity.switchFragmentInFragment(0);
+            }
+        });
     }
 
     /**

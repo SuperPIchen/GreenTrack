@@ -29,10 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MallActivity extends FragmentActivity {
-    private RelativeLayout RlMallTopContainer;
-    private TextView TvMallCode;
+
     private FrameLayout FlMallContainer;
-    private ImageView IvMallChange;
 
     /**
      * Find the Views in the layout<br />
@@ -41,10 +39,7 @@ public class MallActivity extends FragmentActivity {
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        RlMallTopContainer = (RelativeLayout)findViewById( R.id.RlMallTopContainer );
-        TvMallCode = (TextView)findViewById( R.id.TvMallCode );
         FlMallContainer = (FrameLayout)findViewById( R.id.FlMallContainer );
-        IvMallChange = findViewById(R.id.IvMallChange);
     }
 
     private Intent intent;
@@ -69,18 +64,7 @@ public class MallActivity extends FragmentActivity {
      * 设置监听
      */
     private void setOnclick() {
-        IvMallChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(defaultPage==0){
-                    defaultPage=1;
-                    switchFragment(onlineShopFragment,offlineShopFragment);
-                }else {
-                    defaultPage=0;
-                    switchFragment(offlineShopFragment,onlineShopFragment);
-                }
-            }
-        });
+
     }
 
     /**
@@ -96,12 +80,21 @@ public class MallActivity extends FragmentActivity {
         baseFragments=new ArrayList<>();
         baseFragments.add(onlineShopFragment);
         baseFragments.add(offlineShopFragment);
+        onlineShopFragment.inputData(this);
+        offlineShopFragment.inputData(this);
         ft=getSupportFragmentManager().beginTransaction();
         for(int i=0;i<baseFragments.size();i++){
             if(!baseFragments.get(i).isAdded())
                 ft.add(R.id.FlMallContainer,baseFragments.get(i),"MyFragmentTag"+i);
         }
         switchFragment(offlineShopFragment,onlineShopFragment);
+    }
+
+    public void switchFragmentInFragment(int i){
+        if(i==0)
+            switchFragment(onlineShopFragment,offlineShopFragment);
+        else
+            switchFragment(offlineShopFragment,onlineShopFragment);
     }
     /**
      * @param from 要隐藏的Fragment
@@ -120,8 +113,7 @@ public class MallActivity extends FragmentActivity {
                     ft.hide(from);
                 }
                 //添加to
-                ft.add(R.id.FlMallContainer,to).commit();
-
+                ft.add(R.id.FlMallContainer,to).show(to).commit();
             }else{
                 if(from!=null){
                     ft.hide(from);

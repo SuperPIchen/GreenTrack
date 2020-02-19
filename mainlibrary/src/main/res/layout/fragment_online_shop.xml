@@ -1,219 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.OnlineShopFragment"
-    android:background="@drawable/mallbackground_shape">
+    android:id="@+id/SvFraOnline">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/mallbackground"/>
-
-    <ScrollView
-        android:id="@+id/SvFraOnline"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <RelativeLayout
+            android:id="@+id/wuyong3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RelativeLayout
-                android:id="@+id/wuyong3"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
-
-                <TextView
-                    android:id="@+id/wuyong1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Shop"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"
-                    android:textSize="35sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/wuyong2"
-                    android:layout_width="40dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/yuanjiaojuxing_shu_gray_shape"
-                    android:text="线上"
-                    android:gravity="center"
-                    android:textColor="@android:color/white"
-                    android:layout_toRightOf="@id/wuyong1"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="5dp"/>
-
-                <ImageView
-                    android:id="@+id/IvFraOnlineChange"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/mallchangebutton"
-                    android:layout_toEndOf="@id/wuyong2"
-                    android:layout_centerVertical="true"/>
-
-                <com.shehuan.niv.NiceImageView
-                    android:id="@+id/NvFraOnlineUser"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/malltouxiang"
-                    android:adjustViewBounds="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    app:is_circle="true"/>
-            </RelativeLayout>
-
-            <com.stx.xhb.androidx.XBanner
-                android:id="@+id/XbFraOnlineFirst"
-                android:layout_width="match_parent"
-                android:layout_height="325dp"
-                android:layout_below="@id/wuyong3"
-                app:isAutoPlay="false"
-                app:isClipChildrenMode="true"
-                app:isShowIndicatorOnlyOne="false"
-                app:isShowNumberIndicator="false"
-                app:isShowTips="false"
-                app:pointsVisibility="false"
-                app:isClipChildrenModeLessThree="true"
-                app:clipChildrenLeftRightMargin="20dp"/>
-
-            <ImageView
-                android:id="@+id/wuyong4"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_below="@id/XbFraOnlineFirst"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="10dp"/>
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/wuyong1"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@id/wuyong4"
-                android:text="宠物用品"
-                android:gravity="center"
-                android:layout_marginStart="20dp"
+                android:layout_height="match_parent"
+                android:text="Shop"
                 android:textColor="@android:color/black"
-                android:textSize="22sp"
+                android:gravity="center"
+                android:textSize="35sp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/TvFraOnlineBanner2ShowAll"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@id/wuyong4"
+                android:id="@+id/wuyong2"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:background="@drawable/yuanjiaojuxing_shu_gray_shape"
+                android:text="线上"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_toRightOf="@id/wuyong1"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"/>
+
+            <ImageView
+                android:id="@+id/IvFraOnlineChange"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/mallchangebutton"
+                android:layout_toEndOf="@id/wuyong2"
+                android:layout_centerVertical="true"/>
+
+            <com.shehuan.niv.NiceImageView
+                android:id="@+id/NvFraOnlineUser"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/malltouxiang"
+                android:adjustViewBounds="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:text="查看全部"
-                android:gravity="center"
-                android:textColor="#3D84FD"
-                android:textSize="18sp"/>
-
-            <com.stx.xhb.androidx.XBanner
-                android:id="@+id/XbFraOnlineSecond"
-                android:layout_width="match_parent"
-                android:layout_height="325dp"
-                android:layout_below="@id/TvFraOnlineBanner2ShowAll"
-                app:isAutoPlay="false"
-                app:isClipChildrenMode="true"
-                app:isShowIndicatorOnlyOne="false"
-                app:isShowNumberIndicator="false"
-                app:isShowTips="false"
-                app:pointsVisibility="false"
-                app:isClipChildrenModeLessThree="true"
-                app:clipChildrenLeftRightMargin="20dp"/>
-
-            <ImageView
-                android:id="@+id/wuyong5"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_below="@id/XbFraOnlineSecond"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"/>
-
-            <TextView
-                android:id="@+id/wuyong6"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@id/wuyong5"
-                android:text="专属碳宠物特辑"
-                android:gravity="center"
-                android:layout_marginStart="20dp"
-                android:textColor="@android:color/black"
-                android:textSize="22sp"
-                android:textStyle="bold"/>
-
-            <com.stx.xhb.androidx.XBanner
-                android:id="@+id/XbFraOnlineThird"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_below="@id/wuyong6"
-                app:isAutoPlay="false"
-                app:isClipChildrenMode="true"
-                app:isShowIndicatorOnlyOne="false"
-                app:isShowNumberIndicator="false"
-                app:isShowTips="false"
-                app:pointsVisibility="false"
-                app:isClipChildrenModeLessThree="true"
-                app:clipChildrenLeftRightMargin="20dp"/>
-
-            <ImageView
-                android:id="@+id/wuyong7"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_below="@id/XbFraOnlineThird"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@id/wuyong7"
-                android:text="日常用品"
-                android:gravity="center"
-                android:layout_marginStart="20dp"
-                android:textColor="@android:color/black"
-                android:textSize="22sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/TvFraOnlineBanner4ShowAll"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@id/wuyong7"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:text="查看全部"
-                android:gravity="center"
-                android:textColor="#3D84FD"
-                android:textSize="18sp"/>
-
-            <com.stx.xhb.androidx.XBanner
-                android:id="@+id/XbFraOnlineForth"
-                android:layout_width="match_parent"
-                android:layout_height="325dp"
-                android:layout_below="@id/TvFraOnlineBanner4ShowAll"
-                app:isAutoPlay="false"
-                app:isClipChildrenMode="true"
-                app:isShowIndicatorOnlyOne="false"
-                app:isShowNumberIndicator="false"
-                app:isShowTips="false"
-                app:pointsVisibility="false"
-                app:isClipChildrenModeLessThree="true"
-                app:clipChildrenLeftRightMargin="20dp"/>
-
+                android:layout_centerVertical="true"
+                app:is_circle="true"/>
         </RelativeLayout>
 
-    </ScrollView>
+        <com.stx.xhb.androidx.XBanner
+            android:id="@+id/XbFraOnlineFirst"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:layout_below="@id/wuyong3"
+            app:isAutoPlay="false"
+            app:isClipChildrenMode="true"
+            app:isShowIndicatorOnlyOne="false"
+            app:isShowNumberIndicator="false"
+            app:isShowTips="false"
+            app:pointsVisibility="false"
+            app:isClipChildrenModeLessThree="true"
+            app:clipChildrenLeftRightMargin="20dp"/>
+
+        <ImageView
+            android:id="@+id/wuyong4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/XbFraOnlineFirst"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong4"
+            android:text="宠物用品"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/TvFraOnlineBanner2ShowAll"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong4"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:text="查看全部"
+            android:gravity="center"
+            android:textColor="#3D84FD"
+            android:textSize="18sp"/>
+
+        <com.stx.xhb.androidx.XBanner
+            android:id="@+id/XbFraOnlineSecond"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:layout_below="@id/TvFraOnlineBanner2ShowAll"
+            app:isAutoPlay="false"
+            app:isClipChildrenMode="true"
+            app:isShowIndicatorOnlyOne="false"
+            app:isShowNumberIndicator="false"
+            app:isShowTips="false"
+            app:pointsVisibility="false"
+            app:isClipChildrenModeLessThree="true"
+            app:clipChildrenLeftRightMargin="20dp"/>
+
+        <ImageView
+            android:id="@+id/wuyong5"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/XbFraOnlineSecond"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <TextView
+            android:id="@+id/wuyong6"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong5"
+            android:text="专属碳宠物特辑"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <com.stx.xhb.androidx.XBanner
+            android:id="@+id/XbFraOnlineThird"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/wuyong6"
+            app:isAutoPlay="false"
+            app:isClipChildrenMode="true"
+            app:isShowIndicatorOnlyOne="false"
+            app:isShowNumberIndicator="false"
+            app:isShowTips="false"
+            app:pointsVisibility="false"
+            app:isClipChildrenModeLessThree="true"
+            app:clipChildrenLeftRightMargin="20dp"/>
+
+        <ImageView
+            android:id="@+id/wuyong7"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/XbFraOnlineThird"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong7"
+            android:text="日常用品"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/TvFraOnlineBanner4ShowAll"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/wuyong7"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:text="查看全部"
+            android:gravity="center"
+            android:textColor="#3D84FD"
+            android:textSize="18sp"/>
+
+        <com.stx.xhb.androidx.XBanner
+            android:id="@+id/XbFraOnlineForth"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:layout_below="@id/TvFraOnlineBanner4ShowAll"
+            app:isAutoPlay="false"
+            app:isClipChildrenMode="true"
+            app:isShowIndicatorOnlyOne="false"
+            app:isShowNumberIndicator="false"
+            app:isShowTips="false"
+            app:pointsVisibility="false"
+            app:isClipChildrenModeLessThree="true"
+            app:clipChildrenLeftRightMargin="20dp"/>
+
+    </RelativeLayout>
 
 
-</RelativeLayout>
+</ScrollView>
