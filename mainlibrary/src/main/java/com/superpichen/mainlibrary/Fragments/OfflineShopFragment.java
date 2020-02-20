@@ -2,14 +2,15 @@ package com.superpichen.mainlibrary.Fragments;
 
 
 import android.graphics.Color;
+import android.graphics.Outline;
 import android.graphics.Typeface;
-import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,10 +21,13 @@ import com.stx.xhb.androidx.transformers.Transformer;
 import com.superpichen.mainlibrary.Activities.MallActivity;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.BaseFragment;
-import com.superpichen.mainlibrary.Tools.JavaTools.FraOfflineXbannerInfo;
+import com.superpichen.mainlibrary.Tools.JavaTools.FraOfflineRecycleInfo;
+import com.superpichen.mainlibrary.Tools.JavaTools.FraOfflineXbannerAdvertiseInfo;
+import com.superpichen.mainlibrary.Tools.JavaTools.OfflineShopRecycleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +36,6 @@ public class OfflineShopFragment extends BaseFragment {
 
     private ImageView IvFraOfflineChange;
     private NiceImageView NvFraOnlineUser;
-    private HorizontalScrollView wuyong4;
     private TextView TvFraOfflineShouye;
     private TextView TvFraOfflineBaihuo;
     private TextView TvFraOfflineFuzhuang;
@@ -43,7 +46,8 @@ public class OfflineShopFragment extends BaseFragment {
     private TextView TvFraOfflineShuma;
     private TextView TvFraOfflineJiazhuang;
     private TextView TvFraOfflineChepin;
-    private XBanner XbFraOfflineContainer;
+    private XBanner XbFraOfflineAdvertiseContainer;
+    private RecyclerView RvOfflineInfoCotainer;
 
     /**
      * Find the Views in the layout<br />
@@ -54,7 +58,6 @@ public class OfflineShopFragment extends BaseFragment {
     private void findViews(View view) {
         IvFraOfflineChange = view.findViewById( R.id.IvFraOfflineChange );
         NvFraOnlineUser = view.findViewById( R.id.NvFraOnlineUser );
-        wuyong4 = view.findViewById( R.id.wuyong4 );
         TvFraOfflineShouye = view.findViewById( R.id.TvFraOfflineShouye );
         TvFraOfflineBaihuo = view.findViewById( R.id.TvFraOfflineBaihuo );
         TvFraOfflineFuzhuang = view.findViewById( R.id.TvFraOfflineFuzhuang );
@@ -65,7 +68,8 @@ public class OfflineShopFragment extends BaseFragment {
         TvFraOfflineShuma = view.findViewById( R.id.TvFraOfflineShuma );
         TvFraOfflineJiazhuang = view.findViewById( R.id.TvFraOfflineJiazhuang );
         TvFraOfflineChepin = view.findViewById( R.id.TvFraOfflineChepin );
-        XbFraOfflineContainer = view.findViewById( R.id.XbFraOfflineContainer );
+        XbFraOfflineAdvertiseContainer = view.findViewById( R.id.XbFraOfflineAdvertiseContainer );
+        RvOfflineInfoCotainer = view.findViewById(R.id.RvOfflineInfoCotainer);
     }
 
 
@@ -91,28 +95,46 @@ public class OfflineShopFragment extends BaseFragment {
         setText(null,TvFraOfflineShouye);
         setOnClick();
         setBanner();
+        setRecyclerView();
     }
 
     /**
-     * 设置Banner条
+     * 设置详细信息
+     */
+    private void setRecyclerView() {
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        RvOfflineInfoCotainer.setLayoutManager(staggeredGridLayoutManager);
+        List<FraOfflineRecycleInfo> data1=new ArrayList<>();
+        for(int i=0;i<6;i++){
+            data1.add(new FraOfflineRecycleInfo(R.drawable.fraofflineshouye1,"TEA&COFF：年轻人的酒庄，年轻但不简单。轻度但不沉默。","静安区南京西路1376号"));
+            data1.add(new FraOfflineRecycleInfo(R.drawable.fraofflineshouye2,"姗姗女装店：至雅蕾丝，翩翩共舞。取悦自己，美丽到底。让你做夏日的精灵。贵在品质，雅在品位。","八一南街李渔路口34号"));
+            data1.add(new FraOfflineRecycleInfo(R.drawable.fraofflineshouye3,"宜家家居：沉淀经典,智慧之选。智慧沉淀,精品之选。","金发颐高数码广场"));
+            data1.add(new FraOfflineRecycleInfo(R.drawable.fraofflineshouye4,"方特乐园：带上孩子，享受来之不易的亲子时光","凤凰路小新广场北门"));
+            data1.add(new FraOfflineRecycleInfo(R.drawable.fraofflineshouye5,"啊皮数码城：数码产品开箱的味道，是世界上最好闻的味道。","银泰商城Bin22座34号"));
+        }
+        OfflineShopRecycleAdapter offlineShopRecycleAdapter=new OfflineShopRecycleAdapter(getContext(),data1);
+        RvOfflineInfoCotainer.setAdapter(offlineShopRecycleAdapter);
+    }
+
+    /**
+     * 设置广告条
      */
     private void setBanner() {
-        List<FraOfflineXbannerInfo> data=new ArrayList<>();
-        List<Integer> advertisrImg=new ArrayList<>();
-        advertisrImg.add(R.drawable.fraonlinebanner1);
-        advertisrImg.add(R.drawable.fraonlinebanner2);
-        data.add(new FraOfflineXbannerInfo(advertisrImg));
-        XbFraOfflineContainer.setPageTransformer(Transformer.Default);
-        XbFraOfflineContainer.setBannerData(R.layout.item_fraonline_xbanner_second,data);
-        XbFraOfflineContainer.loadImage(new XBanner.XBannerAdapter() {
+        List<FraOfflineXbannerAdvertiseInfo> data=new ArrayList<>();
+        data.add(new FraOfflineXbannerAdvertiseInfo(R.drawable.fraofflineadvertise3));
+        data.add(new FraOfflineXbannerAdvertiseInfo(R.drawable.fraofflineadvertise2));
+        data.add(new FraOfflineXbannerAdvertiseInfo(R.drawable.fraofflineadvertise1));
+        XbFraOfflineAdvertiseContainer.setPageTransformer(Transformer.Default);
+        XbFraOfflineAdvertiseContainer.setBannerData(R.layout.item_fraoffline_advertise_xbanner,data);
+        XbFraOfflineAdvertiseContainer.loadImage(new XBanner.XBannerAdapter() {
             @Override
             public void loadBanner(XBanner banner, Object model, View view, int position) {
-                if(position==0){
-
-                }
+                NiceImageView NvFraOfflineAdvertise = view.findViewById(R.id.NvFraOfflineAdvertise);
+                NvFraOfflineAdvertise.setImageResource(((FraOfflineXbannerAdvertiseInfo)model).getImg());
             }
         });
     }
+
 
     private int nowPosition=0;
     /**
