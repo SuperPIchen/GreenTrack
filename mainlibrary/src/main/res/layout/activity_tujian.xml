@@ -7,6 +7,13 @@
     tools:context=".Activities.TujianActivity"
     android:background="@drawable/tujianbackground">
 
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:src="@drawable/tujianzhaohuanzhen"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+
     <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
         android:id="@+id/wuyong1"
         android:layout_width="wrap_content"
@@ -24,5 +31,7 @@
         android:layout_marginTop="20dp"
         pile:displayCount="2.5"
         pile:sizeRatio="1.5"/>
+
+
 
 </RelativeLayout>

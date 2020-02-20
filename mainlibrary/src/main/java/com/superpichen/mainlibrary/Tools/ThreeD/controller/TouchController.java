@@ -65,12 +65,15 @@ public class TouchController {
     private float[] rotationVector = new float[4];
 	private float previousRotationSquare;
 
+	private int type;
 	private PetMain petMain;
-	public TouchController(ModelSurfaceView view, ModelRenderer renderer, ModelActivity modelActivity) {
+	public TouchController(ModelSurfaceView view, ModelRenderer renderer, ModelActivity modelActivity,int type) {
 		super();
 		this.view = view;
 		this.mRenderer = renderer;
-		petMain= (PetMain) modelActivity;
+		this.type=type;
+		if(type==0)
+			petMain= (PetMain) modelActivity;
 	}
 
 	public synchronized boolean onTouchEvent(MotionEvent motionEvent) {
@@ -188,7 +191,8 @@ public class TouchController {
 		if (pointerCount == 1 && simpleTouch) {
 //            SceneLoader scene = view.getModelActivity().getScene();
 //            scene.processTouch(x1,y1);
-			petMain.clickModel();
+			if(type==0)
+				petMain.clickModel();
 		}
 
 		int max = Math.max(mRenderer.getWidth(), mRenderer.getHeight());

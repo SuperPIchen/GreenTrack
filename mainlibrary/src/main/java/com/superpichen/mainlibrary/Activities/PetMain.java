@@ -139,7 +139,7 @@ public class PetMain extends ModelActivity {
             case FinalValue.GETPOINTFORMALLACTIVITY:
                 break;
         }
-        startShow();
+        startShow(0);
     }
     //监听单击模型
     public void clickModel(){
@@ -171,7 +171,7 @@ public class PetMain extends ModelActivity {
     //设置3D模型
     private void set3DModel() {
         ContentUtils.provideAssets(this);
-        launchModelRendererActivity(Uri.parse("assets://" + getPackageName() + "/" + "models/cowboy.dae"));
+        launchModelRendererActivity(Uri.parse("assets://" + getPackageName() + "/" + "models/cowboy.dae"),0);
     }
 
 
@@ -413,13 +413,13 @@ public class PetMain extends ModelActivity {
         URL.setURLStreamHandlerFactory(new AndroidURLStreamHandlerFactory());
     }
     private Uri uri;
-    private void launchModelRendererActivity(Uri uri) {
+    private void launchModelRendererActivity(Uri uri,int type) {
         this.uri=uri;
         // content provider case
-        startShow();
+        startShow(type);
     }
 
-    private void startShow(){
+    private void startShow(int type){
         this.paramUri = uri;
         this.paramType =2;
         this.immersiveMode = true;
@@ -446,7 +446,7 @@ public class PetMain extends ModelActivity {
         // Create a GLSurfaceView instance and set it
         // as the ContentView for this Activity.
         try {
-            gLView = new ModelSurfaceView(this);
+            gLView = new ModelSurfaceView(this,type);
 //            gLView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 //            gLView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
             RlMainContainer.addView(gLView);

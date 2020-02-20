@@ -19,12 +19,14 @@ public class ModelSurfaceView extends GLSurfaceView {
 	private ModelActivity parent;
 	private ModelRenderer mRenderer;
 	private TouchController touchHandler;
+	private int type;
 
-	public ModelSurfaceView(ModelActivity parent) throws IllegalAccessException, IOException {
+	public ModelSurfaceView(ModelActivity parent,int type) throws IllegalAccessException, IOException {
 		super(parent);
 
 		// parent component
 		this.parent = parent;
+		this.type=type;
 
 		// Create an OpenGL ES 2.0 context.
 		setEGLContextClientVersion(2);
@@ -40,7 +42,7 @@ public class ModelSurfaceView extends GLSurfaceView {
 		// TODO: enable this?
 		// setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 
-		touchHandler = new TouchController(this, mRenderer,parent);
+		touchHandler = new TouchController(this, mRenderer,parent,type);
 	}
 
 	@Override

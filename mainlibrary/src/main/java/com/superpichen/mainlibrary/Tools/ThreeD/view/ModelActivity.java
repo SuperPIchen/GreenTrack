@@ -92,7 +92,7 @@ public class ModelActivity extends AppCompatActivity {
         // Create a GLSurfaceView instance and set it
         // as the ContentView for this Activity.
         try {
-            gLView = new ModelSurfaceView(this);
+            gLView = new ModelSurfaceView(this,0);
             setContentView(gLView);
         } catch (Exception e) {
         }

@@ -1,14 +1,18 @@
 package com.superpichen.mainlibrary.Tools.JavaTools;
 
+import android.net.Uri;
+
 public class TujianPileLayoutInfo {
     private String name;
     private String id;
     private int img;
+    private Uri uri;
 
-    public TujianPileLayoutInfo(String name, String id, int img) {
+    public TujianPileLayoutInfo(String name, String id, int img,Uri uri) {
         this.name = name;
         this.id = id;
         this.img = img;
+        this.uri=uri;
     }
 
     public TujianPileLayoutInfo() {
@@ -36,5 +40,13 @@ public class TujianPileLayoutInfo {
 
     public void setImg(int img) {
         this.img = img;
+    }
+
+    public Uri getUri() {
+        return uri;
+    }
+
+    public void setUri(Uri uri) {
+        this.uri = uri;
     }
 }
