@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="200dp"
+    android:layout_height="300dp">
+
+    <RelativeLayout
+        android:id="@+id/RlTujianPileBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/yuanjiaojuxing_purple_shape"
+        android:alpha="0.7"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/wuyong1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称："
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"/>
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.XingchenzaichanggeFont
+            android:id="@+id/TvTujianPileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/wuyong1"
+            android:layout_alignTop="@id/wuyong1"
+            android:text="牛仔很忙"/>
+
+        <TextView
+            android:id="@+id/wuyong2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="编号："
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/TvTujianPileId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="525345"
+            android:layout_toEndOf="@id/wuyong2"
+            android:layout_alignTop="@id/wuyong2"/>
+
+        <ImageView
+            android:id="@+id/IvTujianPilePet"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/tujianniuzai"
+            android:layout_centerInParent="true"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

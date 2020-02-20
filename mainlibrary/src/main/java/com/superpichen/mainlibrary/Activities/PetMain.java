@@ -102,13 +102,19 @@ public class PetMain extends ModelActivity {
 
             }
         });
-        RlMainYouxiButton.setOnClickListener(new View.OnClickListener() {
+        RlMainShopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(PetMain.this,MallActivity.class);
                 intent.putExtra("getPoint",TvMainCode.getText().toString());
                 startActivityForResult(intent,FinalValue.GETPOINTFORMALLACTIVITY);
                 RlMainContainer.removeView(gLView);
+            }
+        });
+        RlMainZhuangyaunButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PetMain.this,TujianActivity.class));
             }
         });
         TvMainBiaoqian.setOnClickListener(new View.OnClickListener() {
