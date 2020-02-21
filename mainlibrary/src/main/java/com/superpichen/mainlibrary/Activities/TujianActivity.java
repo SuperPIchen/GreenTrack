@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.nightonke.boommenu.BoomMenuButton;
 import com.superpichen.mainlibrary.MyView.PileLayout;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
@@ -33,6 +34,7 @@ public class TujianActivity extends ModelActivity {
 
     private PileLayout PlTujianContainer;
     private RelativeLayout RlTujian3DContainer;
+    private BoomMenuButton BbTujianButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class TujianActivity extends ModelActivity {
         StatusBarUtil.setTranslucentForImageView(this,0,null);
         PlTujianContainer = findViewById(R.id.PlTujianContainer);
         RlTujian3DContainer = findViewById(R.id.RlTujian3DContainer);
+        BbTujianButton = (BoomMenuButton) findViewById(R.id.BbTujianButton);
         setPileLayout();
     }
 
@@ -50,28 +53,34 @@ public class TujianActivity extends ModelActivity {
         List<TujianPileLayoutInfo> data=new ArrayList<>();
         ContentUtils.provideAssets(this);
         data.add(new TujianPileLayoutInfo("牛仔很忙","231",R.drawable.tujianniuzai, Uri.parse("assets://" + getPackageName() + "/" + "models/cowboy.dae")));
+        data.add(new TujianPileLayoutInfo("云烟鸟鸟","234",R.drawable.tujianbird,Uri.parse("assets://" + getPackageName() + "/" + "models/bird.obj")));
+        data.add(new TujianPileLayoutInfo("熊猫贝贝","634",R.drawable.tujianpanda,Uri.parse("assets://" + getPackageName() + "/" + "models/panda.DAE")));
         data.add(new TujianPileLayoutInfo("鹿鹿无为","532",R.drawable.tujianlu,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
-        data.add(new TujianPileLayoutInfo("鹿鹿无为","25252555",R.drawable.tujianniuzai,Uri.parse("assets://" + getPackageName() + "/" + "models/fawn.obj")));
+        data.add(new TujianPileLayoutInfo("柴犬拉卡","262",R.drawable.tujiandog,Uri.parse("assets://" + getPackageName() + "/" + "models/dog.obj")));
+        data.add(new TujianPileLayoutInfo("猫爷祖宗","263",R.drawable.tujiancat,null));
+        data.add(new TujianPileLayoutInfo("火狐娇娇","522",R.drawable.tujianfox,null));
         TujianPileLayoutAdapter adapter=new TujianPileLayoutAdapter(data,this);
         PlTujianContainer.setAdapter(adapter);
+        PlTujianContainer.bringToFront();
     }
+
+    public int[] subButtonDrawables=new int[]{R.drawable.tujianbird,R.drawable.tujiancat};
+    public String[] subButtonTexts=new String[]{"凤凰","小猫"};
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+    }
+
+    public void remove3DModel(){
+        RlTujian3DContainer.removeView(gLView);
+    }
+
 
     /**
      * 以下为3D模型内容
      */
-    static {
-        URL.setURLStreamHandlerFactory(new AndroidURLStreamHandlerFactory());
-    }
     private Uri uri;
-    private void launchModelRendererActivity(Uri uri,int type) {
+    public void launchModelRendererActivity(Uri uri,int type) {
         this.uri=uri;
         // content provider case
         startShow(type);
@@ -150,13 +159,7 @@ public class TujianActivity extends ModelActivity {
 
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            hideSystemUIDelayed();
-        }
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

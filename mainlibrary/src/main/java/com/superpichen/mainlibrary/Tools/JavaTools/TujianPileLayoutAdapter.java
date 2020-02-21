@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.superpichen.mainlibrary.Activities.TujianActivity;
 import com.superpichen.mainlibrary.MyView.PileLayout;
 import com.superpichen.mainlibrary.R;
 
@@ -14,11 +15,11 @@ import java.util.List;
 
 public class TujianPileLayoutAdapter extends PileLayout.Adapter {
     private List<TujianPileLayoutInfo> data=new ArrayList<>();
-    private Context context;
+    private TujianActivity activity;
 
-    public TujianPileLayoutAdapter(List<TujianPileLayoutInfo> data, Context context) {
+    public TujianPileLayoutAdapter(List<TujianPileLayoutInfo> data,TujianActivity activity) {
         this.data = data;
-        this.context = context;
+        this.activity = activity;
     }
 
     @Override
@@ -62,8 +63,11 @@ public class TujianPileLayoutAdapter extends PileLayout.Adapter {
     @Override
     public void displaying(int position) {
         super.displaying(position);
+        if(data.get(position).getUri()!=null){
+            activity.remove3DModel();
+            activity.launchModelRendererActivity(data.get(position).getUri(),2);
+        }
     }
-
     @Override
     public void onItemClick(View view, int position) {
         super.onItemClick(view, position);

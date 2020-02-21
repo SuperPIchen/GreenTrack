@@ -7,13 +7,6 @@
     tools:context=".Activities.TujianActivity"
     android:background="@drawable/tujianbackground">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:src="@drawable/tujianzhaohuanzhen"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"/>
-
     <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
         android:id="@+id/wuyong1"
         android:layout_width="wrap_content"
@@ -38,7 +31,28 @@
         android:layout_height="600dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-150dp"/>
+        android:layout_marginBottom="-100dp"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tujiandogbackground"
+        android:adjustViewBounds="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/PlTujianContainer"
+        android:layout_marginEnd="30dp"/>
+
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/BbTujianButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        app:boom_inActionBar="false"
+        app:boom_button_color="@color/colorPrimary"
+        app:boom_button_pressed_color="@color/colorPrimary"/>
 
 
 </RelativeLayout>

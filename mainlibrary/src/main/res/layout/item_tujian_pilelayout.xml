@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:text="昵称："
             android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/black"/>
 
         <com.superpichen.mainlibrary.MyView.MyFonts.XingchenzaichanggeFont
             android:id="@+id/TvTujianPileName"
@@ -29,7 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/wuyong1"
             android:layout_alignTop="@id/wuyong1"
-            android:text="牛仔很忙"/>
+            android:textStyle="bold"
+            android:text="牛仔很忙"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:id="@+id/wuyong2"
@@ -38,7 +41,8 @@
             android:text="编号："
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:id="@+id/TvTujianPileId"
@@ -46,7 +50,8 @@
             android:layout_height="wrap_content"
             android:text="525345"
             android:layout_toEndOf="@id/wuyong2"
-            android:layout_alignTop="@id/wuyong2"/>
+            android:layout_alignTop="@id/wuyong2"
+            android:textColor="@android:color/black"/>
 
         <ImageView
             android:id="@+id/IvTujianPilePet"
