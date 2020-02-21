@@ -27,7 +27,11 @@ public class OfflineShopRecycleAdapter extends RecyclerView.Adapter<OfflineShopR
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.item_fraoffline_recycleview,parent,false);
-        return new ViewHolder(view);
+        if(view.getTag()==null){
+            ViewHolder viewHolder=new ViewHolder(view);
+            view.setTag(viewHolder);
+        }
+        return (ViewHolder) view.getTag();
     }
 
     @Override
@@ -42,16 +46,19 @@ public class OfflineShopRecycleAdapter extends RecyclerView.Adapter<OfflineShopR
         return data.size();
     }
 
+
     class ViewHolder extends RecyclerView.ViewHolder {
         NiceImageView NvFraOfflineImg;
         TextView TvFraOfflineTitle;
         TextView TvFraOfflineDizhi;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             NvFraOfflineImg = itemView.findViewById( R.id.NvFraOfflineImg );
             TvFraOfflineTitle = itemView.findViewById( R.id.TvFraOfflineTitle );
             TvFraOfflineDizhi = itemView.findViewById( R.id.TvFraOfflineDizhi );
+
         }
     }
+
 }

@@ -59,6 +59,16 @@ public class TujianPileLayoutAdapter extends PileLayout.Adapter {
         }
     }
 
+    @Override
+    public void displaying(int position) {
+        super.displaying(position);
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        super.onItemClick(view, position);
+    }
+
     private class ViewHolder{
         private TextView TvTujianPileName;
         private ImageView IvTujianPilePet;
