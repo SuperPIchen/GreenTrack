@@ -1,9 +1,8 @@
 package com.superpichen.mainlibrary.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -13,7 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.nightonke.boommenu.BoomButtons.BoomButton;
+import com.nightonke.boommenu.BoomButtons.BoomButtonBuilder;
+import com.nightonke.boommenu.BoomButtons.HamButton;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
+import com.nightonke.boommenu.OnBoomListener;
 import com.superpichen.mainlibrary.MyView.PileLayout;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
@@ -21,12 +25,10 @@ import com.superpichen.mainlibrary.Tools.JavaTools.TujianPileLayoutAdapter;
 import com.superpichen.mainlibrary.Tools.JavaTools.TujianPileLayoutInfo;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.ExampleSceneLoader;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.SceneLoader;
-import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.android.AndroidURLStreamHandlerFactory;
 import com.superpichen.mainlibrary.Tools.ThreeD.engine.util.android.ContentUtils;
 import com.superpichen.mainlibrary.Tools.ThreeD.view.ModelActivity;
 import com.superpichen.mainlibrary.Tools.ThreeD.view.ModelSurfaceView;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,8 +44,38 @@ public class TujianActivity extends ModelActivity {
         StatusBarUtil.setTranslucentForImageView(this,0,null);
         PlTujianContainer = findViewById(R.id.PlTujianContainer);
         RlTujian3DContainer = findViewById(R.id.RlTujian3DContainer);
-        BbTujianButton = (BoomMenuButton) findViewById(R.id.BbTujianButton);
+        BbTujianButton = findViewById(R.id.BbTujianButton);
         setPileLayout();
+        setBoomMenuButton();
+    }
+
+    private void setBoomMenuButton() {
+        HamButton.Builder builderShow=new HamButton.Builder()
+                .normalImageRes(R.drawable.tujianshow)
+                .normalText("出场")
+                .subNormalText("皇上您要雨露均沾啊")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+
+                    }
+                });
+        BbTujianButton.addBuilder(builderShow);
+        HamButton.Builder builderName=new HamButton.Builder()
+                .normalImageRes(R.drawable.tujianname)
+                .normalText("更改昵称")
+                .subNormalText("赋予碳宠物有趣的灵魂");
+        BbTujianButton.addBuilder(builderName);
+        HamButton.Builder builderDuihuan=new HamButton.Builder()
+                .normalImageRes(R.drawable.tujianduihuan)
+                .normalText("兑换碳宠物")
+                .subNormalText("让漂泊的萌宠有个家");
+        BbTujianButton.addBuilder(builderDuihuan);
+        HamButton.Builder builderGift=new HamButton.Builder()
+                .normalImageRes(R.drawable.tujiangift)
+                .normalText("赠送给朋友")
+                .subNormalText("赠人玫瑰，手有余香");
+        BbTujianButton.addBuilder(builderGift);
     }
 
     /**
@@ -62,13 +94,6 @@ public class TujianActivity extends ModelActivity {
         TujianPileLayoutAdapter adapter=new TujianPileLayoutAdapter(data,this);
         PlTujianContainer.setAdapter(adapter);
         PlTujianContainer.bringToFront();
-    }
-
-    public int[] subButtonDrawables=new int[]{R.drawable.tujianbird,R.drawable.tujiancat};
-    public String[] subButtonTexts=new String[]{"凤凰","小猫"};
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
     }
 
     public void remove3DModel(){
