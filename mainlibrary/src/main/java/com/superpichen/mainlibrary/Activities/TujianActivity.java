@@ -2,18 +2,23 @@ package com.superpichen.mainlibrary.Activities;
 
 import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.nightonke.boommenu.BoomButtons.BoomButton;
-import com.nightonke.boommenu.BoomButtons.BoomButtonBuilder;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
@@ -49,7 +54,41 @@ public class TujianActivity extends ModelActivity {
         setBoomMenuButton();
     }
 
+    Uri returnUri;
+    AlertDialog dialog;
     private void setBoomMenuButton() {
+        BbTujianButton.setAlpha(0.8f);
+        BbTujianButton.setOnBoomListener(new OnBoomListener() {
+            @Override
+            public void onClicked(int index, BoomButton boomButton) {
+
+            }
+
+            @Override
+            public void onBackgroundClick() {
+
+            }
+
+            @Override
+            public void onBoomWillHide() {
+                RlTujian3DContainer.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onBoomDidHide() {
+
+            }
+
+            @Override
+            public void onBoomWillShow() {
+                RlTujian3DContainer.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onBoomDidShow() {
+
+            }
+        });
         HamButton.Builder builderShow=new HamButton.Builder()
                 .normalImageRes(R.drawable.tujianshow)
                 .normalText("出场")
@@ -57,19 +96,65 @@ public class TujianActivity extends ModelActivity {
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-
+                        returnUri=data.get(position).getUri();
+                        PetMain.uri=returnUri;
                     }
                 });
         BbTujianButton.addBuilder(builderShow);
         HamButton.Builder builderName=new HamButton.Builder()
                 .normalImageRes(R.drawable.tujianname)
                 .normalText("更改昵称")
-                .subNormalText("赋予碳宠物有趣的灵魂");
+                .subNormalText("赋予碳宠物有趣的灵魂")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        View view=View.inflate(TujianActivity.this,R.layout.dialog_tujian_changname,null);
+                        EditText EtTujianChangename =view.findViewById(R.id.EtTujianChangename);
+                        ImageView IvTujianChangenameYes =view.findViewById(R.id.IvTujianChangenameYes);
+                        ImageView IvTujianChangenameCancel = view.findViewById(R.id.IvTujianChangenameCancel);
+                        Typeface tf = Typeface.createFromAsset(TujianActivity.this.getAssets(), "fonts/星辰在唱歌.ttf");
+                        EtTujianChangename.setTypeface(tf);
+                        IvTujianChangenameYes.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String name=EtTujianChangename.getText().toString();
+                                if(!name.equals("")){
+                                    data.get(position).setName(name);
+                                    dialog.dismiss();
+                                    PlTujianContainer.notifyDataSetChanged();
+                                }else
+                                    Toast.makeText(TujianActivity.this,"请先输入昵称！",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        IvTujianChangenameCancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog=new AlertDialog.Builder(TujianActivity.this,R.style.Translucent_NoTitle)
+                                .setView(view)
+                                .show();
+                    }
+                });
         BbTujianButton.addBuilder(builderName);
         HamButton.Builder builderDuihuan=new HamButton.Builder()
                 .normalImageRes(R.drawable.tujianduihuan)
                 .normalText("兑换碳宠物")
-                .subNormalText("让漂泊的萌宠有个家");
+                .subNormalText("让漂泊的萌宠有个家")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        View view=View.inflate(TujianActivity.this,R.layout.dialog_tujian_duihuan,null);
+                        EditText EtDuihuanNumber = view.findViewById(R.id.EtDuihuanNumber);
+                        ImageView IvDuihuanButton = view.findViewById(R.id.IvDuihuanButton);
+                        Typeface tf = Typeface.createFromAsset(TujianActivity.this.getAssets(), "fonts/汉标双剑粗体.ttf");
+                        EtDuihuanNumber.setTypeface(tf);
+                        dialog=new AlertDialog.Builder(TujianActivity.this,R.style.Translucent_NoTitle)
+                                .setView(view)
+                                .show();
+                    }
+                });
         BbTujianButton.addBuilder(builderDuihuan);
         HamButton.Builder builderGift=new HamButton.Builder()
                 .normalImageRes(R.drawable.tujiangift)
@@ -78,11 +163,18 @@ public class TujianActivity extends ModelActivity {
         BbTujianButton.addBuilder(builderGift);
     }
 
+    private int position=0;
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    List<TujianPileLayoutInfo> data=new ArrayList<>();
+    TujianPileLayoutAdapter adapter;
     /**
      * 设置图鉴卡片
      */
     private void setPileLayout() {
-        List<TujianPileLayoutInfo> data=new ArrayList<>();
         ContentUtils.provideAssets(this);
         data.add(new TujianPileLayoutInfo("牛仔很忙","231",R.drawable.tujianniuzai, Uri.parse("assets://" + getPackageName() + "/" + "models/cowboy.dae")));
         data.add(new TujianPileLayoutInfo("云烟鸟鸟","234",R.drawable.tujianbird,Uri.parse("assets://" + getPackageName() + "/" + "models/bird.obj")));
@@ -91,7 +183,7 @@ public class TujianActivity extends ModelActivity {
         data.add(new TujianPileLayoutInfo("柴犬拉卡","262",R.drawable.tujiandog,Uri.parse("assets://" + getPackageName() + "/" + "models/dog.obj")));
         data.add(new TujianPileLayoutInfo("猫爷祖宗","263",R.drawable.tujiancat,null));
         data.add(new TujianPileLayoutInfo("火狐娇娇","522",R.drawable.tujianfox,null));
-        TujianPileLayoutAdapter adapter=new TujianPileLayoutAdapter(data,this);
+        adapter=new TujianPileLayoutAdapter(data,this);
         PlTujianContainer.setAdapter(adapter);
         PlTujianContainer.bringToFront();
     }

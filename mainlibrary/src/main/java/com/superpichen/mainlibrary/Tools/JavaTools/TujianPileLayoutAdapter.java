@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.superpichen.mainlibrary.Activities.TujianActivity;
 import com.superpichen.mainlibrary.MyView.PileLayout;
@@ -67,6 +68,7 @@ public class TujianPileLayoutAdapter extends PileLayout.Adapter {
             activity.remove3DModel();
             activity.launchModelRendererActivity(data.get(position).getUri(),2);
         }
+        activity.setPosition(position);
     }
     @Override
     public void onItemClick(View view, int position) {

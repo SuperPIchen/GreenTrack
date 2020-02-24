@@ -114,7 +114,8 @@ public class PetMain extends ModelActivity {
         RlMainZhuangyaunButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PetMain.this,TujianActivity.class));
+                startActivityForResult(new Intent(PetMain.this,TujianActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
+                RlMainContainer.removeView(gLView);
             }
         });
         TvMainBiaoqian.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +138,8 @@ public class PetMain extends ModelActivity {
                 TvMainCode.setText(text);
                 break;
             case FinalValue.GETPOINTFORMALLACTIVITY:
+                break;
+            case FinalValue.GETPOINTFORTUJIANACTIVITY:
                 break;
         }
         startShow(0);
@@ -412,7 +415,7 @@ public class PetMain extends ModelActivity {
     static {
         URL.setURLStreamHandlerFactory(new AndroidURLStreamHandlerFactory());
     }
-    private Uri uri;
+    public static Uri uri;
     private void launchModelRendererActivity(Uri uri,int type) {
         this.uri=uri;
         // content provider case
