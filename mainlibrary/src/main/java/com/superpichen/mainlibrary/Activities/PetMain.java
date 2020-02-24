@@ -25,6 +25,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nightonke.boommenu.Animation.BoomEnum;
+import com.nightonke.boommenu.BoomButtons.ButtonPlaceAlignmentEnum;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
+import com.nightonke.boommenu.BoomButtons.TextInsideCircleButton;
+import com.nightonke.boommenu.BoomButtons.TextOutsideCircleButton;
+import com.nightonke.boommenu.BoomMenuButton;
 import com.superpichen.mainlibrary.MyView.MyFonts.CangerjinkaiFont;
 import com.superpichen.mainlibrary.MyView.PageTurn.MimicPageTurnView;
 import com.superpichen.mainlibrary.MyView.PageTurn.TextPageAdapter;
@@ -56,7 +62,7 @@ public class PetMain extends ModelActivity {
     private RelativeLayout RlMainDaohangButton;
     private RelativeLayout RlMainPaopaoContainer;
     private TextView TvMainBiaoqian;
-
+    private BoomMenuButton BbPetZhuangyuan;
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -64,16 +70,17 @@ public class PetMain extends ModelActivity {
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        TvMainId = (TextView)findViewById( R.id.TvMainId );
-        TvMainCode = (CangerjinkaiFont)findViewById( R.id.TvMainCode );
+        TvMainId = findViewById( R.id.TvMainId );
+        TvMainCode = findViewById( R.id.TvMainCode );
         turnView=findViewById(R.id.PtMainTip);
-        RlMainContainer = (RelativeLayout) findViewById(R.id.RlMainContainer);
-        RlMainYouxiButton = (RelativeLayout) findViewById(R.id.RlMainYouxiButton);
-        RlMainShopButton = (RelativeLayout) findViewById(R.id.RlMainShopButton);
-        RlMainZhuangyaunButton = (RelativeLayout) findViewById(R.id.RlMainZhuangyaunButton);
-        RlMainDaohangButton = (RelativeLayout) findViewById(R.id.RlMainDaohangButton);
-        RlMainPaopaoContainer = (RelativeLayout) findViewById(R.id.RlMainPaopaoContainer);
-        TvMainBiaoqian = (TextView) findViewById(R.id.TvMainBiaoqian);
+        RlMainContainer =  findViewById(R.id.RlMainContainer);
+        RlMainYouxiButton =  findViewById(R.id.RlMainYouxiButton);
+        RlMainShopButton =  findViewById(R.id.RlMainShopButton);
+        RlMainZhuangyaunButton =  findViewById(R.id.RlMainZhuangyaunButton);
+        RlMainDaohangButton =  findViewById(R.id.RlMainDaohangButton);
+        RlMainPaopaoContainer =  findViewById(R.id.RlMainPaopaoContainer);
+        TvMainBiaoqian =  findViewById(R.id.TvMainBiaoqian);
+        BbPetZhuangyuan = findViewById(R.id.BbPetZhuangyuan);
     }
 
     @Override
@@ -85,12 +92,48 @@ public class PetMain extends ModelActivity {
         setTip();
         setAnimations();
         set3DModel();
+        setBoomMenuButton();
         setOnClick();
         /**
          * 置顶一些控件，防止被挡住，无法触发点击事件
          */
         RlMainPaopaoContainer.bringToFront();
         TvMainBiaoqian.bringToFront();
+    }
+
+    /**
+     * 设置二级菜单按钮
+     */
+    private void setBoomMenuButton() {
+        BbPetZhuangyuan.setEnabled(false);
+        BbPetZhuangyuan.setButtonPlaceAlignmentEnum(ButtonPlaceAlignmentEnum.Bottom);
+        BbPetZhuangyuan.setButtonBottomMargin(1000);
+        BbPetZhuangyuan.setBoomEnum(BoomEnum.HORIZONTAL_THROW_2);
+        TextOutsideCircleButton.Builder builderTujian = new TextOutsideCircleButton.Builder()
+                .normalImageRes(R.drawable.maintujianbutton)
+                .normalText("宠物图鉴")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivityForResult(new Intent(PetMain.this,TujianActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
+                        RlMainContainer.removeView(gLView);
+                    }
+                });
+        BbPetZhuangyuan.addBuilder(builderTujian);
+        TextOutsideCircleButton.Builder builderJiayuan = new TextOutsideCircleButton.Builder()
+                .normalImageRes(R.drawable.mainjiayuanbutton)
+                .normalText("宠物家园");
+        BbPetZhuangyuan.addBuilder(builderJiayuan);
+        TextOutsideCircleButton.Builder builderChengjiu = new TextOutsideCircleButton.Builder()
+                .normalImageRes(R.drawable.mainchengjiubutton)
+                .normalText("用户成就")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(PetMain.this,AchievementActivity.class));
+                    }
+                });
+        BbPetZhuangyuan.addBuilder(builderChengjiu);
     }
 
     private boolean isPaopaoVisible =false;
@@ -108,13 +151,6 @@ public class PetMain extends ModelActivity {
                 Intent intent=new Intent(PetMain.this,MallActivity.class);
                 intent.putExtra("getPoint",TvMainCode.getText().toString());
                 startActivityForResult(intent,FinalValue.GETPOINTFORMALLACTIVITY);
-                RlMainContainer.removeView(gLView);
-            }
-        });
-        RlMainZhuangyaunButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityForResult(new Intent(PetMain.this,TujianActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
                 RlMainContainer.removeView(gLView);
             }
         });
@@ -148,6 +184,7 @@ public class PetMain extends ModelActivity {
     public void clickModel(){
         if(!isPaopaoVisible){
             RlMainPaopaoContainer.setVisibility(View.VISIBLE);
+            BbPetZhuangyuan.setEnabled(true);
             RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSet);
             RlMainShopButton.startAnimation(shopPaopaoAnimatorSet);
             RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSet);
@@ -157,6 +194,7 @@ public class PetMain extends ModelActivity {
             handler.sendEmptyMessageDelayed(7,900);
             handler.sendEmptyMessageDelayed(8,1100);
         }else {
+            BbPetZhuangyuan.setEnabled(false);
             RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSetBack);
             RlMainShopButton.startAnimation(shopPaopaoAnimatorSetBack);
             RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSetBack);

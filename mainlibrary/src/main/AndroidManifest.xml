@@ -3,7 +3,8 @@
     package="com.superpichen.mainlibrary">
 
     <application>
-        <activity android:name=".Activities.TujianActivity"></activity>
+        <activity android:name=".Activities.AchievementActivity"></activity>
+        <activity android:name=".Activities.TujianActivity" />
         <activity android:name=".Activities.MallActivity" />
         <activity android:name=".Activities.GetPointsActivity" />
         <activity android:name=".Activities.PetMain" />
