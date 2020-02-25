@@ -49,4 +49,10 @@ dependencies {
     implementation 'com.nightonke:boommenu:2.1.1'
 
     implementation 'com.github.GeniusLiu:GestureViewBinder:1.0.1'
+
+    implementation 'com.dzaitsev.android.widget:radarchartview:0.1.0'
+
+    implementation 'me.zhouzhuo.zzhorizontalprogressbar:zz-horizontal-progressbar:1.1.0'
+
+    implementation 'com.nightonke:jellytogglebutton:1.0.2'
 }

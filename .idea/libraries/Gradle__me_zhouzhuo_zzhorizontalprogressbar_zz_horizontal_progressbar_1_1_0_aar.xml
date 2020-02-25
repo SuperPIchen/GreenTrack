@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: me.zhouzhuo.zzhorizontalprogressbar:zz-horizontal-progressbar:1.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e7fd541acaa2bcb8e215dee17ccd0a1f/zz-horizontal-progressbar-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e7fd541acaa2bcb8e215dee17ccd0a1f/zz-horizontal-progressbar-1.1.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.zhouzhuo.zzhorizontalprogressbar/zz-horizontal-progressbar/1.1.0/9800a0e90ef552226c9a5d2426b420e104013f34/zz-horizontal-progressbar-1.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.zhouzhuo.zzhorizontalprogressbar/zz-horizontal-progressbar/1.1.0/5f8090d2745f50b0ac469cf4a0f2009955383039/zz-horizontal-progressbar-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

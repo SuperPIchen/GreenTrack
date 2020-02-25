@@ -1,9 +1,424 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.AchievementActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/achievementzonglan_background"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/wuyong1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_centerHorizontal="true">
+
+                <com.superpichen.mainlibrary.MyView.MyFonts.DongwuheitiFont
+                    android:id="@+id/wuyong2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="成就"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40sp"/>
+
+                <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+                    android:id="@id/wuyong2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textSize="40sp"
+                    android:text="  总览"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"/>
+
+            </LinearLayout>
+
+            <com.dzaitsev.android.widget.RadarChartView
+                android:id="@+id/CvAchievement"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_centerHorizontal="true"
+                android:padding="30dp"
+                app:axisColor="#22737b"
+                app:axisMax="280"
+                app:chartColor="#C8FF4081"
+                app:chartStyle="stroke"
+                app:chartWidth="3dp"
+                app:circlesOnly="false"
+                app:endColor="#9BEBDB"
+                app:startColor="#5f9ca1"
+                app:textSize="10sp"
+                android:layout_below="@id/wuyong1" />
+
+            <RelativeLayout
+                android:id="@+id/wuyong3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/CvAchievement"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <LinearLayout
+                    android:id="@+id/wuyong4"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:src="@drawable/achievementpetcount"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="宠物"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"/>
+
+                </LinearLayout>
+
+
+
+                <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                    android:id="@+id/PbAchievementPetCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:zpb_open_gradient="true"
+                    app:zpb_gradient_from="#E4CDA3"
+                    app:zpb_gradient_to="#EFD02F"
+                    app:zpb_padding="0dp"
+                    app:zpb_bg_color="#44000000"
+                    app:zpb_max="10"
+                    app:zpb_progress="3"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/wuyong4"
+                    android:layout_toStartOf="@id/TvAchievementPetCountPercent"/>
+
+                <TextView
+                    android:id="@+id/TvAchievementPetCountPercent"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="30%"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wuyong5"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/wuyong3"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:id="@+id/wuyong6"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:src="@drawable/achievementjiantancount"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="减碳"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"/>
+
+                </LinearLayout>
+
+
+
+                <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                    android:id="@+id/PbAchievementJiantanCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:zpb_open_gradient="true"
+                    app:zpb_gradient_from="#D3EDBF"
+                    app:zpb_gradient_to="#3ABA93"
+                    app:zpb_padding="0dp"
+                    app:zpb_bg_color="#44000000"
+                    app:zpb_max="10"
+                    app:zpb_progress="5"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/wuyong6"
+                    android:layout_toStartOf="@id/TvAchievementJiantanCountPercent"/>
+
+                <TextView
+                    android:id="@+id/TvAchievementJiantanCountPercent"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="50%"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wuyong7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/wuyong5"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:id="@+id/wuyong8"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:src="@drawable/achievementxiaofeicount"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="消费"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"/>
+
+                </LinearLayout>
+
+
+
+                <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                    android:id="@+id/PbAchievementXiaofeiCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:zpb_open_gradient="true"
+                    app:zpb_gradient_from="#E1C0BD"
+                    app:zpb_gradient_to="#E56D57"
+                    app:zpb_padding="0dp"
+                    app:zpb_bg_color="#44000000"
+                    app:zpb_max="10"
+                    app:zpb_progress="2"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/wuyong8"
+                    android:layout_toStartOf="@id/TvAchievementXiaofeiCountPercent"/>
+
+                <TextView
+                    android:id="@+id/TvAchievementXiaofeiCountPercent"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="20%"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wuyong11"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/wuyong9"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:id="@+id/wuyong12"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:src="@drawable/achievementyouxicount"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="游戏"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"/>
+
+                </LinearLayout>
+
+
+
+                <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                    android:id="@+id/PbAchievementYouxiCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:zpb_open_gradient="true"
+                    app:zpb_gradient_from="#FEBFAE"
+                    app:zpb_gradient_to="#28E3AA"
+                    app:zpb_padding="0dp"
+                    app:zpb_bg_color="#44000000"
+                    app:zpb_max="10"
+                    app:zpb_progress="4"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/wuyong12"
+                    android:layout_toStartOf="@id/TvAchievementYouxiCountPercent"/>
+
+                <TextView
+                    android:id="@+id/TvAchievementYouxiCountPercent"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="40%"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wuyong13"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/wuyong11"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:id="@+id/wuyong14"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:src="@drawable/achievementshejiaocount"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="社交"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"/>
+
+                </LinearLayout>
+
+
+
+                <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                    android:id="@+id/PbAchievementShejiaoCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:zpb_open_gradient="true"
+                    app:zpb_gradient_from="#60DED2"
+                    app:zpb_gradient_to="#E46D56"
+                    app:zpb_padding="0dp"
+                    app:zpb_bg_color="#44000000"
+                    app:zpb_max="10"
+                    app:zpb_progress="6"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/wuyong14"
+                    android:layout_toStartOf="@id/TvAchievementShejiaoCountPercent"/>
+
+                <TextView
+                    android:id="@+id/TvAchievementShejiaoCountPercent"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="60%"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wuyong9"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/wuyong7"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:id="@+id/wuyong10"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:src="@drawable/achievementchuxingcount"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="出行"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"/>
+
+                </LinearLayout>
+
+
+
+                <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                    android:id="@+id/PbAchievementChuxingCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:zpb_open_gradient="true"
+                    app:zpb_gradient_from="#ECB8AA"
+                    app:zpb_gradient_to="#4EC0E9"
+                    app:zpb_padding="0dp"
+                    app:zpb_bg_color="#44000000"
+                    app:zpb_max="10"
+                    app:zpb_progress="6"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/wuyong10"
+                    android:layout_toStartOf="@id/TvAchievementChuxingCountPercent"/>
+
+                <TextView
+                    android:id="@+id/TvAchievementChuxingCountPercent"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="60%"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.nightonke.jellytogglebutton.JellyToggleButton
+        android:id="@+id/TbAchievementButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        app:jtbEaseType="ease_in_out_circ"/>
+
+
+</RelativeLayout>
