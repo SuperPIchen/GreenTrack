@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -13,6 +12,7 @@ import com.dzaitsev.android.widget.RadarChartView;
 import com.jarvislau.destureviewbinder.GestureViewBinder;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
 import com.nightonke.jellytogglebutton.State;
+import com.superpichen.mainlibrary.MyView.MyRadarChartView;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.AchievementInfo;
@@ -29,7 +29,7 @@ import static android.graphics.Paint.Style.FILL;
 
 public class AchievementActivity extends AppCompatActivity {
     private JellyToggleButton TbAchievementButton;
-    private RadarChartView CvAchievement;
+    private MyRadarChartView CvAchievement;
     private ZzHorizontalProgressBar PbAchievementPetCount;
     private TextView TvAchievementPetCountPercent;
     private ZzHorizontalProgressBar PbAchievementJiantanCount;

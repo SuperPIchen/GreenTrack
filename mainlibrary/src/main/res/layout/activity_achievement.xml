@@ -19,8 +19,6 @@
             android:background="@drawable/achievementshejiaocount"
             android:layout_centerInParent="true">
 
-
-
         </RelativeLayout>
     </RelativeLayout>
 
@@ -63,7 +61,7 @@
 
             </LinearLayout>
 
-            <com.dzaitsev.android.widget.RadarChartView
+            <com.superpichen.mainlibrary.MyView.MyRadarChartView
                 android:id="@+id/CvAchievement"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
@@ -77,7 +75,7 @@
                 app:circlesOnly="false"
                 app:endColor="#9BEBDB"
                 app:startColor="#5f9ca1"
-                app:textSize="10sp"
+                app:textSize="12sp"
                 android:layout_below="@id/wuyong1" />
 
             <RelativeLayout
@@ -351,7 +349,8 @@
                     app:zpb_max="100"
                     app:zpb_open_gradient="true"
                     app:zpb_padding="0dp"
-                    app:zpb_progress="60" />
+                    app:zpb_progress="60"
+                    android:layout_centerVertical="true"/>
 
                 <TextView
                     android:id="@+id/TvAchievementShejiaoCountPercent"
