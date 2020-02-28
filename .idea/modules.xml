@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GreenTrack.iml" filepath="$PROJECT_DIR$/GreenTrack.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mainlibrary/mainlibrary.iml" filepath="$PROJECT_DIR$/mainlibrary/mainlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GreenTrack.iml" filepath="$PROJECT_DIR$/GreenTrack.iml" group="GreenTrack" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="GreenTrack/app" />
+      <module fileurl="file://$PROJECT_DIR$/mainlibrary/mainlibrary.iml" filepath="$PROJECT_DIR$/mainlibrary/mainlibrary.iml" group="GreenTrack/mainlibrary" />
     </modules>
   </component>
 </project>

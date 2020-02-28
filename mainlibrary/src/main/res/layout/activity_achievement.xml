@@ -4,18 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.AchievementActivity">
+    tools:context=".Activities.AchievementActivity"
+    android:background="@drawable/achievementzonglan_background">
 
     <RelativeLayout
+        android:id="@+id/RlAchievementViewgroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/achievementzonglan_background"/>
+        android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/RlAchievementView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/achievementshejiaocount"
+            android:layout_centerInParent="true">
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/SvAchievementZonglanContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="32dp">
+        android:layout_marginTop="32dp"
+        android:visibility="invisible">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -105,8 +119,8 @@
                     app:zpb_gradient_to="#EFD02F"
                     app:zpb_padding="0dp"
                     app:zpb_bg_color="#44000000"
-                    app:zpb_max="10"
-                    app:zpb_progress="3"
+                    app:zpb_max="100"
+                    app:zpb_progress="30"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/wuyong4"
                     android:layout_toStartOf="@id/TvAchievementPetCountPercent"/>
@@ -162,8 +176,8 @@
                     app:zpb_gradient_to="#3ABA93"
                     app:zpb_padding="0dp"
                     app:zpb_bg_color="#44000000"
-                    app:zpb_max="10"
-                    app:zpb_progress="5"
+                    app:zpb_max="100"
+                    app:zpb_progress="50"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/wuyong6"
                     android:layout_toStartOf="@id/TvAchievementJiantanCountPercent"/>
@@ -219,8 +233,8 @@
                     app:zpb_gradient_to="#E56D57"
                     app:zpb_padding="0dp"
                     app:zpb_bg_color="#44000000"
-                    app:zpb_max="10"
-                    app:zpb_progress="2"
+                    app:zpb_max="100"
+                    app:zpb_progress="20"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/wuyong8"
                     android:layout_toStartOf="@id/TvAchievementXiaofeiCountPercent"/>
@@ -276,8 +290,8 @@
                     app:zpb_gradient_to="#28E3AA"
                     app:zpb_padding="0dp"
                     app:zpb_bg_color="#44000000"
-                    app:zpb_max="10"
-                    app:zpb_progress="4"
+                    app:zpb_max="100"
+                    app:zpb_progress="40"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/wuyong12"
                     android:layout_toStartOf="@id/TvAchievementYouxiCountPercent"/>
@@ -323,21 +337,21 @@
                 </LinearLayout>
 
 
-
                 <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
                     android:id="@+id/PbAchievementShejiaoCount"
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    app:zpb_open_gradient="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_toStartOf="@id/TvAchievementShejiaoCountPercent"
+                    android:layout_toEndOf="@id/wuyong14"
+                    app:zpb_bg_color="#44000000"
                     app:zpb_gradient_from="#60DED2"
                     app:zpb_gradient_to="#E46D56"
+                    app:zpb_max="100"
+                    app:zpb_open_gradient="true"
                     app:zpb_padding="0dp"
-                    app:zpb_bg_color="#44000000"
-                    app:zpb_max="10"
-                    app:zpb_progress="6"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/wuyong14"
-                    android:layout_toStartOf="@id/TvAchievementShejiaoCountPercent"/>
+                    app:zpb_progress="60" />
 
                 <TextView
                     android:id="@+id/TvAchievementShejiaoCountPercent"
@@ -390,8 +404,8 @@
                     app:zpb_gradient_to="#4EC0E9"
                     app:zpb_padding="0dp"
                     app:zpb_bg_color="#44000000"
-                    app:zpb_max="10"
-                    app:zpb_progress="6"
+                    app:zpb_max="100"
+                    app:zpb_progress="60"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/wuyong10"
                     android:layout_toStartOf="@id/TvAchievementChuxingCountPercent"/>
@@ -418,6 +432,15 @@
         android:layout_marginTop="55dp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="10dp"
+        app:jtbLeftText="总览"
+        app:jtbRightText="详情"
+        app:jtbLeftTextSize="12sp"
+        app:jtbRightTextSize="12sp"
+        app:jtbTextMarginLeft="2dp"
+        app:jtbTextMarginRight="2dp"
+        app:jtbTextMarginBottom="2dp"
+        app:jtbTextMarginTop="2dp"
+        app:jtbTextMarginCenter="4dp"
         app:jtbEaseType="ease_in_out_circ"/>
 
 

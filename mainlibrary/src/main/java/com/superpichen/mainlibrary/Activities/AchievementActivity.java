@@ -3,10 +3,16 @@ package com.superpichen.mainlibrary.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.dzaitsev.android.widget.RadarChartView;
+import com.jarvislau.destureviewbinder.GestureViewBinder;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
+import com.nightonke.jellytogglebutton.State;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.AchievementInfo;
@@ -36,7 +42,9 @@ public class AchievementActivity extends AppCompatActivity {
     private TextView TvAchievementShejiaoCountPercent;
     private ZzHorizontalProgressBar PbAchievementChuxingCount;
     private TextView TvAchievementChuxingCountPercent;
-
+    private ScrollView SvAchievementZonglanContainer;
+    private RelativeLayout RlAchievementViewgroup;
+    private RelativeLayout RlAchievementView;
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -59,7 +67,9 @@ public class AchievementActivity extends AppCompatActivity {
         TvAchievementShejiaoCountPercent = findViewById( R.id.TvAchievementShejiaoCountPercent );
         PbAchievementChuxingCount = findViewById( R.id.PbAchievementChuxingCount );
         TvAchievementChuxingCountPercent = findViewById( R.id.TvAchievementChuxingCountPercent );
-    }
+        SvAchievementZonglanContainer = findViewById(R.id.SvAchievementZonglanContainer);
+        RlAchievementViewgroup = findViewById(R.id.RlAchievementViewgroup);
+        RlAchievementView = findViewById(R.id.RlAchievementView);    }
 
     /**
      * Handle button click events<br />
@@ -76,22 +86,46 @@ public class AchievementActivity extends AppCompatActivity {
         setData();
         setRadarChartView();
         setProgress();
+        setGestureViewBinder();
+        setOnclick();
+    }
+
+    /**
+     * 设置缩放视图
+     */
+    private void setGestureViewBinder() {
+        GestureViewBinder bind=GestureViewBinder.bind(this,RlAchievementViewgroup,RlAchievementView);
+        bind.setFullGroup(true);
+    }
+
+    /**
+     * 设置监听
+     */
+    private void setOnclick() {
+        TbAchievementButton.setOnStateChangeListener(new JellyToggleButton.OnStateChangeListener() {
+            @Override
+            public void onStateChange(float process, State state, JellyToggleButton jtb) {
+                if(state.equals(State.RIGHT))
+                    SvAchievementZonglanContainer.setVisibility(View.INVISIBLE);
+                if(state.equals(State.LEFT))
+                    SvAchievementZonglanContainer.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     List<AchievementInfo> data=new ArrayList<>();
-    int sum;
-    int chongwuCount=0;
-    int jiantanCount=0;
-    int xiaofeiCount=0;
-    int chuxingCount=0;
-    int youxiCount=0;
-    int shejiaoCount=0;
-    float chongwuF;
-    float jiantanF;
-    float xiaofeiF;
-    float chuxingF;
-    float youxiF;
-    float shejiaoF;
+    int chongwuTrue=0;
+    int jiantanTrue=0;
+    int xiaofeiTrue=0;
+    int chuxingTrue=0;
+    int youxiTrue=0;
+    int shejiaoTrue=0;
+    int chongwuF;
+    int jiantanF;
+    int xiaofeiF;
+    int chuxingF;
+    int youxiF;
+    int shejiaoF;
     /**
      * 设置数据
      */
@@ -135,35 +169,53 @@ public class AchievementActivity extends AppCompatActivity {
         data.add(new AchievementInfo("社交小能手",false, FinalValue.ACHIEVEMENTTYPEOFSHEJIAO));
         data.add(new AchievementInfo("蜘蛛网",true, FinalValue.ACHIEVEMENTTYPEOFSHEJIAO));
         data.add(new AchievementInfo("爱的供养",false, FinalValue.ACHIEVEMENTTYPEOFSHEJIAO));
-        sum=data.size();
+        int chongwuCount=0;
+        int jiantanCount=0;
+        int xiaofeiCount=0;
+        int chuxingCount=0;
+        int youxiCount=0;
+        int shejiaoCount=0;
         for(int i=0;i<data.size();i++){
-            switch (data.get(i).getType()){
+            AchievementInfo info=data.get(i);
+            switch (info.getType()){
                 case FinalValue.ACHIEVEMENTTYPEOFCHONGWU:
                     chongwuCount++;
+                    if(info.isGet())
+                        chongwuTrue++;
                     break;
                 case FinalValue.ACHIEVEMENTTYPEOFJIANTAN:
                     jiantanCount++;
+                    if(info.isGet())
+                        jiantanTrue++;
                     break;
                 case FinalValue.ACHIEVEMENTTYPEOFXIAOFEI:
                     xiaofeiCount++;
+                    if(info.isGet())
+                        xiaofeiTrue++;
                     break;
                 case FinalValue.ACHIEVEMENTTYPEOFCHUXING:
                     chuxingCount++;
+                    if(info.isGet())
+                        chuxingTrue++;
                     break;
                 case FinalValue.ACHIEVEMENTTYPEOFYOUXI:
                     youxiCount++;
+                    if(info.isGet())
+                        youxiTrue++;
                     break;
                 case FinalValue.ACHIEVEMENTTYPEOFSHEJIAO:
                     shejiaoCount++;
+                    if(info.isGet())
+                        shejiaoTrue++;
                     break;
             }
         }
-        chongwuF=(float) 1.*chongwuCount/sum;
-        jiantanF=(float)1.*jiantanCount/sum;
-        xiaofeiF=(float)1.*xiaofeiCount/sum;
-        chuxingF=(float)1.*chuxingCount/sum;
-        youxiF=(float)1.*youxiCount/sum;
-        shejiaoF=(float)1*shejiaoCount/sum;
+        chongwuF=100*chongwuTrue/chongwuCount;
+        jiantanF=100*jiantanTrue/jiantanCount;
+        xiaofeiF=100*xiaofeiTrue/xiaofeiCount;
+        chuxingF=100*chuxingTrue/chuxingCount;
+        youxiF=100*youxiTrue/youxiCount;
+        shejiaoF=100*shejiaoTrue/shejiaoCount;
     }
 
     /**
@@ -171,12 +223,12 @@ public class AchievementActivity extends AppCompatActivity {
      */
     private void setRadarChartView() {
         final Map<String, Float> axis = new LinkedHashMap<>(6);
-        axis.put("碳宠成就",chongwuF);
-        axis.put("减碳成就",jiantanF);
-        axis.put("消费成就",xiaofeiF);
-        axis.put("出行成就",chuxingF);
-        axis.put("游戏成就",youxiF);
-        axis.put("社交成就",shejiaoF);
+        axis.put("碳宠成就",(float)chongwuTrue);
+        axis.put("减碳成就",(float)jiantanTrue);
+        axis.put("消费成就",(float)xiaofeiTrue);
+        axis.put("出行成就",(float)chuxingTrue);
+        axis.put("游戏成就",(float)youxiTrue);
+        axis.put("社交成就",(float)shejiaoTrue);
         CvAchievement.setAxis(axis);
         CvAchievement.setAutoSize(true);
         CvAchievement.setAxisWidth(6);
@@ -188,6 +240,17 @@ public class AchievementActivity extends AppCompatActivity {
      * 设置进度条
      */
     private void setProgress() {
-
+        PbAchievementPetCount.setProgress(chongwuF);
+        TvAchievementPetCountPercent.setText(chongwuF+"%");
+        PbAchievementJiantanCount.setProgress(jiantanF);
+        TvAchievementJiantanCountPercent.setText(jiantanF+"%");
+        PbAchievementXiaofeiCount.setProgress(xiaofeiF);
+        TvAchievementXiaofeiCountPercent.setText(xiaofeiF+"%");
+        PbAchievementChuxingCount.setProgress(chuxingF);
+        TvAchievementChuxingCountPercent.setText(chuxingF+"%");
+        PbAchievementYouxiCount.setProgress(youxiF);
+        TvAchievementYouxiCountPercent.setText(youxiF+"%");
+        PbAchievementShejiaoCount.setProgress(shejiaoF);
+        TvAchievementShejiaoCountPercent.setText(shejiaoF+"%");
     }
 }
