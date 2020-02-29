@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.AchievementActivity"
-    android:background="@drawable/achievementzonglan_background">
+    android:background="@drawable/achievementzonglan_background"
+    android:id="@+id/RlAchievementRoot">
 
     <RelativeLayout
         android:id="@+id/RlAchievementViewgroup"
@@ -16,10 +17,64 @@
             android:id="@+id/RlAchievementView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/achievementshejiaocount"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            android:layout_marginTop="32dp">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/achievementxiangqing_tree"
+                android:adjustViewBounds="true"/>
+
+            <LinearLayout
+                android:id="@+id/LlAchievementXiaofeiDengContainer"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="200dp"/>
+
+            <LinearLayout
+                android:id="@+id/LlAchievementChongwuDengContainer"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="80dp"/>
+
+            <LinearLayout
+                android:id="@+id/LlAchievementJiantanDengContainer"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="30dp"/>
+
+            <LinearLayout
+                android:id="@+id/LlAchievementYouxiDengContainer"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="100dp"/>
+
+            <LinearLayout
+                android:id="@+id/LlAchievementChuxingDengContainer"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="280dp"
+                android:layout_marginTop="180dp"/>
+
+            <LinearLayout
+                android:id="@+id/LlAchievementShejiaoDengContainer"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="230dp"/>
         </RelativeLayout>
+
     </RelativeLayout>
 
     <ScrollView

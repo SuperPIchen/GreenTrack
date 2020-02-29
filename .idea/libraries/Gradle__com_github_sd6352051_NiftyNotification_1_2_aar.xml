@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.sd6352051:NiftyNotification:1.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8da1cac7db6c02cfe0e24cab0743e488/jetified-NiftyNotification-1.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8da1cac7db6c02cfe0e24cab0743e488/jetified-NiftyNotification-1.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

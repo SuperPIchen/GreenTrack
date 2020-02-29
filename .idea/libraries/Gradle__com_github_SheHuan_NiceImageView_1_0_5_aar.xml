@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.SheHuan:NiceImageView:1.0.5@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2472f6a17741746f4ce767f2369bfaa/jetified-NiceImageView-1.0.5/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2472f6a17741746f4ce767f2369bfaa/jetified-NiceImageView-1.0.5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f35e014a5f92c75811292c18e9fd5797/jetified-NiceImageView-1.0.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f35e014a5f92c75811292c18e9fd5797/jetified-NiceImageView-1.0.5/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

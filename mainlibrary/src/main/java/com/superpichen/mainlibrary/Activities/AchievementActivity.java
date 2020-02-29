@@ -3,12 +3,19 @@ package com.superpichen.mainlibrary.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.dzaitsev.android.widget.RadarChartView;
+import com.gitonway.lee.niftynotification.lib.Configuration;
+import com.gitonway.lee.niftynotification.lib.Effects;
+import com.gitonway.lee.niftynotification.lib.NiftyNotificationView;
 import com.jarvislau.destureviewbinder.GestureViewBinder;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
 import com.nightonke.jellytogglebutton.State;
@@ -16,6 +23,7 @@ import com.superpichen.mainlibrary.MyView.MyRadarChartView;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.AchievementInfo;
+import com.superpichen.mainlibrary.Tools.JavaTools.Dip2px;
 import com.superpichen.mainlibrary.Tools.JavaTools.FinalValue;
 
 import java.util.ArrayList;
@@ -45,6 +53,14 @@ public class AchievementActivity extends AppCompatActivity {
     private ScrollView SvAchievementZonglanContainer;
     private RelativeLayout RlAchievementViewgroup;
     private RelativeLayout RlAchievementView;
+    private RelativeLayout RlAchievementRoot;
+    private LinearLayout LlAchievementJiantanDengContainer;
+    private LinearLayout LlAchievementShejiaoDengContainer;
+    private LinearLayout LlAchievementXiaofeiDengContainer;
+    private LinearLayout LlAchievementChuxingDengContainer;
+    private LinearLayout LlAchievementYouxiDengContainer;
+    private LinearLayout LlAchievementChongwuDengContainer;
+
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -69,7 +85,14 @@ public class AchievementActivity extends AppCompatActivity {
         TvAchievementChuxingCountPercent = findViewById( R.id.TvAchievementChuxingCountPercent );
         SvAchievementZonglanContainer = findViewById(R.id.SvAchievementZonglanContainer);
         RlAchievementViewgroup = findViewById(R.id.RlAchievementViewgroup);
-        RlAchievementView = findViewById(R.id.RlAchievementView);    }
+        RlAchievementView = findViewById(R.id.RlAchievementView);
+        RlAchievementRoot = findViewById(R.id.RlAchievementRoot);
+        LlAchievementJiantanDengContainer = findViewById(R.id.LlAchievementJiantanDengContainer);
+        LlAchievementShejiaoDengContainer = findViewById(R.id.LlAchievementShejiaoDengContainer);
+        LlAchievementXiaofeiDengContainer = findViewById(R.id.LlAchievementXiaofeiDengContainer);
+        LlAchievementChuxingDengContainer = findViewById(R.id.LlAchievementChuxingDengContainer);
+        LlAchievementYouxiDengContainer = findViewById(R.id.LlAchievementYouxiDengContainer);
+        LlAchievementChongwuDengContainer = findViewById(R.id.LlAchievementChongwuDengContainer);}
 
     /**
      * Handle button click events<br />
@@ -88,6 +111,70 @@ public class AchievementActivity extends AppCompatActivity {
         setProgress();
         setGestureViewBinder();
         setOnclick();
+        SvAchievementZonglanContainer.setVisibility(View.VISIBLE);
+        RlAchievementViewgroup.setVisibility(View.INVISIBLE);
+        setDeng();
+    }
+
+    /**
+     * 设置灯笼
+     */
+    private void setDeng() {
+        Dip2px dip2px=new Dip2px(this);
+        for(int i=0;i<data.size();i++){
+            LinearLayout.LayoutParams containerParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            RelativeLayout imgContainer=new RelativeLayout(this);
+            imgContainer.setLayoutParams(containerParams);
+            ImageView deng=new ImageView(this);
+            RelativeLayout.LayoutParams dengParams=new RelativeLayout.LayoutParams(dip2px.dip2px(30), ViewGroup.LayoutParams.WRAP_CONTENT);
+            AchievementInfo info=data.get(i);
+            switch (info.getType()){
+                case FinalValue.ACHIEVEMENTTYPEOFJIANTAN:
+                    deng.setImageResource(R.drawable.achievementxiangqing_jiantandeng);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFSHEJIAO:
+                    deng.setImageResource(R.drawable.achievementxiangqing_shejiaodeng);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFXIAOFEI:
+                case FinalValue.ACHIEVEMENTTYPEOFCHUXING:
+                    deng.setImageResource(R.drawable.achievementxiangqing_xiaofeichuxingdeng);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFCHONGWU:
+                case FinalValue.ACHIEVEMENTTYPEOFYOUXI:
+                    deng.setImageResource(R.drawable.achievementxiangqing_chongwuyouxideng);
+            }
+            deng.setAdjustViewBounds(true);
+            deng.setLayoutParams(dengParams);
+            imgContainer.addView(deng);
+            RelativeLayout.LayoutParams guangParams=new RelativeLayout.LayoutParams(dip2px.dip2px(30), ViewGroup.LayoutParams.WRAP_CONTENT);
+            if(info.isGet()){
+                ImageView guang=new ImageView(this);
+                guang.setImageResource(R.drawable.achievementxiangqing_guang);
+                guang.setAdjustViewBounds(true);
+                guangParams.addRule(RelativeLayout.CENTER_VERTICAL);
+                guang.setLayoutParams(guangParams);
+                imgContainer.addView(guang);
+            }
+            switch (info.getType()){
+                case FinalValue.ACHIEVEMENTTYPEOFJIANTAN:
+                    LlAchievementJiantanDengContainer.addView(imgContainer);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFSHEJIAO:
+                    LlAchievementShejiaoDengContainer.addView(imgContainer);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFXIAOFEI:
+                    LlAchievementXiaofeiDengContainer.addView(imgContainer);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFCHUXING:
+                    LlAchievementChuxingDengContainer.addView(imgContainer);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFCHONGWU:
+                    LlAchievementChongwuDengContainer.addView(imgContainer);
+                    break;
+                case FinalValue.ACHIEVEMENTTYPEOFYOUXI:
+                    LlAchievementYouxiDengContainer.addView(imgContainer);
+            }
+        }
     }
 
     /**
@@ -95,7 +182,6 @@ public class AchievementActivity extends AppCompatActivity {
      */
     private void setGestureViewBinder() {
         GestureViewBinder bind=GestureViewBinder.bind(this,RlAchievementViewgroup,RlAchievementView);
-        bind.setFullGroup(true);
     }
 
     /**
@@ -105,10 +191,16 @@ public class AchievementActivity extends AppCompatActivity {
         TbAchievementButton.setOnStateChangeListener(new JellyToggleButton.OnStateChangeListener() {
             @Override
             public void onStateChange(float process, State state, JellyToggleButton jtb) {
-                if(state.equals(State.RIGHT))
+                if(state.equals(State.RIGHT)){
                     SvAchievementZonglanContainer.setVisibility(View.INVISIBLE);
-                if(state.equals(State.LEFT))
+                    RlAchievementViewgroup.setVisibility(View.VISIBLE);
+                    RlAchievementRoot.setBackgroundResource(R.drawable.achievementxiangqing_background);
+                }
+                if(state.equals(State.LEFT)){
                     SvAchievementZonglanContainer.setVisibility(View.VISIBLE);
+                    RlAchievementViewgroup.setVisibility(View.INVISIBLE);
+                    RlAchievementRoot.setBackgroundResource(R.drawable.achievementzonglan_background);
+                }
             }
         });
     }
@@ -134,15 +226,10 @@ public class AchievementActivity extends AppCompatActivity {
         data.add(new AchievementInfo("爱心懵懂",true, FinalValue.ACHIEVEMENTTYPEOFCHONGWU));
         data.add(new AchievementInfo("爱心满屋",false, FinalValue.ACHIEVEMENTTYPEOFCHONGWU));
         data.add(new AchievementInfo("负责的主人",false, FinalValue.ACHIEVEMENTTYPEOFCHONGWU));
-        data.add(new AchievementInfo("日理万机的主人",true, FinalValue.ACHIEVEMENTTYPEOFCHONGWU));
-        data.add(new AchievementInfo("浪漫的主人",false, FinalValue.ACHIEVEMENTTYPEOFCHONGWU));
-        data.add(new AchievementInfo("居家小能手",false, FinalValue.ACHIEVEMENTTYPEOFCHONGWU));
         data.add(new AchievementInfo("动物管理员",true, FinalValue.ACHIEVEMENTTYPEOFCHONGWU));
         data.add(new AchievementInfo("一颗小草",true, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
         data.add(new AchievementInfo("一缕阳光",false, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
         data.add(new AchievementInfo("香草扑鼻",true, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
-        data.add(new AchievementInfo("灌木丛中",true, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
-        data.add(new AchievementInfo("桃花朵朵开",false, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
         data.add(new AchievementInfo("满面春风",false, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
         data.add(new AchievementInfo("地球卫士",false, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
         data.add(new AchievementInfo("杨树林",false, FinalValue.ACHIEVEMENTTYPEOFJIANTAN));
@@ -154,15 +241,10 @@ public class AchievementActivity extends AppCompatActivity {
         data.add(new AchievementInfo("公交常驻户",false, FinalValue.ACHIEVEMENTTYPEOFCHUXING));
         data.add(new AchievementInfo("地铁冲冲冲",false, FinalValue.ACHIEVEMENTTYPEOFCHUXING));
         data.add(new AchievementInfo("10公里冲刺",true, FinalValue.ACHIEVEMENTTYPEOFCHUXING));
-        data.add(new AchievementInfo("30公里长跑",false, FinalValue.ACHIEVEMENTTYPEOFCHUXING));
-        data.add(new AchievementInfo("50公里坚持",false, FinalValue.ACHIEVEMENTTYPEOFCHUXING));
         data.add(new AchievementInfo("落地成盒",true, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
         data.add(new AchievementInfo("持之以恒",false, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
         data.add(new AchievementInfo("一飞冲天",false, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
         data.add(new AchievementInfo("目不转睛",true, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
-        data.add(new AchievementInfo("命悬一线",true, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
-        data.add(new AchievementInfo("决策大师",false, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
-        data.add(new AchievementInfo("见钱眼开",true, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
         data.add(new AchievementInfo("风驰电掣",true, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
         data.add(new AchievementInfo("爱的家庭",true, FinalValue.ACHIEVEMENTTYPEOFYOUXI));
         data.add(new AchievementInfo("不亦说乎",false, FinalValue.ACHIEVEMENTTYPEOFSHEJIAO));

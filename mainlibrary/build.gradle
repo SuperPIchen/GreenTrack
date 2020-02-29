@@ -55,4 +55,6 @@ dependencies {
     implementation 'me.zhouzhuo.zzhorizontalprogressbar:zz-horizontal-progressbar:1.1.0'
 
     implementation 'com.nightonke:jellytogglebutton:1.0.2'
+
+    implementation 'com.github.sd6352051:NiftyNotification:1.2'
 }
