@@ -5,12 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.MallActivity"
-    android:background="@drawable/mallbackground_shape">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/mallbackground"/>
+    android:background="@drawable/mallbackground">
 
     <FrameLayout
         android:id="@+id/FlMallContainer"
