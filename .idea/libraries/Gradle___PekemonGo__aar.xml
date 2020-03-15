@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: :PekemonGo:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9466a8991fd963993a08bcb4a4f445a/jetified-PekemonGo/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9466a8991fd963993a08bcb4a4f445a/jetified-PekemonGo/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9466a8991fd963993a08bcb4a4f445a/jetified-PekemonGo/jars/libs/unity-classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

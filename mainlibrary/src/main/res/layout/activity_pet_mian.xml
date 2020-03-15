@@ -115,6 +115,15 @@
                     android:layout_centerInParent="true"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"/>
+
+                <com.nightonke.boommenu.BoomMenuButton
+                    android:id="@+id/BbPetYouxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:bmb_buttonEnum="textOutsideCircle"
+                    app:bmb_piecePlaceEnum="piecePlace_dot_2_1"
+                    app:bmb_buttonPlaceEnum="buttonPlace_sc_2_1"
+                    android:alpha="0"/>
             </RelativeLayout>
 
             <RelativeLayout

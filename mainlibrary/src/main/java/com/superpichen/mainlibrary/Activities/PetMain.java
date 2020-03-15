@@ -63,6 +63,7 @@ public class PetMain extends ModelActivity {
     private RelativeLayout RlMainPaopaoContainer;
     private TextView TvMainBiaoqian;
     private BoomMenuButton BbPetZhuangyuan;
+    private BoomMenuButton BbPetYouxi;
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -81,6 +82,7 @@ public class PetMain extends ModelActivity {
         RlMainPaopaoContainer =  findViewById(R.id.RlMainPaopaoContainer);
         TvMainBiaoqian =  findViewById(R.id.TvMainBiaoqian);
         BbPetZhuangyuan = findViewById(R.id.BbPetZhuangyuan);
+        BbPetYouxi = findViewById(R.id.BbPetYouxi);
     }
 
     @Override
@@ -105,6 +107,7 @@ public class PetMain extends ModelActivity {
      * 设置二级菜单按钮
      */
     private void setBoomMenuButton() {
+        //庄园按钮
         BbPetZhuangyuan.setEnabled(false);
         BbPetZhuangyuan.setButtonPlaceAlignmentEnum(ButtonPlaceAlignmentEnum.Bottom);
         BbPetZhuangyuan.setButtonBottomMargin(1000);
@@ -134,6 +137,27 @@ public class PetMain extends ModelActivity {
                     }
                 });
         BbPetZhuangyuan.addBuilder(builderChengjiu);
+
+        //游戏按钮
+        BbPetYouxi.setEnabled(false);
+        BbPetYouxi.setButtonPlaceAlignmentEnum(ButtonPlaceAlignmentEnum.Bottom);
+        BbPetYouxi.setButtonBottomMargin(1000);
+        BbPetYouxi.setBoomEnum(BoomEnum.HORIZONTAL_THROW_2);
+        TextOutsideCircleButton.Builder builderTanTan = new TextOutsideCircleButton.Builder()
+                .normalImageRes(R.drawable.maintantanbutton)
+                .normalText("碳碳大作战")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivityForResult(new Intent(PetMain.this,TujianActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
+                        RlMainContainer.removeView(gLView);
+                    }
+                });
+        BbPetYouxi.addBuilder(builderTanTan);
+        TextOutsideCircleButton.Builder builderPaoku = new TextOutsideCircleButton.Builder()
+                .normalImageRes(R.drawable.mainpaokubutton)
+                .normalText("精灵跑酷");
+        BbPetYouxi.addBuilder(builderPaoku);
     }
 
     private boolean isPaopaoVisible =false;
@@ -185,6 +209,7 @@ public class PetMain extends ModelActivity {
         if(!isPaopaoVisible){
             RlMainPaopaoContainer.setVisibility(View.VISIBLE);
             BbPetZhuangyuan.setEnabled(true);
+            BbPetYouxi.setEnabled(true);
             RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSet);
             RlMainShopButton.startAnimation(shopPaopaoAnimatorSet);
             RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSet);
@@ -195,6 +220,7 @@ public class PetMain extends ModelActivity {
             handler.sendEmptyMessageDelayed(8,1100);
         }else {
             BbPetZhuangyuan.setEnabled(false);
+            BbPetYouxi.setEnabled(false);
             RlMainYouxiButton.startAnimation(youxiPaopaoAnimatorSetBack);
             RlMainShopButton.startAnimation(shopPaopaoAnimatorSetBack);
             RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoAnimatorSetBack);
