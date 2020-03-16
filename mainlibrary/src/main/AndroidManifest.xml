@@ -3,7 +3,10 @@
     package="com.superpichen.mainlibrary">
 
     <application>
-        <activity android:name=".Activities.AchievementActivity"></activity>
+        <activity android:name=".Activities.HomelandActivity"
+                  android:screenOrientation="landscape"
+                  android:theme="@style/MyFullLandscapeScreenTheme"/>
+        <activity android:name=".Activities.AchievementActivity" />
         <activity android:name=".Activities.TujianActivity" />
         <activity android:name=".Activities.MallActivity" />
         <activity android:name=".Activities.GetPointsActivity" />

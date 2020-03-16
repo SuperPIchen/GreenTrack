@@ -77,6 +77,6 @@ dependencies {
 
     implementation 'com.github.sd6352051:NiftyNotification:1.2'
 
-    implementation(name:'VuforiaWrapper',ext:'aar')
-    implementation(name:'PekemonGo',ext:'aar')
+    implementation(name: 'VuforiaWrapper', ext: 'aar')
+    implementation(name: 'PekemonGo', ext: 'aar')
 }

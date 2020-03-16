@@ -125,7 +125,13 @@ public class PetMain extends ModelActivity {
         BbPetZhuangyuan.addBuilder(builderTujian);
         TextOutsideCircleButton.Builder builderJiayuan = new TextOutsideCircleButton.Builder()
                 .normalImageRes(R.drawable.mainjiayuanbutton)
-                .normalText("宠物家园");
+                .normalText("宠物家园")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(PetMain.this,HomelandActivity.class));
+                    }
+                });
         BbPetZhuangyuan.addBuilder(builderJiayuan);
         TextOutsideCircleButton.Builder builderChengjiu = new TextOutsideCircleButton.Builder()
                 .normalImageRes(R.drawable.mainchengjiubutton)

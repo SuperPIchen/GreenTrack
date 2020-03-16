@@ -17,6 +17,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyFullLandscapeScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
     <style name="TextInOfflineShop">
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
