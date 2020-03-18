@@ -110,7 +110,7 @@
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout-solver:1.1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.nineoldandroids:library:2.4.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:./mainlibrary/libs/unitycontactlib-debug.aar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:./mainlibrary/libs/UnityToolForAndroid-release.aar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:./mainlibrary/libs/UnityToolForAndroid2-release.aar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.dzaitsev.android.widget:radarchartview:0.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.nightonke:jellytogglebutton:1.0.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.1.0@aar" level="project" />

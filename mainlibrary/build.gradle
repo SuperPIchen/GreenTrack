@@ -80,5 +80,5 @@ dependencies {
     implementation(name: 'VuforiaWrapper', ext: 'aar')
     implementation files('libs/unity-classes.jar')
     implementation files('libs/unitycontactlib-debug.aar')
-    implementation files('libs/UnityToolForAndroid-release.aar')
+    implementation files('libs/UnityToolForAndroid2-release.aar')
 }

@@ -35,7 +35,7 @@ public class PaokuActivity extends UnityPlayerActivity {
      * 选择unity场景
      */
     private void selectScn() {
-        ContactTool.TargetUnitySecen="AR";
+        ContactTool.TargetUnitySecen="PaoKu";
         BtPaoKuBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
