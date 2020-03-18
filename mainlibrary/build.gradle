@@ -78,5 +78,7 @@ dependencies {
     implementation 'com.github.sd6352051:NiftyNotification:1.2'
 
     implementation(name: 'VuforiaWrapper', ext: 'aar')
-    implementation(name: 'PekemonGo', ext: 'aar')
+    implementation files('libs/unity-classes.jar')
+    implementation files('libs/unitycontactlib-debug.aar')
+    implementation files('libs/UnityToolForAndroid-release.aar')
 }

@@ -162,7 +162,13 @@ public class PetMain extends ModelActivity {
         BbPetYouxi.addBuilder(builderTanTan);
         TextOutsideCircleButton.Builder builderPaoku = new TextOutsideCircleButton.Builder()
                 .normalImageRes(R.drawable.mainpaokubutton)
-                .normalText("精灵跑酷");
+                .normalText("精灵跑酷")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(PetMain.this,PaokuActivity.class));
+                    }
+                });
         BbPetYouxi.addBuilder(builderPaoku);
     }
 
