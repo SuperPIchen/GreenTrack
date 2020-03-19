@@ -4,11 +4,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.HomelandActivity">
+    tools:context=".Activities.HomelandActivity"
+    android:background="@android:color/holo_blue_dark">
 
-    <ImageView
+    <HorizontalScrollView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:src="@drawable/achievementxiaofeicount"/>
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/wuyong1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/homeland_background"
+                android:adjustViewBounds="true"/>
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/GvHomelandPet"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/homeland_pet_rabbit_eat"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="80dp"
+                android:layout_marginBottom="50dp"/>
+
+            <ImageView
+                android:id="@+id/IvHomelandPen"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@id/GvHomelandPet"
+                android:src="@drawable/homeland_pen_full"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/homeland_ball"
+                android:layout_toEndOf="@id/IvHomelandPen"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"
+                android:layout_marginStart="30dp"/>
+
+            <ImageView
+                android:id="@+id/IvHomelandBag"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/homeland_bag"
+                android:layout_alignEnd="@id/wuyong1"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"/>
+
+            <cn.bingoogolapple.progressbar.BGAProgressBar
+                android:id="@+id/PbHomelandLixi"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="15dp"
+                android:progress="40"
+                app:bga_pb_isCapRounded="true"
+                app:bga_pb_mode="circle"
+                app:bga_pb_radius="24dp"
+                app:bga_pb_reachedColor="#FF530D"
+                app:bga_pb_reachedHeight="4dp"
+                app:bga_pb_textColor="#FF530D"
+                app:bga_pb_textSize="14sp"
+                app:bga_pb_unReachedColor="#ECF0F1"
+                app:bga_pb_unReachedHeight="2dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="食物"
+                android:textColor="@android:color/black"
+                android:gravity="center"/>
+
+            <cn.bingoogolapple.progressbar.BGAProgressBar
+                android:id="@+id/PbHomelandFood"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:progress="40"
+                app:bga_pb_isCapRounded="true"
+                app:bga_pb_mode="horizontal"
+                app:bga_pb_reachedColor="#FF530D"
+                app:bga_pb_reachedHeight="4dp"
+                app:bga_pb_textColor="#FF530D"
+                app:bga_pb_textMargin="8dp"
+                app:bga_pb_textSize="14sp"
+                app:bga_pb_unReachedColor="#ECF0F1"
+                app:bga_pb_unReachedHeight="2dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="健康"
+                android:textColor="@android:color/black"
+                android:gravity="center"/>
+
+            <cn.bingoogolapple.progressbar.BGAProgressBar
+                android:id="@+id/PbHomelandHealth"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:progress="20"
+                app:bga_pb_isCapRounded="true"
+                app:bga_pb_mode="horizontal"
+                app:bga_pb_reachedColor="#FF530D"
+                app:bga_pb_reachedHeight="4dp"
+                app:bga_pb_textColor="#FF530D"
+                app:bga_pb_textMargin="8dp"
+                app:bga_pb_textSize="14sp"
+                app:bga_pb_unReachedColor="#ECF0F1"
+                app:bga_pb_unReachedHeight="2dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="心情"
+                android:textColor="@android:color/black"
+                android:gravity="center"/>
+
+            <cn.bingoogolapple.progressbar.BGAProgressBar
+                android:id="@+id/PbHomelandMood"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:progress="73"
+                app:bga_pb_isCapRounded="true"
+                app:bga_pb_mode="horizontal"
+                app:bga_pb_reachedColor="#FF530D"
+                app:bga_pb_reachedHeight="4dp"
+                app:bga_pb_textColor="#FF530D"
+                app:bga_pb_textMargin="8dp"
+                app:bga_pb_textSize="14sp"
+                app:bga_pb_unReachedColor="#ECF0F1"
+                app:bga_pb_unReachedHeight="2dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

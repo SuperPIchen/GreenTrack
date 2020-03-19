@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: cn.bingoogolapple:bga-progressbar:1.0.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a657e0efd1f468d03cc161c5f13e8034/jetified-bga-progressbar-1.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a657e0efd1f468d03cc161c5f13e8034/jetified-bga-progressbar-1.0.1/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.bingoogolapple/bga-progressbar/1.0.1/d7badacbe2ce0b0ef7fe7285c02660a5bf84ea3e/bga-progressbar-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.bingoogolapple/bga-progressbar/1.0.1/306f4284f0f4e570635fef36d51c84152ba977c3/bga-progressbar-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

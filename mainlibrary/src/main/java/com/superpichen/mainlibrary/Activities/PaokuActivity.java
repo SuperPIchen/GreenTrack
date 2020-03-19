@@ -1,7 +1,5 @@
 package com.superpichen.mainlibrary.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;

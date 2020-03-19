@@ -81,4 +81,6 @@ dependencies {
     implementation files('libs/unity-classes.jar')
     implementation files('libs/unitycontactlib-debug.aar')
     implementation files('libs/UnityToolForAndroid2-release.aar')
+
+    implementation 'cn.bingoogolapple:bga-progressbar:1.0.1@aar'
 }
