@@ -29,7 +29,7 @@
                 android:adjustViewBounds="true"
                 android:src="@drawable/homeland_pet_rabbit_eat"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="100dp"
                 android:layout_marginBottom="50dp"/>
 
             <ImageView
@@ -40,9 +40,10 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="20dp"
                 android:layout_toEndOf="@id/GvHomelandPet"
-                android:src="@drawable/homeland_pen_full"/>
+                android:src="@drawable/homeland_pen_empty"/>
 
             <ImageView
+                android:id="@+id/IvHomelandBall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/homeland_ball"
@@ -60,6 +61,28 @@
                 android:layout_alignEnd="@id/wuyong1"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"/>
+
+            <RelativeLayout
+                android:layout_above="@id/PbHomelandLixi"
+                android:layout_width="180dp"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/homeland_biaoqian"
+                    android:alpha="0.8"/>
+
+                <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+                    android:id="@+id/TvHomelandLoad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="拼命产出中..."
+                    android:textColor="@android:color/black"
+                    android:layout_marginStart="35dp"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
 
             <cn.bingoogolapple.progressbar.BGAProgressBar
                 android:id="@+id/PbHomelandLixi"
@@ -79,7 +102,23 @@
                 app:bga_pb_unReachedColor="#ECF0F1"
                 app:bga_pb_unReachedHeight="2dp"
                 android:layout_centerVertical="true"/>
+
+            <FrameLayout
+                android:id="@+id/FlHomelandAwardContainer"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_toEndOf="@id/GvHomelandPet"
+                android:layout_marginTop="30dp"/>
+
+            <FrameLayout
+                android:id="@+id/FlHomelandGoodsContainer"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_toEndOf="@id/FlHomelandAwardContainer"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp" />
         </RelativeLayout>
+
     </HorizontalScrollView>
 
     <LinearLayout
@@ -186,7 +225,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 </RelativeLayout>
