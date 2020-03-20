@@ -107,8 +107,9 @@
                 android:id="@+id/FlHomelandAwardContainer"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
-                android:layout_toEndOf="@id/GvHomelandPet"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@id/GvHomelandPet" />
 
             <FrameLayout
                 android:id="@+id/FlHomelandGoodsContainer"
@@ -225,5 +226,51 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/RlHomelandGift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/wuyong2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeland_gift"
+            android:layout_centerInParent="true"/>
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+            android:id="@+id/TvHomelandPointSum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="获得碳利息：3.17"
+            android:layout_alignBottom="@id/wuyong2"
+            android:layout_marginBottom="32dp"
+            android:textColor="#335104"
+            android:textStyle="bold"/>
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+            android:id="@+id/TvHomelandPointJieShao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="基础积分:3\n家园提成:5.5%"
+            android:layout_alignTop="@id/wuyong2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:textStyle="bold"
+            android:textColor="#335104"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/FlHomelandBagContainer"
+        android:layout_width="470dp"
+        android:layout_height="350dp"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
 
 </RelativeLayout>

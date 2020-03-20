@@ -2,13 +2,16 @@ package com.superpichen.mainlibrary.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,14 +21,20 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
+import com.superpichen.mainlibrary.Tools.JavaTools.HomelandBagAdapater;
+import com.superpichen.mainlibrary.Tools.JavaTools.HomelandGoodsTool;
+import com.superpichen.mainlibrary.Tools.JavaTools.HomelandWallInfo;
 
 import net.frakbot.jumpingbeans.JumpingBeans;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import cn.bingoogolapple.progressbar.BGAProgressBar;
@@ -43,7 +52,10 @@ public class HomelandActivity extends AppCompatActivity {
     private BGAProgressBar PbHomelandHealth;
     private BGAProgressBar PbHomelandMood;
     private ImageView IvHomelandBall;
-
+    private RelativeLayout RlHomelandGift;
+    private HanbiaoshuangjiancutiFont TvHomelandPointSum;
+    private HanbiaoshuangjiancutiFont TvHomelandPointJieShao;
+    private FrameLayout FlHomelandBagContainer;
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -62,9 +74,52 @@ public class HomelandActivity extends AppCompatActivity {
         PbHomelandHealth = (BGAProgressBar)findViewById( R.id.PbHomelandHealth );
         PbHomelandMood = (BGAProgressBar)findViewById( R.id.PbHomelandMood );
         IvHomelandBall = findViewById(R.id.IvHomelandBall);
+        RlHomelandGift = findViewById(R.id.RlHomelandGift);
+        TvHomelandPointSum = findViewById(R.id.TvHomelandPointSum);
+        TvHomelandPointJieShao = findViewById(R.id.TvHomelandPointJieShao);
+        FlHomelandBagContainer = findViewById(R.id.FlHomelandBagContainer);
     }
 
 
+    /**
+     * 载入数据
+     */
+    private List<HomelandGoodsTool> bagGoods;
+    private List<HomelandWallInfo> awardWall;
+    private List<HomelandWallInfo> goodsWall;
+    private int foodPercent;
+    private int healthPercent;
+    private int moodPercent;
+    private int producePercent;
+    private int jichuPoint;
+    private void initData() {
+        foodPercent=8;
+        healthPercent=43;
+        moodPercent=79;
+        producePercent=89;
+        setPercent();
+        if(foodPercent<10||healthPercent<10||moodPercent<10){
+            TvHomelandLoad.setText("碳宠物罢工啦!!!");
+            GvHomelandPet.setImageResource(R.drawable.homeland_pet_rabbit_unhealth);
+            handler.removeMessages(2);
+        }
+        jichuPoint=4;
+        bagGoods =new ArrayList<>();
+        awardWall=new ArrayList<>();
+        goodsWall=new ArrayList<>();
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_zhizhuwang,"蜘蛛网",0.02,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aidejiating,"爱的家庭",0.05,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_fengchidianche,"风驰电掣",0.01,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_luodichenghe,"落地成盒",0.01,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_mubuzhuangjing,"目不转睛",0.04,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_shigonglichongci,"10公里冲刺",0.03,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_danchexiaonengshou,"单车小能手",0.03,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_shenghuoxiaonengshou,"生活小能手",0.02,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_xiangcaopubi,"香草扑鼻",0.01,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_dongwuguanliyuan,"动物管理员",0.04,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aixinmengdong,"爱心萌动",0.02,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_yikexiaocao,"一颗小草",0.01,"award",0));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +133,48 @@ public class HomelandActivity extends AppCompatActivity {
         setAwardViews();
         setAnimation();
         setOnClick();
+        setBag();
+    }
+
+    /**
+     * 设置背包
+     */
+    private boolean isBagShow=false;
+    private RecyclerView goodsRecycleView;
+    private void setBag() {
+        goodsRecycleView =new RecyclerView(this);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        goodsRecycleView.setLayoutManager(staggeredGridLayoutManager);
+        HomelandBagAdapater homelandBagAdapater=new HomelandBagAdapater(this,bagGoods);
+        goodsRecycleView.setAdapter(homelandBagAdapater);
+        homelandBagAdapater.setOnItemClickListener(new HomelandBagAdapater.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
+        View view=View.inflate(this,R.layout.item_homeland_bag,FlHomelandBagContainer);
+        FrameLayout FlItenRecycleViewContainer;
+        FlItenRecycleViewContainer = view.findViewById(R.id.FlItenRecycleViewContainer);
+        FlItenRecycleViewContainer.addView(goodsRecycleView);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            //点击完返回键，执行的动作
+            if(isBagShow){
+                FlHomelandBagContainer.setVisibility(View.INVISIBLE);
+                isBagShow=false;
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     /**
@@ -127,11 +224,22 @@ public class HomelandActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(PbHomelandLixi.getProgress()==100){
+                    producePercent=0;
+                    PbHomelandLixi.setProgress(0);
+                    RlHomelandGift.setVisibility(View.VISIBLE);
+                    isBagShow=true;
 
                 }
             }
         });
 
+        IvHomelandBag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FlHomelandBagContainer.setVisibility(View.VISIBLE);
+                isBagShow=true;
+            }
+        });
     }
 
     /**
@@ -158,25 +266,7 @@ public class HomelandActivity extends AppCompatActivity {
         handler.sendEmptyMessageDelayed(2,5000);
     }
 
-    /**
-     * 载入数据
-     */
-    private int foodPercent;
-    private int healthPercent;
-    private int moodPercent;
-    private int producePercent;
-    private void initData() {
-        foodPercent=8;
-        healthPercent=43;
-        moodPercent=79;
-        producePercent=89;
-        setPercent();
-        if(foodPercent<10||healthPercent<10||moodPercent<10){
-            TvHomelandLoad.setText("碳宠物罢工啦!!!");
-            GvHomelandPet.setImageResource(R.drawable.homeland_pet_rabbit_unhealth);
-            handler.removeMessages(2);
-        }
-    }
+
 
     /**
      * 设置进度条
