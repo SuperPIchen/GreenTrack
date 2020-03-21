@@ -45,21 +45,21 @@
                 android:layout_weight="1"
                 android:layout_height="90dp"
                 android:src="@drawable/homeland_plustip"
-                android:alpha="0"/>
+                android:visibility="invisible"/>
             <ImageView
                 android:id="@+id/IvItemHomelandPic2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="90dp"
                 android:src="@drawable/homeland_plustip"
-                android:alpha="0"/>
+                android:visibility="invisible"/>
             <ImageView
                 android:id="@+id/IvItemHomelandPic3"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="90dp"
                 android:src="@drawable/homeland_plustip"
-                android:alpha="0"/>
+                android:visibility="invisible"/>
 
         </LinearLayout>
 
@@ -76,21 +76,21 @@
                 android:layout_weight="1"
                 android:layout_height="90dp"
                 android:src="@drawable/homeland_plustip"
-                android:alpha="0"/>
+                android:visibility="invisible"/>
             <ImageView
                 android:id="@+id/IvItemHomelandPic5"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="90dp"
                 android:src="@drawable/homeland_plustip"
-                android:alpha="0"/>
+                android:visibility="invisible"/>
             <ImageView
                 android:id="@+id/IvItemHomelandPic6"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="90dp"
                 android:src="@drawable/homeland_plustip"
-                android:alpha="0"/>
+                android:visibility="invisible"/>
 
         </LinearLayout>
 

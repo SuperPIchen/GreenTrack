@@ -1,17 +1,19 @@
 package com.superpichen.mainlibrary.Tools.JavaTools;
 
+import java.util.List;
+
 public class HomelandWallInfo {
     private String type;
     private boolean[] isApply;
-    private HomelandGoodsTool goods;
+    private int[] goodslist;
 
     public HomelandWallInfo() {
     }
 
-    public HomelandWallInfo(String type, boolean[] isApply, HomelandGoodsTool goods) {
+    public HomelandWallInfo(String type, boolean[] isApply, int[] goodslist) {
         this.type = type;
         this.isApply = isApply;
-        this.goods = goods;
+        this.goodslist = goodslist;
     }
 
     public String getType() {
@@ -30,11 +32,11 @@ public class HomelandWallInfo {
         this.isApply = isApply;
     }
 
-    public HomelandGoodsTool getGoods() {
-        return goods;
+    public int[] getGoodslist() {
+        return goodslist;
     }
 
-    public void setGoods(HomelandGoodsTool goods) {
-        this.goods = goods;
+    public void setGoodslist(int[] goodslist) {
+        this.goodslist = goodslist;
     }
 }

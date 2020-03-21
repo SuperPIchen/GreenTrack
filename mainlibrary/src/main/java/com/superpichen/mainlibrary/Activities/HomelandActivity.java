@@ -1,11 +1,13 @@
 package com.superpichen.mainlibrary.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,6 +39,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.crypto.spec.IvParameterSpec;
+
 import cn.bingoogolapple.progressbar.BGAProgressBar;
 import pl.droidsonroids.gif.GifImageView;
 
@@ -63,16 +67,16 @@ public class HomelandActivity extends AppCompatActivity {
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        GvHomelandPet = (GifImageView)findViewById( R.id.GvHomelandPet );
-        IvHomelandPen = (ImageView)findViewById( R.id.IvHomelandPen );
-        IvHomelandBag = (ImageView)findViewById( R.id.IvHomelandBag );
-        TvHomelandLoad = (HanbiaoshuangjiancutiFont)findViewById( R.id.TvHomelandLoad );
-        PbHomelandLixi = (BGAProgressBar)findViewById( R.id.PbHomelandLixi );
-        FlHomelandAwardContainer = (FrameLayout)findViewById( R.id.FlHomelandAwardContainer );
-        FlHomelandGoodsContainer = (FrameLayout)findViewById( R.id.FlHomelandGoodsContainer );
-        PbHomelandFood = (BGAProgressBar)findViewById( R.id.PbHomelandFood );
-        PbHomelandHealth = (BGAProgressBar)findViewById( R.id.PbHomelandHealth );
-        PbHomelandMood = (BGAProgressBar)findViewById( R.id.PbHomelandMood );
+        GvHomelandPet = findViewById( R.id.GvHomelandPet );
+        IvHomelandPen = findViewById( R.id.IvHomelandPen );
+        IvHomelandBag = findViewById( R.id.IvHomelandBag );
+        TvHomelandLoad = findViewById( R.id.TvHomelandLoad );
+        PbHomelandLixi = findViewById( R.id.PbHomelandLixi );
+        FlHomelandAwardContainer = findViewById( R.id.FlHomelandAwardContainer );
+        FlHomelandGoodsContainer = findViewById( R.id.FlHomelandGoodsContainer );
+        PbHomelandFood = findViewById( R.id.PbHomelandFood );
+        PbHomelandHealth = findViewById( R.id.PbHomelandHealth );
+        PbHomelandMood = findViewById( R.id.PbHomelandMood );
         IvHomelandBall = findViewById(R.id.IvHomelandBall);
         RlHomelandGift = findViewById(R.id.RlHomelandGift);
         TvHomelandPointSum = findViewById(R.id.TvHomelandPointSum);
@@ -86,13 +90,20 @@ public class HomelandActivity extends AppCompatActivity {
      */
     private List<HomelandGoodsTool> bagGoods;
     private List<HomelandGoodsTool> bagGoods_use;
-    private List<HomelandWallInfo> awardWall;
-    private List<HomelandWallInfo> goodsWall;
+    private List<HomelandGoodsTool> awardGoods;
+    private List<HomelandGoodsTool> goodsGoods;
+    private List<HomelandGoodsTool> foodGoods;
+    private HomelandWallInfo awardWall;
+    private HomelandWallInfo goodsWall;
     private int foodPercent;
     private int healthPercent;
     private int moodPercent;
     private int producePercent;
     private int jichuPoint;
+    private boolean[] awardWallisApply;
+    private int[] awardWallNum;
+    private boolean[] goodsWallisApply;
+    private int[] goodsWallNum;
     private void initData() {
         foodPercent=8;
         healthPercent=43;
@@ -106,28 +117,51 @@ public class HomelandActivity extends AppCompatActivity {
         }
         jichuPoint=4;
         bagGoods =new ArrayList<>();
-        awardWall=new ArrayList<>();
-        goodsWall=new ArrayList<>();
         bagGoods_use=new ArrayList<>();
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_zhizhuwang,"蜘蛛网",0.02,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aidejiating,"爱的家庭",0.05,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_fengchidianche,"风驰电掣",0.01,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_luodichenghe,"落地成盒",0.01,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_mubuzhuangjing,"目不转睛",0.04,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_shigonglichongci,"10公里冲刺",0.03,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_danchexiaonengshou,"单车小能手",0.03,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_shenghuoxiaonengshou,"生活小能手",0.02,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_xiangcaopubi,"香草扑鼻",0.01,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_dongwuguanliyuan,"动物管理员",0.04,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aixinmengdong,"爱心萌动",0.02,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_yikexiaocao,"一颗小草",0.01,"award",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.goods_bangbangtang,"棒棒糖",0.02,"goods",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.goods_xiangquan,"项圈",0.01,"goods",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.food_coke1,"蛋糕",0.2,"food",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.food_coke2,"蛋糕",0.3,"food",0));
-        bagGoods.add(new HomelandGoodsTool(R.drawable.food_xuegao,"雪糕",0.3,"food",0));
+        awardGoods=new ArrayList<>();
+        goodsGoods=new ArrayList<>();
+        foodGoods=new ArrayList<>();
+        int i=0;
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_zhizhuwang,"蜘蛛网",0.02,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aidejiating,"爱的家庭",0.05,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_fengchidianche,"风驰电掣",0.01,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_luodichenghe,"落地成盒",0.01,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_mubuzhuangjing,"目不转睛",0.04,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_shigonglichongci,"10公里冲刺",0.03,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_danchexiaonengshou,"单车小能手",0.03,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_shenghuoxiaonengshou,"生活小能手",0.02,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_xiangcaopubi,"香草扑鼻",0.01,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_dongwuguanliyuan,"动物管理员",0.04,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aixinmengdong,"爱心萌动",0.02,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_yikexiaocao,"一颗小草",0.01,"award",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.goods_bangbangtang,"棒棒糖",0.02,"goods",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.goods_xiangquan,"项圈",0.01,"goods",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.food_coke1,"蛋糕",0.2,"food",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.food_coke2,"蛋糕",0.3,"food",++i));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.food_xuegao,"雪糕",0.3,"food",++i));
+        for(int j=0;j<bagGoods.size();j++){
+            switch (bagGoods.get(j).getType()){
+                case "award":
+                    awardGoods.add(bagGoods.get(j));
+                    break;
+                case "food":
+                    foodGoods.add(bagGoods.get(j));
+                    break;
+                case "goods":
+                    goodsGoods.add(bagGoods.get(j));
+            }
+        }
+        awardWallisApply=new boolean[]{true,false,true,false,false,false};
+        awardWallNum=new int[]{2,0,1,0,0,0};
+        awardWall=new HomelandWallInfo("award",awardWallisApply,awardWallNum);
+        goodsWallisApply=new boolean[]{false,false,false,true,false,false};
+        goodsWallNum=new int[]{0,0,0,14,0,0};
+        goodsWall=new HomelandWallInfo("good",goodsWallisApply,goodsWallNum);
     }
 
+    /**
+     * 改变RecycleView数据
+     */
     private void ReSetBagData() {
         for(int i=0;i<bagGoods_use.size();i++){
             bagGoods_use.remove(i);
@@ -151,6 +185,7 @@ public class HomelandActivity extends AppCompatActivity {
         setOnClick();
 
     }
+
 
     /**
      * 设置背包
@@ -189,6 +224,74 @@ public class HomelandActivity extends AppCompatActivity {
             }
         }
         homelandBagAdapater.notifyDataSetChanged();
+        homelandBagAdapater.setOnItemClickListener(new HomelandBagAdapater.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                if(type.equals("award")){
+                    int i;
+                    for(i=0;i<6;i++){
+                        if(awardWallisApply[i])
+                            if(awardGoods.get(position).getIndex()==awardWallNum[i])
+                                break;
+                    }
+                    if(i==6){
+                        FlHomelandBagContainer.setVisibility(View.INVISIBLE);
+                        changeEnable(true);
+                        for(int j=0;j<6;j++){
+                            awardImgs.get(j).setVisibility(View.VISIBLE);
+                            int finalJ = j;
+                            awardImgs.get(j).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    if(awardWallisApply[finalJ]){
+                                        AlertDialog dialog=new AlertDialog
+                                                .Builder(HomelandActivity.this)
+                                                .setMessage("该位置已经有荣誉了，是否进行替换。")
+                                                .setPositiveButton("替换", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        awardWallNum[finalJ]=awardGoods.get(position).getIndex();
+                                                        awardImgs.get(finalJ).setImageResource(awardGoods.get(position).getImg());
+                                                        changeEnable(false);
+                                                    }
+                                                })
+                                                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        dialog.dismiss();
+                                                        changeEnable(false);
+                                                    }
+                                                })
+                                                .show();
+                                    }
+                                }
+                            });
+                        }
+                    }else {
+                        AlertDialog dialog=new AlertDialog
+                                .Builder(HomelandActivity.this)
+                                .setMessage("此荣誉已经装饰上啦！")
+                                .show();
+                    }
+                }
+                if(type.equals("goods")){
+
+                }
+                if(type.equals("food")){
+
+                }
+            }
+
+            void changeEnable(boolean b){
+                for(int i=0;i<6;i++)
+                    awardImgs.get(i).setEnabled(b);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
     }
 
     @Override
@@ -408,20 +511,40 @@ public class HomelandActivity extends AppCompatActivity {
     /**
      * 设置勋章栏
      */
+    ImageView IvAwardItemHomelandPic1;
+    ImageView IvAwardItemHomelandPic2;
+    ImageView IvAwardItemHomelandPic3;
+    ImageView IvAwardItemHomelandPic4;
+    ImageView IvAwardItemHomelandPic5;
+    ImageView IvAwardItemHomelandPic6;
+    private List<ImageView> awardImgs;
     private void setAwardViews() {
         View view=View.inflate(this,R.layout.item_homeland_container,FlHomelandAwardContainer);
-        ImageView IvItemHomelandPic1;
-        ImageView IvItemHomelandPic2;
-        ImageView IvItemHomelandPic3;
-        ImageView IvItemHomelandPic4;
-        ImageView IvItemHomelandPic5;
-        ImageView IvItemHomelandPic6;
-        IvItemHomelandPic1 = view.findViewById( R.id.IvItemHomelandPic1 );
-        IvItemHomelandPic2 = view.findViewById( R.id.IvItemHomelandPic2 );
-        IvItemHomelandPic3 = view.findViewById( R.id.IvItemHomelandPic3 );
-        IvItemHomelandPic4 = view.findViewById( R.id.IvItemHomelandPic4 );
-        IvItemHomelandPic5 = view.findViewById( R.id.IvItemHomelandPic5 );
-        IvItemHomelandPic6 = view.findViewById( R.id.IvItemHomelandPic6 );
+        IvAwardItemHomelandPic1 = view.findViewById( R.id.IvItemHomelandPic1 );
+        IvAwardItemHomelandPic2 = view.findViewById( R.id.IvItemHomelandPic2 );
+        IvAwardItemHomelandPic3 = view.findViewById( R.id.IvItemHomelandPic3 );
+        IvAwardItemHomelandPic4 = view.findViewById( R.id.IvItemHomelandPic4 );
+        IvAwardItemHomelandPic5 = view.findViewById( R.id.IvItemHomelandPic5 );
+        IvAwardItemHomelandPic6 = view.findViewById( R.id.IvItemHomelandPic6 );
+        awardImgs=new ArrayList<>();
+        awardImgs.add(IvAwardItemHomelandPic1);
+        awardImgs.add(IvAwardItemHomelandPic2);
+        awardImgs.add(IvAwardItemHomelandPic3);
+        awardImgs.add(IvAwardItemHomelandPic4);
+        awardImgs.add(IvAwardItemHomelandPic5);
+        awardImgs.add(IvAwardItemHomelandPic6);
+        for(int i=0;i<6;i++){
+            if(awardWallisApply[i]){
+                awardImgs.get(i).setVisibility(View.VISIBLE);
+                for(int j=0;j<awardGoods.size();j++){
+                    if(awardGoods.get(j).getIndex()==awardWallNum[i]){
+                        awardImgs.get(i).setImageResource(awardGoods.get(i).getImg());
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 
     /**
@@ -444,6 +567,62 @@ public class HomelandActivity extends AppCompatActivity {
         IvItemHomelandPic5 = view.findViewById( R.id.IvItemHomelandPic5 );
         IvItemHomelandPic6 = view.findViewById( R.id.IvItemHomelandPic6 );
         TvItemHomelandTitle.setText("物品栏");
+        if(goodsWallisApply[0]){
+            IvItemHomelandPic1.setVisibility(View.VISIBLE);
+            for(int i=0;i<goodsGoods.size();i++){
+                if(goodsGoods.get(i).getIndex()==goodsWallNum[0]){
+                    IvItemHomelandPic1.setImageResource(goodsGoods.get(i).getImg());
+                    break;
+                }
+            }
+        }
+        if(goodsWallisApply[1]){
+            IvItemHomelandPic2.setVisibility(View.VISIBLE);
+            for(int i=0;i<goodsGoods.size();i++){
+                if(goodsGoods.get(i).getIndex()==goodsWallNum[1]){
+                    IvItemHomelandPic2.setImageResource(goodsGoods.get(i).getImg());
+                    break;
+                }
+            }
+        }
+        if(goodsWallisApply[2]){
+            IvItemHomelandPic3.setVisibility(View.VISIBLE);
+            for(int i=0;i<goodsGoods.size();i++){
+                if(goodsGoods.get(i).getIndex()==goodsWallNum[2]){
+                    IvItemHomelandPic3.setImageResource(goodsGoods.get(i).getImg());
+                    break;
+                }
+            }
+        }
+        if(goodsWallisApply[3]){
+            IvItemHomelandPic4.setVisibility(View.VISIBLE);
+            for(int i=0;i<goodsGoods.size();i++){
+                if(goodsGoods.get(i).getIndex()==goodsWallNum[3]){
+                    IvItemHomelandPic4.setImageResource(goodsGoods.get(i).getImg());
+                    break;
+                }
+            }
+        }
+        if(goodsWallisApply[4]){
+            IvItemHomelandPic5.setVisibility(View.VISIBLE);
+            for(int i=0;i<goodsGoods.size();i++){
+                if(goodsGoods.get(i).getIndex()==goodsWallNum[4]){
+                    IvItemHomelandPic5.setImageResource(goodsGoods.get(i).getImg());
+                    break;
+                }
+            }
+        }
+        if(goodsWallisApply[5]){
+            IvItemHomelandPic6.setVisibility(View.VISIBLE);
+            for(int i=0;i<goodsGoods.size();i++){
+                if(goodsGoods.get(i).getIndex()==goodsWallNum[5]){
+                    IvItemHomelandPic6.setImageResource(goodsGoods.get(i).getImg());
+                    break;
+                }
+            }
+        }
+
+
     }
 
     /**
