@@ -85,6 +85,7 @@ public class HomelandActivity extends AppCompatActivity {
      * 载入数据
      */
     private List<HomelandGoodsTool> bagGoods;
+    private List<HomelandGoodsTool> bagGoods_use;
     private List<HomelandWallInfo> awardWall;
     private List<HomelandWallInfo> goodsWall;
     private int foodPercent;
@@ -107,6 +108,7 @@ public class HomelandActivity extends AppCompatActivity {
         bagGoods =new ArrayList<>();
         awardWall=new ArrayList<>();
         goodsWall=new ArrayList<>();
+        bagGoods_use=new ArrayList<>();
         bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_zhizhuwang,"蜘蛛网",0.02,"award",0));
         bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aidejiating,"爱的家庭",0.05,"award",0));
         bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_fengchidianche,"风驰电掣",0.01,"award",0));
@@ -119,6 +121,19 @@ public class HomelandActivity extends AppCompatActivity {
         bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_dongwuguanliyuan,"动物管理员",0.04,"award",0));
         bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_aixinmengdong,"爱心萌动",0.02,"award",0));
         bagGoods.add(new HomelandGoodsTool(R.drawable.achieventment_yikexiaocao,"一颗小草",0.01,"award",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.goods_bangbangtang,"棒棒糖",0.02,"goods",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.goods_xiangquan,"项圈",0.01,"goods",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.food_coke1,"蛋糕",0.2,"food",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.food_coke2,"蛋糕",0.3,"food",0));
+        bagGoods.add(new HomelandGoodsTool(R.drawable.food_xuegao,"雪糕",0.3,"food",0));
+    }
+
+    private void ReSetBagData() {
+        for(int i=0;i<bagGoods_use.size();i++){
+            bagGoods_use.remove(i);
+            i--;
+        }
+        bagGoods_use.addAll(bagGoods);
     }
 
     @Override
@@ -131,9 +146,10 @@ public class HomelandActivity extends AppCompatActivity {
         changeData();
         setGoodsViews();
         setAwardViews();
+        setBag();
         setAnimation();
         setOnClick();
-        setBag();
+
     }
 
     /**
@@ -141,27 +157,38 @@ public class HomelandActivity extends AppCompatActivity {
      */
     private boolean isBagShow=false;
     private RecyclerView goodsRecycleView;
+    private HomelandBagAdapater homelandBagAdapater;
+    private ImageView IvHomelandBagAward;
+    private ImageView IvHomelandBagGoods;
+    private ImageView IvHomelandBagFood;
+    private boolean buttonAwardIspressed=true;
+    private boolean buttonFoodIspressed=false;
+    private boolean buttonGoodsIspressed=false;
     private void setBag() {
         goodsRecycleView =new RecyclerView(this);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         goodsRecycleView.setLayoutManager(staggeredGridLayoutManager);
-        HomelandBagAdapater homelandBagAdapater=new HomelandBagAdapater(this,bagGoods);
+        ReSetBagData();
+        homelandBagAdapater=new HomelandBagAdapater(this,bagGoods_use);
+        UpdateAdapter("award");
         goodsRecycleView.setAdapter(homelandBagAdapater);
-        homelandBagAdapater.setOnItemClickListener(new HomelandBagAdapater.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-
-            }
-
-            @Override
-            public void onItemLongClick(View view, int position) {
-
-            }
-        });
         View view=View.inflate(this,R.layout.item_homeland_bag,FlHomelandBagContainer);
         FrameLayout FlItenRecycleViewContainer;
         FlItenRecycleViewContainer = view.findViewById(R.id.FlItenRecycleViewContainer);
+        IvHomelandBagAward = view.findViewById(R.id.IvHomelandBagAward);
+        IvHomelandBagGoods = view.findViewById(R.id.IvHomelandBagGoods);
+        IvHomelandBagFood = findViewById(R.id.IvHomelandBagFood);
         FlItenRecycleViewContainer.addView(goodsRecycleView);
+    }
+
+    private void UpdateAdapter(String type) {
+        for(int i=0;i<bagGoods_use.size();i++){
+            if(!bagGoods_use.get(i).getType().equals(type)){
+                bagGoods_use.remove(bagGoods_use.get(i));
+                i--;
+            }
+        }
+        homelandBagAdapater.notifyDataSetChanged();
     }
 
     @Override
@@ -204,6 +231,8 @@ public class HomelandActivity extends AppCompatActivity {
         IvHomelandBall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FlHomelandBagContainer.setVisibility(View.VISIBLE);
+                isBagShow=true;
                 GvHomelandPet.setImageResource(R.drawable.homeland_pet_cat_play);
                 TvHomelandLoad.setText("拼命产出中...");
                 healthPercent+=20;
@@ -238,6 +267,54 @@ public class HomelandActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FlHomelandBagContainer.setVisibility(View.VISIBLE);
                 isBagShow=true;
+            }
+        });
+
+        IvHomelandBagAward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!buttonAwardIspressed){
+                    buttonAwardIspressed=true;
+                    buttonFoodIspressed=false;
+                    buttonGoodsIspressed=false;
+                    IvHomelandBagAward.setImageResource(R.drawable.awardbutton_pressed);
+                    IvHomelandBagGoods.setImageResource(R.drawable.goodsbutton_unpressed);
+                    IvHomelandBagFood.setImageResource(R.drawable.foodbutton_unpressed);
+                    ReSetBagData();
+                    UpdateAdapter("award");
+                }
+            }
+        });
+
+        IvHomelandBagGoods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!buttonGoodsIspressed){
+                    buttonAwardIspressed=false;
+                    buttonFoodIspressed=false;
+                    buttonGoodsIspressed=true;
+                    IvHomelandBagAward.setImageResource(R.drawable.awardbutton_unpressed);
+                    IvHomelandBagGoods.setImageResource(R.drawable.goodsbutton_pressed);
+                    IvHomelandBagFood.setImageResource(R.drawable.foodbutton_unpressed);
+                    ReSetBagData();
+                    UpdateAdapter("goods");
+                }
+            }
+        });
+
+        IvHomelandBagFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!buttonFoodIspressed){
+                    buttonAwardIspressed=false;
+                    buttonFoodIspressed=true;
+                    buttonGoodsIspressed=false;
+                    IvHomelandBagAward.setImageResource(R.drawable.awardbutton_unpressed);
+                    IvHomelandBagGoods.setImageResource(R.drawable.goodsbutton_unpressed);
+                    IvHomelandBagFood.setImageResource(R.drawable.foodbutton_pressed);
+                    ReSetBagData();
+                    UpdateAdapter("food");
+                }
             }
         });
     }
