@@ -32,6 +32,7 @@ public class SocialFriendFragment extends BaseFragment {
     private ImageView IvSocialFriend;
     private ListView LvSocialFriend;
     private RelativeLayout RlSocialSearchContainer;
+    private RelativeLayout RlSocialMarryContainer;
 
     /**
      * Find the Views in the layout<br />
@@ -46,6 +47,7 @@ public class SocialFriendFragment extends BaseFragment {
         IvSocialFriend = view.findViewById( R.id.IvSocialFriend );
         LvSocialFriend = view.findViewById(R.id.LvSocialFriend);
         RlSocialSearchContainer = view.findViewById(R.id.RlSocialSearchContainer);
+        RlSocialMarryContainer = view.findViewById(R.id.RlSocialMarryContainer);
     }
 
     public SocialFriendFragment() {
@@ -63,7 +65,7 @@ public class SocialFriendFragment extends BaseFragment {
     @Override
     protected void initData() {
         super.initData();
-        setOnClick();
+
         socialFriendInfoList=new ArrayList<>();
         socialFriendInfoList.add(new SocialFriendInfo(1,R.drawable.touxiang1,"冰块",18,1312.1));
         socialFriendInfoList.add(new SocialFriendInfo(2,R.drawable.touxiang2,"张天天",6,699.5));
@@ -80,6 +82,16 @@ public class SocialFriendFragment extends BaseFragment {
 
         setFriendListView();
         setSearchView();
+        setMarryView();
+
+        setOnClick();
+    }
+
+    /**
+     * 设置结婚界面
+     */
+    private void setMarryView() {
+
     }
 
     /**
@@ -101,7 +113,7 @@ public class SocialFriendFragment extends BaseFragment {
     /**
      * 设置监听
      */
-
+    private List<View> friendViews;
     private void setOnClick() {
         IvSocialAddFriend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,5 +121,45 @@ public class SocialFriendFragment extends BaseFragment {
 
             }
         });
+
+        friendViews=new ArrayList<>();
+        friendViews.add(RlSocialSearchContainer);
+        friendViews.add(LvSocialFriend);
+        friendViews.add(RlSocialMarryContainer);
+        IvSocialAddFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                to=0;
+                switchView();
+            }
+        });
+
+        IvSocialFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                to=1;
+                switchView();
+            }
+        });
+        IvSocialMarry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                to=2;
+                switchView();
+            }
+        });
+    }
+
+    /**
+     * 选择显示哪个界面
+     */
+    private int pre=1;
+    private int to;
+    void switchView(){
+        if(to!=pre){
+            friendViews.get(pre).setVisibility(View.INVISIBLE);
+            friendViews.get(to).setVisibility(View.VISIBLE);
+            pre=to;
+        }
     }
 }
