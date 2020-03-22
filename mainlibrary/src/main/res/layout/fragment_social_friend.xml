@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.SocialFriendFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="340dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="130dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/social_waikuang">
+
+        <FrameLayout
+            android:id="@+id/FlSocialFriendContainer"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/social_neikuang"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp">
+
+            <ListView
+                android:id="@+id/LvSocialFriend"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:visibility="invisible"/>
+
+            <RelativeLayout
+                android:id="@+id/RlSocialSearchContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@id/FlSocialFriendContainer"
+            android:layout_toEndOf="@id/FlSocialFriendContainer"
+            android:layout_alignBottom="@id/FlSocialFriendContainer">
+
+            <ImageView
+                android:id="@+id/IvSocialAddFriend"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/social_addbutton"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/IvSocialMarry"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/social_marrybutton"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/IvSocialFriend"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_above="@id/IvSocialMarry"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/social_friendbutton"
+                android:layout_marginBottom="20dp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/social_egg"
+        android:adjustViewBounds="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="0dp"/>
+
+
+
+</RelativeLayout>

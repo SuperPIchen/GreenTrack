@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/EtSocialFriend"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@drawable/yuanjiaojuxing_blue_shape"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:hint="请输入用户ID/昵称"
+        android:alpha="0.8"
+        android:paddingStart="4dp"/>
+
+    <ImageView
+        android:id="@+id/IvSocialSearch"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/social_fangdajing"
+        android:layout_toEndOf="@id/EtSocialFriend"
+        android:layout_alignTop="@id/EtSocialFriend"
+        android:layout_marginStart="-60dp"
+        android:layout_marginTop="-20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/IvSocialSearch">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@drawable/yuanjiaojuxing_darkblue_shape"
+            android:text="附近的人"
+            android:gravity="center"
+            android:layout_marginStart="90dp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@drawable/yuanjiaojuxing_darkblue_shape"
+            android:text="猜你喜欢"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:background="@drawable/yuanjiaojuxing_darkblue_shape"
+            android:text="可能认识的人"
+            android:gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="100dp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:background="@drawable/yuanjiaojuxing_darkblue_shape"
+            android:text="微信好友"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+
+            android:textColor="@android:color/white"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

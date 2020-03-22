@@ -3,7 +3,8 @@
     package="com.superpichen.mainlibrary">
 
     <application>
-        <activity android:name=".Activities.TantanActivity"></activity>
+        <activity android:name=".Activities.SocialActivity"></activity>
+        <activity android:name=".Activities.TantanActivity" />
         <activity android:name=".Activities.PaokuActivity" />
         <activity
             android:name=".Activities.HomelandActivity"

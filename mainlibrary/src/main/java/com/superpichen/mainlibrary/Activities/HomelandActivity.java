@@ -283,8 +283,12 @@ public class HomelandActivity extends AppCompatActivity {
             }
 
             void changeEnable(boolean b){
-                for(int i=0;i<6;i++)
+                for(int i=0;i<6;i++){
                     awardImgs.get(i).setEnabled(b);
+                    if(!awardWallisApply[i])
+                        awardImgs.get(i).setVisibility(View.INVISIBLE);
+                }
+
             }
 
             @Override

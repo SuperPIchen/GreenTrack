@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.SocialActivity"
+    android:background="@drawable/social_bg">
+
+    <LinearLayout
+        android:id="@+id/wuyong1"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/TvSocialFriend"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:text="好友"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@android:color/black"/>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:background="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/TvSocialFamily"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:text="家族"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/FlSocialContainer"
+        android:layout_below="@id/wuyong1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

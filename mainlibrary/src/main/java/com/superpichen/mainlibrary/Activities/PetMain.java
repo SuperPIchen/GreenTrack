@@ -199,6 +199,13 @@ public class PetMain extends ModelActivity {
                 RlMainContainer.removeView(gLView);
             }
         });
+
+        RlMainDaohangButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PetMain.this,SocialActivity.class));
+            }
+        });
     }
 
     @Override
