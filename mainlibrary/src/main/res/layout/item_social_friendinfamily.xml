@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingStart="2.5dp"
+    android:paddingEnd="2.5dp"
+    android:paddingTop="2.5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.shehuan.niv.NiceImageView
+            android:id="@+id/IvItemSocialFriendInFamilyTouxiang"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:src="@drawable/touxiang2"
+            app:is_circle="true"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="2.5dp"
+            android:layout_marginBottom="2.5dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="6"
+            android:orientation="vertical"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp">
+
+            <TextView
+                android:id="@+id/TvItemSocialFriendInFamilyName"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="冰块"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/TvItemSocialSendInvite"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:text="发送邀请"
+            android:gravity="center"
+            android:background="@drawable/yuanjiaojuxing_darkblue_shape"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

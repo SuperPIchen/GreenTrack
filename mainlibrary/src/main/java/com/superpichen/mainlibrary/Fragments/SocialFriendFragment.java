@@ -115,13 +115,6 @@ public class SocialFriendFragment extends BaseFragment {
      */
     private List<View> friendViews;
     private void setOnClick() {
-        IvSocialAddFriend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         friendViews=new ArrayList<>();
         friendViews.add(RlSocialSearchContainer);
         friendViews.add(LvSocialFriend);
