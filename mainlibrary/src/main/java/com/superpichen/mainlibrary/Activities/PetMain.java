@@ -143,6 +143,16 @@ public class PetMain extends ModelActivity {
                     }
                 });
         BbPetZhuangyuan.addBuilder(builderChengjiu);
+        TextOutsideCircleButton.Builder builderShejiao = new TextOutsideCircleButton.Builder()
+                .normalImageRes(R.drawable.mainshejiaobutton)
+                .normalText("社交区")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(PetMain.this,SocialActivity.class));
+                    }
+                });
+        BbPetZhuangyuan.addBuilder(builderShejiao);
 
         //游戏按钮
         BbPetYouxi.setEnabled(false);
@@ -203,7 +213,7 @@ public class PetMain extends ModelActivity {
         RlMainDaohangButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PetMain.this,SocialActivity.class));
+                startActivity(new Intent(PetMain.this,DaoHangActivity.class));
             }
         });
     }

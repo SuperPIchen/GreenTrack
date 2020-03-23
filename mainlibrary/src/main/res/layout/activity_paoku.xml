@@ -5,18 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.PaokuActivity"
-    android:background="@android:color/holo_purple">
+    android:background="#cfe6e5">
 
-    <Button
-        android:id="@+id/BtPaoKuBack"
+    <ImageView
+        android:id="@+id/IvPaoKuBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="返回"/>
+        android:src="@drawable/paoku_back"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/IvPaoKuBack"
+        android:layout_alignTop="@id/IvPaoKuBack"
+        android:layout_marginTop="-5dp"
+        android:layout_marginBottom="-5dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/TvPaoKuSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前时速：80km/h"
+            android:textColor="#4552e5"/>
+
+        <TextView
+            android:id="@+id/TvPaoKuNextStation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一站：硕放机场站"
+            android:textColor="#4552e5"/>
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/FlPaoKuUnityContainer"
-        android:layout_below="@id/BtPaoKuBack"
+        android:layout_below="@id/IvPaoKuBack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="50dp"/>
+        android:layout_toStartOf="@id/LlPaoKuZhandian"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/LlPaoKuZhandian"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/paoku_temp"/>
+
+    </LinearLayout>
 </RelativeLayout>

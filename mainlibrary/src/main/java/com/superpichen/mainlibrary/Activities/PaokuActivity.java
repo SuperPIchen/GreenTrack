@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
@@ -13,11 +14,11 @@ import com.superpichen.unitycontactlib.ContactTool;
 import com.unity3d.player.UnityPlayerActivity;
 
 public class PaokuActivity extends UnityPlayerActivity {
-    private Button BtPaoKuBack;
+    private ImageView IvPaoKuBack;
     private FrameLayout FlPaoKuUnityContainer;
 
     private void findViews() {
-        BtPaoKuBack = findViewById(R.id.BtPaoKuBack);
+        IvPaoKuBack = findViewById(R.id.IvPaoKuBack);
         FlPaoKuUnityContainer = findViewById(R.id.FlPaoKuUnityContainer);
     }
     @Override
@@ -34,7 +35,7 @@ public class PaokuActivity extends UnityPlayerActivity {
      */
     private void selectScn() {
         ContactTool.TargetUnitySecen="PaoKu";
-        BtPaoKuBack.setOnClickListener(new View.OnClickListener() {
+        IvPaoKuBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mUnityPlayer.quit();
