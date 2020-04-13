@@ -270,6 +270,7 @@ public class PetMain extends ModelActivity {
                     PetMain.this.showTip( "创建对象失败，请确认 libmsc.so 放置正确，且有调用 createUtility 进行初始化" );
                     return;
                 }
+                TvMainYuyin.setVisibility(View.VISIBLE);
                 startRec();
             }
         });
@@ -549,6 +550,9 @@ public class PetMain extends ModelActivity {
                         RlMainZhuangyaunButton.startAnimation(zhuangyuanPaopaoTranslateAnimationSet);
                         handler.sendEmptyMessageDelayed(8,2000);
                     }
+                    break;
+                case 9:
+                    TvMainYuyin.setVisibility(View.INVISIBLE);
                     break;
             }
         }
@@ -876,6 +880,7 @@ public class PetMain extends ModelActivity {
         public void onEndOfSpeech() {
             // 此回调表示：检测到了语音的尾端点，已经进入识别过程，不再接受语音输入
             showTip("结束说话");
+            handler.sendEmptyMessageDelayed(9,1000);
         }
 
         @Override

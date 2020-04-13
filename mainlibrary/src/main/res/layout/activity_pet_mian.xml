@@ -247,8 +247,11 @@
             android:background="@drawable/pet_yuyin_kuang"
             android:layout_marginBottom="-100dp"
             android:layout_above="@id/RlMainContainer"
-            android:elevation="1dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:textColor="@android:color/holo_green_dark"
+            android:gravity="center_vertical"
+            android:textSize="20sp"/>
 
 
     </RelativeLayout>
