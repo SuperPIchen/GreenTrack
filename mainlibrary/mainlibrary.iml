@@ -102,6 +102,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:./mainlibrary/libs/Msc.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:./mainlibrary/libs/unity-classes.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.collection:collection:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0@jar" level="project" />
@@ -113,6 +114,7 @@
     <orderEntry type="library" name="Gradle: __local_aars__:./mainlibrary/libs/UnityToolForAndroid2-release.aar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.dzaitsev.android.widget:radarchartview:0.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.nightonke:jellytogglebutton:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.shellljx:TagViewGroup:-SNAPSHOT@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-v4:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar" level="project" />

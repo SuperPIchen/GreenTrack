@@ -25,8 +25,8 @@
             android:id="@+id/PtMainTip"
             android:layout_width="180dp"
             android:layout_height="280dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="50dp"
             android:elevation="100dp"
             android:background="@android:color/white"/>
@@ -229,6 +229,27 @@
                 android:gravity="center"/>
 
         </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/IvMainYuyinButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/pet_yuyin"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+            android:id="@+id/TvMainYuyin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pet_yuyin_kuang"
+            android:layout_marginBottom="-100dp"
+            android:layout_above="@id/RlMainContainer"
+            android:elevation="1dp"
+            android:layout_centerHorizontal="true"/>
+
 
     </RelativeLayout>
 

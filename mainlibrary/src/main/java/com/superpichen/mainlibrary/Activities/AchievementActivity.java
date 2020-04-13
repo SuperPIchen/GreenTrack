@@ -17,6 +17,7 @@ import com.gitonway.lee.niftynotification.lib.Configuration;
 import com.gitonway.lee.niftynotification.lib.Effects;
 import com.gitonway.lee.niftynotification.lib.NiftyNotificationView;
 import com.jarvislau.destureviewbinder.GestureViewBinder;
+import com.licrafter.tagview.TagViewGroup;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
 import com.nightonke.jellytogglebutton.State;
 import com.superpichen.mainlibrary.MyView.MyRadarChartView;
@@ -174,6 +175,7 @@ public class AchievementActivity extends AppCompatActivity {
                 case FinalValue.ACHIEVEMENTTYPEOFYOUXI:
                     LlAchievementYouxiDengContainer.addView(imgContainer);
             }
+
         }
     }
 
