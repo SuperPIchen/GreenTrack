@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,8 +14,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
@@ -35,6 +39,10 @@ import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechUtility;
+import com.mingle.entity.MenuEntity;
+import com.mingle.sweetpick.BlurEffect;
+import com.mingle.sweetpick.RecyclerViewDelegate;
+import com.mingle.sweetpick.SweetSheet;
 import com.nightonke.boommenu.Animation.BoomEnum;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceAlignmentEnum;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -47,6 +55,7 @@ import com.superpichen.mainlibrary.MyView.PageTurn.MimicPageTurnView;
 import com.superpichen.mainlibrary.MyView.PageTurn.TextPageAdapter;
 import com.superpichen.mainlibrary.MyView.TopBar.StatusBarUtil;
 import com.superpichen.mainlibrary.R;
+import com.superpichen.mainlibrary.Tools.JavaTools.Dip2px;
 import com.superpichen.mainlibrary.Tools.JavaTools.FinalValue;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.ExampleSceneLoader;
 import com.superpichen.mainlibrary.Tools.ThreeD.demo.SceneLoader;
@@ -63,6 +72,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -83,6 +93,7 @@ public class PetMain extends ModelActivity {
     private BoomMenuButton BbPetYouxi;
     private ImageView IvMainYuyinButton;
     private HanbiaoshuangjiancutiFont TvMainYuyin;
+    private ImageView IvMainGongyiButton;
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -104,6 +115,7 @@ public class PetMain extends ModelActivity {
         BbPetYouxi = findViewById(R.id.BbPetYouxi);
         IvMainYuyinButton = findViewById(R.id.IvMainYuyinButton);
         TvMainYuyin = findViewById(R.id.TvMainYuyin);
+        IvMainGongyiButton = findViewById(R.id.IvMainGongyiButton);
     }
 
     @Override
@@ -123,6 +135,84 @@ public class PetMain extends ModelActivity {
          */
         RlMainPaopaoContainer.bringToFront();
         TvMainBiaoqian.bringToFront();
+    }
+
+    /**
+     * 设置公益界面
+     */
+    private void startGongyi() {
+        View view=View.inflate(this,R.layout.dialog_pet_gongyi,null);
+        dialogSetView(view);
+        setDialogData();
+        dialogOnClick();
+        AlertDialog dialog=new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        dialog.show();
+        android.view.WindowManager.LayoutParams p = dialog.getWindow().getAttributes();  //获取对话框当前的参数值
+        Dip2px dip2px=new Dip2px(this);
+        p.height = dip2px.dip2px(570);
+        p.width = dip2px.dip2px(380);
+        dialog.getWindow().setAttributes(p);     //设置生效
+    }
+
+    /**
+     * 设置Dialog数据
+     */
+    private ArrayList<String> wayList;
+    SweetSheet mSweetSheet;
+    private void setDialogData() {
+        wayList=new ArrayList<>();
+        wayList.add("公交车");
+        wayList.add("地铁");
+        wayList.add("共享单车");
+    }
+
+    /**
+     * dialog里的点击事件
+     */
+    private void dialogOnClick() {
+        TvGongyiStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    /**
+     * 设置Dialog的View
+     * @param view
+     */
+    ImageView IvGongyiTree;
+    ImageView IvGongyiBus;
+    ImageView IvGongyiBike;
+    ImageView IvGongyiSubway;
+    TextView TvGongyiSubway;
+    TextView TvGongyiBus;
+    TextView TvGongyiBike;
+    RelativeLayout RlGongyiTabContainer;
+    HanbiaoshuangjiancutiFont TvGOngyiToday;
+    HanbiaoshuangjiancutiFont TvGOngyiSum;
+    HanbiaoshuangjiancutiFont TvGOngyiJisuan;
+    TextView TvGongyiStart;
+    TextView TvGongyiEnd;
+    TextView TvGongyiWay;
+    private void dialogSetView(View view) {
+        IvGongyiTree = view.findViewById( R.id.IvGongyiTree );
+        IvGongyiBus = view.findViewById( R.id.IvGongyiBus );
+        IvGongyiBike = view.findViewById( R.id.IvGongyiBike );
+        IvGongyiSubway = view.findViewById( R.id.IvGongyiSubway );
+        TvGongyiSubway = view.findViewById( R.id.TvGongyiSubway );
+        TvGongyiBus = view.findViewById( R.id.TvGongyiBus );
+        TvGongyiBike = view.findViewById( R.id.TvGongyiBike );
+        RlGongyiTabContainer = view.findViewById( R.id.RlGongyiTabContainer );
+        TvGOngyiToday = view.findViewById( R.id.TvGOngyiToday );
+        TvGOngyiSum = view.findViewById( R.id.TvGOngyiSum );
+        TvGOngyiJisuan = view.findViewById( R.id.TvGOngyiJisuan );
+        TvGongyiStart = view.findViewById( R.id.TvGongyiStart );
+        TvGongyiEnd = view.findViewById( R.id.TvGongyiEnd );
+        TvGongyiWay = view.findViewById( R.id.TvGongyiWay );
     }
 
     /**
@@ -272,6 +362,12 @@ public class PetMain extends ModelActivity {
                 }
                 TvMainYuyin.setVisibility(View.VISIBLE);
                 startRec();
+            }
+        });
+        IvMainGongyiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startGongyi();
             }
         });
     }

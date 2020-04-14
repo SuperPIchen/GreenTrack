@@ -34,11 +34,6 @@ android {
         }
     }
 
-//    sourceSets {
-//        main {
-//            jniLibs.srcDirs = ['libs']
-//        }
-//    }
     defaultConfig {
         ndk {
             abiFilters 'armeabi-v7a', 'x86'
@@ -76,4 +71,5 @@ dependencies {
     implementation 'cn.bingoogolapple:bga-progressbar:1.0.1@aar'
     implementation 'com.github.shellljx:TagViewGroup:-SNAPSHOT'
     implementation files('libs/Msc.jar')
+    implementation 'com.github.zzz40500:AndroidSweetSheet:1.1.0'
 }

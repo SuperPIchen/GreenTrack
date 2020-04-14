@@ -230,15 +230,53 @@
 
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/IvMainYuyinButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/pet_yuyin"
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/IvMainYuyinButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pet_yuyin"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="语音助手"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp">
+
+            <ImageView
+                android:id="@+id/IvMainGongyiButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pet_measure"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="碳公益"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"/>
+        </LinearLayout>
 
         <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
             android:id="@+id/TvMainYuyin"

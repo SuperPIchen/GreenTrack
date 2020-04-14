@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="570dp"
+    android:background="@drawable/gongyi_bg">
+
+    <ImageView
+        android:id="@+id/IvGongyiTree"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/gongyi_tree"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+    <ImageView
+        android:id="@+id/IvGongyiBus"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/getpointsbus"
+        android:layout_toEndOf="@id/IvGongyiTree"
+        android:layout_alignTop="@id/IvGongyiTree"
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/IvGongyiBike"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/getpointsbike"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/IvGongyiSubway"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/gongyi_subway"
+        android:layout_toStartOf="@id/IvGongyiTree"
+        android:layout_marginTop="50dp"
+        android:layout_alignTop="@id/IvGongyiTree"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/TvGongyiSubway"
+        android:text="今日地铁站数\n8站"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gongyi_modi"
+        android:layout_below="@id/IvGongyiSubway"/>
+
+    <TextView
+        android:id="@+id/TvGongyiBus"
+        android:text="今日公交站数\n2站"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gongyi_modi"
+        android:layout_below="@id/IvGongyiBus"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/TvGongyiBike"
+        android:text="今日骑行距离\n2.3公里"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gongyi_modi"
+        android:layout_toEndOf="@id/IvGongyiBike"
+        android:layout_alignBottom="@id/IvGongyiBike"/>
+
+    <RelativeLayout
+        android:id="@+id/RlGongyiTabContainer"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/gongyi_tab_bg"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp">
+
+            <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+                android:id="@+id/TvGOngyiToday"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/gongyi_tab_kuang"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="今日减碳量\n20g"
+                android:textColor="@android:color/holo_green_dark"/>
+
+            <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+                android:id="@+id/TvGOngyiSum"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/gongyi_tab_kuang"
+                android:text="累计减碳量\n203.5g"
+                android:gravity="center"
+                android:padding="2dp"
+                android:textColor="@android:color/holo_green_dark"/>
+
+            <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+                android:id="@+id/TvGOngyiJisuan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/gongyi_tab_kuang"
+                android:text="探索你想知道的减碳量"
+                android:gravity="center"
+                android:padding="2dp"
+                android:textColor="@android:color/holo_green_dark"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/IvGongyiTree"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/TvGongyiStart"
+            android:text="起始地点"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/yuanjiaojuxing_green_shape"
+            android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/TvGongyiEnd"
+            android:text="目标地点"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/yuanjiaojuxing_green_shape"
+            android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:id="@+id/TvGongyiWay"
+            android:text="交通工具"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/yuanjiaojuxing_green_shape"
+            android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginStart="5dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
