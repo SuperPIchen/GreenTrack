@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.shellljx:TagViewGroup:-SNAPSHOT@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/46b94f224b2defd328dc555a0935528b/jetified-TagViewGroup--SNAPSHOT/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/46b94f224b2defd328dc555a0935528b/jetified-TagViewGroup--SNAPSHOT/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a34eac04bffa2151b02a0bcc7002d9b4/jetified-TagViewGroup--SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a34eac04bffa2151b02a0bcc7002d9b4/jetified-TagViewGroup--SNAPSHOT/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

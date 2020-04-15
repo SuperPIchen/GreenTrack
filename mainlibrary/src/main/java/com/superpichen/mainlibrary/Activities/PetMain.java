@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,13 +13,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
@@ -39,14 +35,10 @@ import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechUtility;
-import com.mingle.entity.MenuEntity;
-import com.mingle.sweetpick.BlurEffect;
-import com.mingle.sweetpick.RecyclerViewDelegate;
 import com.mingle.sweetpick.SweetSheet;
 import com.nightonke.boommenu.Animation.BoomEnum;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceAlignmentEnum;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
-import com.nightonke.boommenu.BoomButtons.TextInsideCircleButton;
 import com.nightonke.boommenu.BoomButtons.TextOutsideCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.superpichen.mainlibrary.MyView.MyFonts.CangerjinkaiFont;
@@ -70,13 +62,10 @@ import net.frakbot.jumpingbeans.JumpingBeans;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-
-import pl.droidsonroids.gif.GifImageView;
 
 public class PetMain extends ModelActivity {
     private MimicPageTurnView turnView;
@@ -94,6 +83,7 @@ public class PetMain extends ModelActivity {
     private ImageView IvMainYuyinButton;
     private HanbiaoshuangjiancutiFont TvMainYuyin;
     private ImageView IvMainGongyiButton;
+    private TextView TvMainBiaoqian2;
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -116,12 +106,13 @@ public class PetMain extends ModelActivity {
         IvMainYuyinButton = findViewById(R.id.IvMainYuyinButton);
         TvMainYuyin = findViewById(R.id.TvMainYuyin);
         IvMainGongyiButton = findViewById(R.id.IvMainGongyiButton);
+        TvMainBiaoqian2 = findViewById(R.id.TvMainBiaoqian2);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pet_mian);
+        setContentView(R.layout.activity_pet_main);
         StatusBarUtil.setTranslucentForImageView(this,0,null);
         findViews();
         setTip();
@@ -135,6 +126,7 @@ public class PetMain extends ModelActivity {
          */
         RlMainPaopaoContainer.bringToFront();
         TvMainBiaoqian.bringToFront();
+        TvMainBiaoqian2.bringToFront();
     }
 
     /**
@@ -175,7 +167,6 @@ public class PetMain extends ModelActivity {
         TvGongyiStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
     }
@@ -321,12 +312,6 @@ public class PetMain extends ModelActivity {
     private boolean isPaopaoVisible =false;
     //设置监听
     private void setOnClick() {
-        RlMainContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         RlMainShopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -368,6 +353,12 @@ public class PetMain extends ModelActivity {
             @Override
             public void onClick(View v) {
                 startGongyi();
+            }
+        });
+        TvMainBiaoqian2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PetMain.this,JiJianActivity.class));
             }
         });
     }
