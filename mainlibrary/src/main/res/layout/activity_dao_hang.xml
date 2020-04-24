@@ -11,6 +11,13 @@
         android:layout_height="match_parent"
         android:id="@+id/FlDaoHangPekemonContainer"/>
 
+    <FrameLayout
+        android:id="@+id/FlDaoHangMapContainer"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
     <ImageView
         android:id="@+id/IvDaoHangPeKemonBack"
         android:layout_width="wrap_content"

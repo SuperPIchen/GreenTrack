@@ -16,13 +16,23 @@ import com.unity3d.player.UnityPlayerActivity;
 public class DaoHangActivity extends UnityPlayerActivity {
     private FrameLayout FlDaoHangPekemonContainer;
     private ImageView IvDaoHangPeKemonBack;
+    private FrameLayout FlDaoHangMapContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dao_hang);
         FlDaoHangPekemonContainer = findViewById(R.id.FlDaoHangPekemonContainer);
         IvDaoHangPeKemonBack = findViewById(R.id.IvDaoHangPeKemonBack);
+        FlDaoHangMapContainer = findViewById(R.id.FlDaoHangMapContainer);
         selectScn();
+        initMap();
+    }
+
+    /**
+     * 加载地图
+     */
+    private void initMap() {
+
     }
 
     /**

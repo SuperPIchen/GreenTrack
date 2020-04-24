@@ -640,6 +640,7 @@ public class PetMain extends ModelActivity {
                     break;
                 case 9:
                     TvMainYuyin.setVisibility(View.INVISIBLE);
+                    startActivity(new Intent(PetMain.this,MallActivity.class));
                     break;
             }
         }

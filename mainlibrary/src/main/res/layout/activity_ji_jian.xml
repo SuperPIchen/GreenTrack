@@ -26,7 +26,8 @@
         android:layout_height="120dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:visibility="invisible"/>
 
     <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
         android:id="@+id/TvJiJianYuyin"
