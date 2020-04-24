@@ -19,6 +19,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -72,4 +73,5 @@ dependencies {
     implementation 'com.github.shellljx:TagViewGroup:-SNAPSHOT'
     implementation files('libs/Msc.jar')
     implementation 'com.github.zzz40500:AndroidSweetSheet:1.1.0'
+    implementation files('libs\\BaiduLBS_android_469766528.aar')
 }

@@ -11,12 +11,11 @@
         android:layout_height="match_parent"
         android:id="@+id/FlDaoHangPekemonContainer"/>
 
-    <FrameLayout
-        android:id="@+id/FlDaoHangMapContainer"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"/>
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/MvDaoHangMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/IvDaoHangPeKemonBack"
@@ -25,5 +24,14 @@
         android:src="@drawable/paoku_back"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"/>
+
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/BbDaoHangMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:bmb_buttonEnum="textOutsideCircle"
+        app:bmb_piecePlaceEnum="piecePlace_dot_4_2"
+        app:bmb_buttonPlaceEnum="buttonPlace_sc_4_2" />
 
 </RelativeLayout>

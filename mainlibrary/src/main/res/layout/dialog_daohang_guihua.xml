@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="230dp">
+
+    <EditText
+        android:id="@+id/EtDaoHangStart"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/tujianchangname_kuang"
+        android:hint="请输入起始地"
+        android:textSize="20sp"
+        android:paddingStart="30dp"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/EtDaoHangEnd"
+        android:layout_below="@id/EtDaoHangStart"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/tujianchangname_kuang"
+        android:hint="请输入终点"
+        android:textSize="20sp"
+        android:paddingStart="30dp"
+        android:textColor="@android:color/black"/>
+
+    <ImageView
+        android:id="@+id/IvDaoHangGuiHuaYes"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/tujianchangename_yes"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/IvDaoHangGuiHuaCancel"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/tujianchangename_cancel"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"/>
+
+</RelativeLayout>
