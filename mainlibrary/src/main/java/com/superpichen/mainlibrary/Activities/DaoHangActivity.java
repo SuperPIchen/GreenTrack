@@ -374,7 +374,7 @@ public class DaoHangActivity extends UnityPlayerActivity {
      * 选择unity场景
      */
     private void selectScn() {
-        ContactTool.TargetUnitySecen="Pekemon";
+        ContactTool.TargetUnitySecen="Pokemon";
         IvDaoHangPeKemonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

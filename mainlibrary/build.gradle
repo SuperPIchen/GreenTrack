@@ -68,10 +68,10 @@ dependencies {
     implementation(name: 'VuforiaWrapper', ext: 'aar')
     implementation files('libs/unity-classes.jar')
     implementation files('libs/unitycontactlib-debug.aar')
-    implementation files('libs/UnityToolForAndroid2-release.aar')
+    implementation files('libs/MyUnity-release.aar')
     implementation 'cn.bingoogolapple:bga-progressbar:1.0.1@aar'
     implementation 'com.github.shellljx:TagViewGroup:-SNAPSHOT'
     implementation files('libs/Msc.jar')
     implementation 'com.github.zzz40500:AndroidSweetSheet:1.1.0'
-    implementation files('libs\\BaiduLBS_android_469766528.aar')
+    implementation files('libs/BaiduLBS_android_469766528.aar')
 }
