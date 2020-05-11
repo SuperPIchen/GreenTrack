@@ -292,7 +292,7 @@ public class PetMain extends ModelActivity {
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-                        startActivityForResult(new Intent(PetMain.this,TujianActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
+                        startActivityForResult(new Intent(PetMain.this,TantanActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
                         RlMainContainer.removeView(gLView);
                     }
                 });
