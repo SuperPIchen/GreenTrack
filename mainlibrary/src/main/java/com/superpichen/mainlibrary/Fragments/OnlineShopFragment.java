@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -16,6 +17,7 @@ import com.shehuan.niv.NiceImageView;
 import com.stx.xhb.androidx.XBanner;
 import com.stx.xhb.androidx.transformers.Transformer;
 import com.superpichen.mainlibrary.Activities.MallActivity;
+import com.superpichen.mainlibrary.Activities.MallGoodsActivity;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.BaseFragment;
 import com.superpichen.mainlibrary.Tools.JavaTools.FraOnlineXbanner1Info;
@@ -168,6 +170,14 @@ public class OnlineShopFragment extends BaseFragment {
                 NvFraOnlineBanner3.setImageResource(((FraOnlineXbanner3Info)model).getImg());
                 GvFraOnlineBanner3.setImageResource(((FraOnlineXbanner3Info)model).getGif());
                 TvItemFraOnlineBanner3Title.setText(((FraOnlineXbanner3Info)model).getTitle());
+            }
+        });
+        XbFraOnlineThird.setOnItemClickListener(new XBanner.OnItemClickListener() {
+            @Override
+            public void onItemClick(XBanner banner, Object model, View view, int position) {
+                if(position==3){
+                    startActivity(new Intent(getContext(), MallGoodsActivity.class));
+                }
             }
         });
     }

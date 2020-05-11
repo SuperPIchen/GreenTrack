@@ -3,20 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.superpichen.mainlibrary">
 
-    <application android:networkSecurityConfig="@xml/network_security_config"
-        tools:targetApi="n"
-        android:name=".BaseApplication">
+    <application
+        android:name=".BaseApplication"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="n">
+        <activity android:name=".Activities.MallGoodsActivity"></activity>
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="z4tt90GUtc93MYMzgzocC1MjcP7cmeBw" />
 
-        <service android:name="com.baidu.location.f"
+        <service
+            android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"/>
+            android:process=":remote" />
 
-
-        <activity android:name=".Activities.JiJianActivity"></activity>
+        <activity android:name=".Activities.JiJianActivity" />
         <activity android:name=".Activities.DaoHangActivity" />
         <activity android:name=".Activities.SocialActivity" />
         <activity android:name=".Activities.TantanActivity" />

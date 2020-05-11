@@ -32,7 +32,7 @@
             android:text="线下"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:layout_toRightOf="@id/wuyong1"
+            android:layout_toEndOf="@id/wuyong1"
             android:layout_centerVertical="true"
             android:layout_marginStart="5dp"/>
 

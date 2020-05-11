@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MallGoodsActivity"
+    android:background="#fafafa">
+
+    <FrameLayout
+        android:id="@+id/wuyong1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/yuanjiaojuxing_green_two_shape">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:src="@drawable/shop_onsale"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:background="@drawable/yuanjiaojuxing_white_yinying_shape"
+        android:layout_below="@id/wuyong1"
+        android:layout_marginTop="-30dp"
+        android:layout_marginStart="30dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shop_sub"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shop_add"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:background="@drawable/yuanjiaojuxing_white_yinying_shape"
+        android:layout_below="@id/wuyong1"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_alignParentEnd="true"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:src="@drawable/shop_money"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:text="26.8币/20元"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
