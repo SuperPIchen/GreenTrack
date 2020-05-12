@@ -52,15 +52,7 @@
                 android:layout_marginBottom="50dp"
                 android:layout_marginStart="30dp"/>
 
-            <ImageView
-                android:id="@+id/IvHomelandBag"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/homeland_bag"
-                android:layout_alignEnd="@id/wuyong1"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp"/>
+
 
             <RelativeLayout
                 android:layout_above="@id/PbHomelandLixi"
@@ -272,5 +264,14 @@
         android:layout_centerInParent="true"
         android:visibility="invisible"/>
 
+    <ImageView
+        android:id="@+id/IvHomelandBag"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/homeland_bag"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

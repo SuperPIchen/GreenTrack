@@ -68,6 +68,7 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/RlMallGoodsBuy"
                 android:layout_width="170dp"
                 android:layout_height="60dp"
                 android:background="@drawable/yuanjiaojuxing_white_yinying_shape"
@@ -264,4 +265,13 @@
         android:src="@drawable/fraonlinebanner3gif3"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/GvMallGoodsBuySuccess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/shop_buy_success"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 </RelativeLayout>

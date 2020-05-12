@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.DuihuanActivity"
+    android:background="@drawable/mallbackground">
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/pintu_house"/>
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_width="160dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/pintu_dog"/>
+
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="380dp"
+        android:layout_marginTop="110dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/pintu_kuangpng"
+        android:paddingStart="60dp"
+        android:paddingEnd="60dp"
+        android:paddingTop="80dp"
+        android:paddingBottom="80dp">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/wuyong1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/fraonlinebanner3gif3"
+            android:layout_alignParentBottom="true"/>
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+            android:id="@+id/wuyong3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/wuyong1"
+            android:layout_alignStart="@id/wuyong1"
+            android:gravity="center"
+            android:text="长颈鹿"
+            android:textColor="#FFC107"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+            android:id="@+id/wuyong2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:text="拼图"
+            android:textColor="#03A9F4"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/wuyong2"
+            android:layout_alignEnd="@id/wuyong2"
+            android:layout_alignTop="@id/wuyong3"
+            android:layout_alignBottom="@id/wuyong1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiaojuxing_yellow_yinying_shape1"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiaojuxing_yellow_yinying_shape1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiaojuxing_yellow_yinying_shape1"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiaojuxing_yellow_yinying_shape1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiaojuxing_yellow_yinying_shape1"/>
+
+                <ImageView
+                    android:id="@+id/IvDuihuanPintu6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/pintu_flower"/>
+
+    <LinearLayout
+        android:id="@+id/LlDuihuanDialog"
+        android:layout_width="270dp"
+        android:layout_height="350dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/tab_indicator_text"
+            android:textSize="30sp"
+            android:text="恭喜你获得一块拼图"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:src="@drawable/yuanjiaojuxing_yellow_yinying_shape1"/>
+
+        <TextView
+            android:id="@+id/TvDuihuanButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+            android:text="确定"
+            android:gravity="center"/>
+    </LinearLayout>
+
+</RelativeLayout>

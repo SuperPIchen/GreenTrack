@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="180dp"
+    android:orientation="vertical"
+    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+    android:gravity="center">
+
+    <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="恭喜你，成功集齐碎片!"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.CangerjinkaiFont
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="兑换码："
+            android:gravity="center"
+            android:textSize="23sp"
+            android:textColor="@android:color/holo_blue_dark"/>
+
+        <com.superpichen.mainlibrary.MyView.MyFonts.CangerjinkaiFont
+            android:id="@+id/TvDuihuanDialogNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A2SF4X009"
+            android:gravity="center"
+            android:textSize="23sp"
+            android:textColor="@android:color/holo_blue_dark"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/TvDuihuanDialogCopy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="复制"
+            android:gravity="center"
+            android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"/>
+
+        <TextView
+            android:id="@+id/TvDuihuanDialogCancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="取消"
+            android:gravity="center"
+            android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"/>
+    </LinearLayout>
+
+</LinearLayout>
