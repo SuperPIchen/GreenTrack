@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.zzz40500:AndroidSweetSheet:1.1.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/978c0e73cfee1731d19c8e8edce8ed03/jetified-AndroidSweetSheet-1.1.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1848270d1e2be4d1d0ca56181c9176b7/jetified-AndroidSweetSheet-1.1.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/978c0e73cfee1731d19c8e8edce8ed03/jetified-AndroidSweetSheet-1.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/978c0e73cfee1731d19c8e8edce8ed03/jetified-AndroidSweetSheet-1.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1848270d1e2be4d1d0ca56181c9176b7/jetified-AndroidSweetSheet-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1848270d1e2be4d1d0ca56181c9176b7/jetified-AndroidSweetSheet-1.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.zzz40500/AndroidSweetSheet/1.1.0/22f4ba3453cead1f3b845617f41cb9ed0b529d96/AndroidSweetSheet-1.1.0-javadoc.jar!/" />

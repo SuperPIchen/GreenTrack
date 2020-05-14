@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: __local_aars__:C./Users/ibo19/Desktop/GreenTrack/app/libs/VuforiaWrapper.aar:unspecified@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f88026e3145e8eed90fca6b81c1f8bd7/jetified-VuforiaWrapper/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f88026e3145e8eed90fca6b81c1f8bd7/jetified-VuforiaWrapper/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f88026e3145e8eed90fca6b81c1f8bd7/jetified-VuforiaWrapper/jars/libs/Vuforia.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f88026e3145e8eed90fca6b81c1f8bd7/jetified-VuforiaWrapper/jars/libs/VuforiaUnityPlayer.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8f8ac83ccf7196a877120f547e2461a/jetified-VuforiaWrapper/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8f8ac83ccf7196a877120f547e2461a/jetified-VuforiaWrapper/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8f8ac83ccf7196a877120f547e2461a/jetified-VuforiaWrapper/jars/libs/Vuforia.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8f8ac83ccf7196a877120f547e2461a/jetified-VuforiaWrapper/jars/libs/VuforiaUnityPlayer.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

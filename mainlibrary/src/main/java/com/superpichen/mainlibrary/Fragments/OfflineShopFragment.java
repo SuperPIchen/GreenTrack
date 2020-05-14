@@ -1,6 +1,7 @@
 package com.superpichen.mainlibrary.Fragments;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.Typeface;
@@ -19,6 +20,7 @@ import com.shehuan.niv.NiceImageView;
 import com.stx.xhb.androidx.XBanner;
 import com.stx.xhb.androidx.transformers.Transformer;
 import com.superpichen.mainlibrary.Activities.MallActivity;
+import com.superpichen.mainlibrary.Activities.OfflineShopActivity;
 import com.superpichen.mainlibrary.R;
 import com.superpichen.mainlibrary.Tools.JavaTools.BaseFragment;
 import com.superpichen.mainlibrary.Tools.JavaTools.FraOfflineRecycleInfo;
@@ -167,6 +169,15 @@ public class OfflineShopFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 mallActivity.switchFragmentInFragment(1);
+            }
+        });
+
+        XbFraOfflineAdvertiseContainer.setOnItemClickListener(new XBanner.OnItemClickListener() {
+            @Override
+            public void onItemClick(XBanner banner, Object model, View view, int position) {
+                if(position==0){
+                    startActivity(new Intent(getContext(), OfflineShopActivity.class));
+                }
             }
         });
     }

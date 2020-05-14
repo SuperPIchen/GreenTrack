@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.OfflineShopActivity">
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/MvOfflineShopMap"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:clickable="true" />
+
+    <ScrollView
+        android:layout_below="@id/MvOfflineShopMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

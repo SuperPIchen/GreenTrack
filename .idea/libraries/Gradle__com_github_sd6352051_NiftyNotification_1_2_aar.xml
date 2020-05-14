@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.sd6352051:NiftyNotification:1.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/616e4d72c6e5eb418087ba3da3fd61f2/jetified-NiftyNotification-1.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/616e4d72c6e5eb418087ba3da3fd61f2/jetified-NiftyNotification-1.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cf7d82561001f81e0c7215d5f3fe0965/jetified-NiftyNotification-1.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cf7d82561001f81e0c7215d5f3fe0965/jetified-NiftyNotification-1.2/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

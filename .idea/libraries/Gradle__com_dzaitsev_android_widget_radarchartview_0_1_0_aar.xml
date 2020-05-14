@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.dzaitsev.android.widget:radarchartview:0.1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/23e388e599dd7a2e1fa40ceb7b7d4238/jetified-radarchartview-0.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/23e388e599dd7a2e1fa40ceb7b7d4238/jetified-radarchartview-0.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9cabf12705c4b99de294e8a583ac2fdc/jetified-radarchartview-0.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9cabf12705c4b99de294e8a583ac2fdc/jetified-radarchartview-0.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dzaitsev.android.widget/radarchartview/0.1.0/bc1932964ab18931de04a6230532124ea2c6d5dc/radarchartview-0.1.0-javadoc.jar!/" />
