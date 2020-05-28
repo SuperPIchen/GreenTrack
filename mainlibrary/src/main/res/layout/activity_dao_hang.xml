@@ -34,4 +34,10 @@
         app:bmb_piecePlaceEnum="piecePlace_dot_4_2"
         app:bmb_buttonPlaceEnum="buttonPlace_sc_4_2" />
 
+    <ImageView
+        android:id="@+id/IvDaoHangJia"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

@@ -192,7 +192,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="线下优惠券"/>
+                        android:text="植物"/>
 
                 </LinearLayout>
 
@@ -220,7 +220,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="门店使用"/>
+                        android:text="快递到家"/>
 
                 </LinearLayout>
 

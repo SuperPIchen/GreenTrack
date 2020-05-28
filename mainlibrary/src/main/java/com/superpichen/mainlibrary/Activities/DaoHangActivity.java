@@ -69,6 +69,7 @@ public class DaoHangActivity extends UnityPlayerActivity {
     private ImageView IvDaoHangPeKemonBack;
     private MapView MvDaoHangMap;
     private BoomMenuButton BbDaoHangMenu;
+    private ImageView IvDaoHangJia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,11 +78,19 @@ public class DaoHangActivity extends UnityPlayerActivity {
         IvDaoHangPeKemonBack = findViewById(R.id.IvDaoHangPeKemonBack);
         MvDaoHangMap = findViewById(R.id.MvDaoHangMap);
         BbDaoHangMenu = findViewById(R.id.BbDaoHangMenu);
+        IvDaoHangJia = findViewById(R.id.IvDaoHangJia);
         selectScn();
         initMap();
         initPOI();
         inttGuihua();
         setMenu();
+        IvDaoHangJia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DaoHangActivity.this,OfflineShopActivity1.class));
+
+            }
+        });
     }
 
     /**

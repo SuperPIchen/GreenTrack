@@ -2,7 +2,10 @@ package com.superpichen.mainlibrary.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
@@ -19,13 +22,21 @@ import com.superpichen.mainlibrary.R;
 
 public class OfflineShopActivity extends AppCompatActivity {
     private MapView MvOfflineShopMap;
+    private ImageView IvOfflineDaohang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offline_shop);
         StatusBarUtil.setTranslucentForImageViewAndDarkFont(this,0,null);
         MvOfflineShopMap = findViewById(R.id.MvOfflineShopMap);
+        IvOfflineDaohang = findViewById(R.id.IvOfflineDaohang);
         setMap();
+        IvOfflineDaohang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(OfflineShopActivity.this,DaoHangActivity.class));
+            }
+        });
     }
 
     /**
@@ -37,9 +48,11 @@ public class OfflineShopActivity extends AppCompatActivity {
         //普通地图 ,mBaiduMap是地图控制器对象
         baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         baiduMap.setTrafficEnabled(true);
+        LatLng cenpt = new LatLng(30.167317, 120.251778);
 
         MapStatus.Builder builder = new MapStatus.Builder();
-        builder.zoom(21.0f);
+        builder.target(cenpt);
+        builder.zoom(19.0f);
         baiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
 
         //定义Maker坐标点

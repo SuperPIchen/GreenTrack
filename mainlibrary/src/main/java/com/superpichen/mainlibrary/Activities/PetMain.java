@@ -720,8 +720,9 @@ public class PetMain extends ModelActivity {
                     }
                     break;
                 case 9:
-                    TvMainYuyin.setVisibility(View.INVISIBLE);
-                    startActivity(new Intent(PetMain.this,MallActivity.class));
+//                    TvMainYuyin.setVisibility(View.INVISIBLE);
+//                    startActivity(new Intent(PetMain.this,DaoHangActivity.class));
+                    TvMainYuyin.setText("一棵松树树一年可以吸收二氧化碳18千克!");
                     break;
             }
         }
