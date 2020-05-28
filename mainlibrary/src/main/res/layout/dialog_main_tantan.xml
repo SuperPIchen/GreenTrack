@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="350dp"
+    android:orientation="vertical"
+    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+    android:gravity="center">
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/wuyong1"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="公交车：" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_toEndOf="@id/wuyong1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+                    android:gravity="center"
+                    android:text="2路"/>
+                <TextView
+                    android:id="@+id/TvTantan6lu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+                    android:gravity="center"
+                    android:text="6路"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+                    android:gravity="center"
+                    android:text="2路"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+                    android:gravity="center"
+                    android:text="7路"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/wuyong3"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="地铁：" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_toEndOf="@id/wuyong3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+                    android:gravity="center"
+                    android:text="1号线"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+                    android:gravity="center"
+                    android:text="5号线"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"
+                    android:gravity="center"
+                    android:text="4号线"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/wuyong2"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="方向" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/wuyong2">
+
+                <TextView
+                    android:id="@+id/TvTantanTo1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="客运西站"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"/>
+
+                <TextView
+                    android:id="@+id/TvTantanTo2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="客运中站"
+                    android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/TvPaoKuDialogYus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="确定"
+            android:gravity="center"
+            android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"/>
+
+        <TextView
+            android:id="@+id/TvMainDialogCancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="取消"
+            android:gravity="center"
+            android:background="@drawable/yuanjiaojuxing_white_yinying_shape1"/>
+    </LinearLayout>
+
+</LinearLayout>
