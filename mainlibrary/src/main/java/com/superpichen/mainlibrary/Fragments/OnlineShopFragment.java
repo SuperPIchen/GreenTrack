@@ -158,7 +158,7 @@ public class OnlineShopFragment extends BaseFragment {
         data3.add(new FraOnlineXbanner3Info("悟空地铁卡：闸口=花果山，地铁=筋斗云，让你拥有七十二变的感觉。",R.drawable.fraonlinebanner3_4,R.drawable.fraonlinebanner3gif4));
         data3.add(new FraOnlineXbanner3Info("Green湖：带上爱人一起看荷塘月色，感受月亮消失在另一端的美妙感觉。",R.drawable.fraonlinebanner3_1,R.drawable.fraonlinebanner3gif1));
         data3.add(new FraOnlineXbanner3Info("共享单车季卡：骑上我心爱的小单车，领略风的自由，空气的味道。",R.drawable.fraonlinebanner3_2,R.drawable.fraonlinebanner3gif2));
-        data3.add(new FraOnlineXbanner3Info("Green超市6折优惠券：感恩季！优惠从锅碗瓢盆到冰箱彩电哦。",R.drawable.fraonlinebanner3_3,R.drawable.fraonlinebanner3gif3));
+        data3.add(new FraOnlineXbanner3Info("多肉盆栽：感恩季！带一抹绿色回家。",R.drawable.fraonlinebanner3_5,R.drawable.fraonlinebanner3gif3));
         XbFraOnlineThird.setPageTransformer(Transformer.Default);
         XbFraOnlineThird.setBannerData(R.layout.item_fraonline_xbanner_third, data3);
         XbFraOnlineThird.loadImage(new XBanner.XBannerAdapter() {

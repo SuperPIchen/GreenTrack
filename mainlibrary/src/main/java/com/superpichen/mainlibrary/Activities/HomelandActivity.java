@@ -278,7 +278,8 @@ public class HomelandActivity extends AppCompatActivity {
 
                 }
                 if(type.equals("food")){
-
+                    FlHomelandBagContainer.setVisibility(View.INVISIBLE);
+                    isBagShow=false;
                 }
             }
 
@@ -318,6 +319,8 @@ public class HomelandActivity extends AppCompatActivity {
         IvHomelandPen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FlHomelandBagContainer.setVisibility(View.VISIBLE);
+                isBagShow=true;
                 IvHomelandPen.setImageResource(R.drawable.homeland_pen_full);
                 GvHomelandPet.setImageResource(R.drawable.homeland_pet_rabbit_eat);
                 TvHomelandLoad.setText("拼命产出中...");
@@ -338,8 +341,7 @@ public class HomelandActivity extends AppCompatActivity {
         IvHomelandBall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FlHomelandBagContainer.setVisibility(View.VISIBLE);
-                isBagShow=true;
+
                 GvHomelandPet.setImageResource(R.drawable.homeland_pet_cat_play);
                 TvHomelandLoad.setText("拼命产出中...");
                 healthPercent+=20;

@@ -27,7 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/shop_onsale"/>
+                    android:src="@drawable/goods1"/>
 
             </FrameLayout>
 
@@ -38,7 +38,7 @@
                 android:background="@drawable/yuanjiaojuxing_white_yinying_shape"
                 android:layout_below="@id/wuyong1"
                 android:layout_marginTop="-30dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp">
 
@@ -74,7 +74,7 @@
                 android:background="@drawable/yuanjiaojuxing_white_yinying_shape"
                 android:layout_below="@id/wuyong1"
                 android:layout_marginTop="-30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="15dp"
                 android:layout_alignParentEnd="true"
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp">
@@ -252,7 +252,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/fraofflineshouye3"
+                    android:src="@drawable/goods1_shuomign"
                     android:layout_marginTop="5dp"/>
             </LinearLayout>
         </RelativeLayout>

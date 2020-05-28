@@ -59,7 +59,7 @@
                 android:id="@+id/TvMainId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12345"
+                android:text="42345"
                 android:textColor="@android:color/white"
                 android:textSize="30sp"
                 android:layout_toRightOf="@id/wuyong2"/>
@@ -80,7 +80,7 @@
                 android:layout_below="@id/wuyong1"
                 android:text="10.7"
                 android:textColor="@android:color/white"
-                android:textSize="80sp" />
+                android:textSize="60sp" />
 
         </RelativeLayout>
 
@@ -210,7 +210,7 @@
 
         <RelativeLayout
             android:layout_width="120dp"
-            android:layout_height="70dp"
+            android:layout_height="100dp"
             android:layout_below="@id/wuyong3">
 
             <TextView
@@ -228,6 +228,16 @@
                 android:layout_height="28dp"
                 android:text="极简模式"
                 android:background="@drawable/mainbiaoqian2"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/TvMainBiaoqian3"
+                android:layout_width="80dp"
+                android:layout_height="28dp"
+                android:text="游客"
+                android:background="@drawable/mainbiaoqian3"
                 android:textColor="@android:color/white"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"/>

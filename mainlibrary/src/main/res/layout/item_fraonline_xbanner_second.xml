@@ -19,7 +19,7 @@
 
         <RelativeLayout
             android:id="@+id/wuyong1"
-            android:layout_width="190dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/NvItemFraOnline1"
             android:layout_marginStart="10dp"
@@ -41,7 +41,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/TvItemFraOnlineBanner2Title1"
                 android:text="水生植物"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:ellipsize="end"/>
         </RelativeLayout>
 
         <TextView
@@ -80,7 +82,7 @@
 
         <RelativeLayout
             android:id="@+id/wuyong2"
-            android:layout_width="190dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/NvItemFraOnline2"
             android:layout_marginStart="10dp"
@@ -102,7 +104,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/TvItemFraOnlineBanner2Title2"
                 android:text="水生植物"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:ellipsize="end"/>
         </RelativeLayout>
 
         <TextView
@@ -140,7 +144,7 @@
 
         <RelativeLayout
             android:id="@+id/wuyong3"
-            android:layout_width="190dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/NvItemFraOnline3"
             android:layout_marginStart="10dp"
@@ -162,7 +166,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/TvItemFraOnlineBanner2Title3"
                 android:text="水生植物"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:ellipsize="end"/>
         </RelativeLayout>
 
         <TextView

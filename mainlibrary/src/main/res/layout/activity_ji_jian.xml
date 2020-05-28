@@ -7,6 +7,17 @@
     tools:context=".Activities.JiJianActivity"
     android:background="@drawable/jijian_bg">
 
+    <ImageView
+        android:id="@+id/IvJijianYinbo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/yinbo"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
     <com.superpichen.mainlibrary.MyView.MyFonts.HanbiaoshuangjiancutiFont
         android:layout_width="80dp"
         android:layout_height="120dp"

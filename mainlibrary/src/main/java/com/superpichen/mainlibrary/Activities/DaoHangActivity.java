@@ -95,8 +95,12 @@ public class DaoHangActivity extends UnityPlayerActivity {
     private void inttGuihua() {
         mSearch = RoutePlanSearch.newInstance();
         mSearch.setOnGetRoutePlanResultListener(listener);
-        stNode = PlanNode.withCityNameAndPlaceName("杭州", startDidian);
-        enNode = PlanNode.withCityNameAndPlaceName("杭州", endDidian);
+//        stNode = PlanNode.withCityNameAndPlaceName("杭州", startDidian);
+//        enNode = PlanNode.withCityNameAndPlaceName("杭州", endDidian);
+        stNode = PlanNode.withCityNameAndPlaceName("杭州", "余杭站");
+        enNode = PlanNode.withCityNameAndPlaceName("杭州", "杭州东站");
+        //stNode = PlanNode.withCityNameAndPlaceName("北京", "西二旗地铁站");
+        //enNode = PlanNode.withCityNameAndPlaceName("北京", "百度科技园");
     }
     OnGetRoutePlanResultListener listener = new OnGetRoutePlanResultListener() {
         @Override
@@ -170,7 +174,7 @@ public class DaoHangActivity extends UnityPlayerActivity {
         }
         @Override
         public void onGetPoiDetailResult(PoiDetailSearchResult poiDetailSearchResult) {
-
+            
         }
         @Override
         public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
@@ -239,8 +243,8 @@ public class DaoHangActivity extends UnityPlayerActivity {
                                 baiduMap.setMyLocationConfiguration(myLocationConfiguration);
                                 EditText EtDaoHangStart = view.findViewById(R.id.EtDaoHangStart);
                                 EditText EtDaoHangEnd = view.findViewById(R.id.EtDaoHangEnd);
-                                startDidian=EtDaoHangStart.getText().toString();
-                                endDidian=EtDaoHangEnd.getText().toString();
+//                                startDidian=EtDaoHangStart.getText().toString();
+//                                endDidian=EtDaoHangEnd.getText().toString();
                                 mSearch.transitSearch((new TransitRoutePlanOption())
                                         .from(stNode)
                                         .to(enNode)

@@ -35,7 +35,7 @@
             android:id="@+id/TvPaoKuNextStation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="下一站：硕放机场站"
+            android:text="下一站：中心花园"
             android:textColor="#4552e5"/>
     </LinearLayout>
 
@@ -59,7 +59,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/paoku_temp"/>
+            android:src="@drawable/paoku_luxian"/>
 
     </LinearLayout>
 </RelativeLayout>

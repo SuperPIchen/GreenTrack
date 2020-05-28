@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="380dp"
-    android:layout_height="570dp"
+    android:layout_width="360dp"
+    android:layout_height="550dp"
     android:background="@drawable/gongyi_bg">
 
     <ImageView
@@ -136,9 +136,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp">
 
-        <TextView
+        <EditText
             android:id="@+id/TvGongyiStart"
-            android:text="起始地点"
+            android:hint="起始地点"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -147,9 +147,9 @@
             android:maxLines="1"
             android:ellipsize="end"/>
 
-        <TextView
+        <EditText
             android:id="@+id/TvGongyiEnd"
-            android:text="目标地点"
+            android:hint="目标地点"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -159,9 +159,9 @@
             android:ellipsize="end"
             android:layout_marginStart="5dp"/>
 
-        <TextView
+        <EditText
             android:id="@+id/TvGongyiWay"
-            android:text="交通工具"
+            android:hint="交通工具"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"

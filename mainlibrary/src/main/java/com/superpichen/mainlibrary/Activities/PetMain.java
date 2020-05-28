@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -84,6 +85,7 @@ public class PetMain extends ModelActivity {
     private HanbiaoshuangjiancutiFont TvMainYuyin;
     private ImageView IvMainGongyiButton;
     private TextView TvMainBiaoqian2;
+    private TextView TvMainBiaoqian3;
     /**
      * Find the Views in the layout<br />
      * <br />
@@ -107,6 +109,7 @@ public class PetMain extends ModelActivity {
         TvMainYuyin = findViewById(R.id.TvMainYuyin);
         IvMainGongyiButton = findViewById(R.id.IvMainGongyiButton);
         TvMainBiaoqian2 = findViewById(R.id.TvMainBiaoqian2);
+        TvMainBiaoqian3 = findViewById(R.id.TvMainBiaoqian3);
     }
 
     @Override
@@ -134,6 +137,14 @@ public class PetMain extends ModelActivity {
      */
     private void startGongyi() {
         View view=View.inflate(this,R.layout.dialog_pet_gongyi,null);
+        TextView TvGOngyiJisuan = view.findViewById(R.id.TvGOngyiJisuan);
+        TvGOngyiJisuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TvGOngyiJisuan.setText("6.3G");
+                TvGOngyiJisuan.setTextSize(20);
+            }
+        });
         dialogSetView(view);
         setDialogData();
         dialogOnClick();
@@ -143,8 +154,8 @@ public class PetMain extends ModelActivity {
         dialog.show();
         android.view.WindowManager.LayoutParams p = dialog.getWindow().getAttributes();  //获取对话框当前的参数值
         Dip2px dip2px=new Dip2px(this);
-        p.height = dip2px.dip2px(570);
-        p.width = dip2px.dip2px(380);
+        p.height = dip2px.dip2px(550);
+        p.width = dip2px.dip2px(360);
         dialog.getWindow().setAttributes(p);     //设置生效
     }
 
@@ -292,8 +303,49 @@ public class PetMain extends ModelActivity {
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-                        startActivityForResult(new Intent(PetMain.this,TantanActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
-                        RlMainContainer.removeView(gLView);
+//                        startActivityForResult(new Intent(PetMain.this,TantanActivity.class),FinalValue.GETPOINTFORTUJIANACTIVITY);
+//                        RlMainContainer.removeView(gLView);
+                        View view=View.inflate(PetMain.this,R.layout.dialog_main_tantan,null);
+                        TextView TvPaoKuDialogYus = view.findViewById(R.id.TvPaoKuDialogYus);
+                        TextView TvMainDialogCancel = view.findViewById(R.id.TvMainDialogCancel);
+                        TextView TvTantan6lu = view.findViewById(R.id.TvTantan6lu);
+                        TextView TvTantanTo1 = view.findViewById(R.id.TvTantanTo1);
+                        TextView TvTantanTo2 = view.findViewById(R.id.TvTantanTo2);
+                        TvTantan6lu.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                TvTantan6lu.setBackgroundResource(R.drawable.yuanjiaojuxing_yellow_yinying_shape1);
+                                TvTantanTo1.setText("蓝海中学");
+                                TvTantanTo2.setText("客运中心");
+                            }
+                        });
+                        TvTantanTo2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                TvTantanTo2.setBackgroundResource(R.drawable.yuanjiaojuxing_yellow_yinying_shape1);
+                            }
+                        });
+                        AlertDialog dialog=new AlertDialog.Builder(PetMain.this,R.style.Translucent_NoTitle)
+                                .setView(view)
+                                .create();
+                        TvPaoKuDialogYus.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(PetMain.this,TantanActivity.class));
+                            }
+                        });
+                        TvMainDialogCancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.show();
+                        android.view.WindowManager.LayoutParams p = dialog.getWindow().getAttributes();  //获取对话框当前的参数值
+                        Dip2px dip2px=new Dip2px(PetMain.this);
+                        p.height = dip2px.dip2px(350);
+                        p.width = dip2px.dip2px(350);
+                        dialog.getWindow().setAttributes(p);
                     }
                 });
         BbPetYouxi.addBuilder(builderTanTan);
@@ -303,7 +355,30 @@ public class PetMain extends ModelActivity {
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-                        startActivity(new Intent(PetMain.this,PaokuActivity.class));
+                        View view=View.inflate(PetMain.this,R.layout.dialog_main_paoku,null);
+                        TextView TvPaoKuDialogYus = view.findViewById(R.id.TvPaoKuDialogYus);
+                        TextView TvMainDialogCancel = view.findViewById(R.id.TvMainDialogCancel);
+                        AlertDialog dialog=new AlertDialog.Builder(PetMain.this,R.style.Translucent_NoTitle)
+                                .setView(view)
+                                .create();
+                        TvPaoKuDialogYus.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(PetMain.this,PaokuActivity.class));
+                            }
+                        });
+                        TvMainDialogCancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.show();
+                        android.view.WindowManager.LayoutParams p = dialog.getWindow().getAttributes();  //获取对话框当前的参数值
+                        Dip2px dip2px=new Dip2px(PetMain.this);
+                        p.height = dip2px.dip2px(310);
+                        p.width = dip2px.dip2px(350);
+                        dialog.getWindow().setAttributes(p);
                     }
                 });
         BbPetYouxi.addBuilder(builderPaoku);
@@ -359,6 +434,12 @@ public class PetMain extends ModelActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PetMain.this,JiJianActivity.class));
+            }
+        });
+        TvMainBiaoqian3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PetMain.this,YoukeActivity.class));
             }
         });
     }

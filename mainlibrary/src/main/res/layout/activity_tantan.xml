@@ -18,7 +18,7 @@
         android:id="@+id/TvTantanNextStation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="下一站：硕放机场站"
+        android:text="最近车辆：蓝海中学"
         android:textColor="#4552e5"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
@@ -45,7 +45,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/paoku_temp"/>
+            android:src="@drawable/tantan_luxian"/>
 
     </LinearLayout>
 
